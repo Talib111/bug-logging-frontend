@@ -3,7 +3,7 @@ import Page from '@/components/helmet-page';
 
 export default function Home() {
   return (
-      <Page title='Grievance Details' subTitle='Grievance Registration Form'>
+      <Page title='' subTitle=''>
         <div className=''>
           <ManagementComplaintForm />
         </div>

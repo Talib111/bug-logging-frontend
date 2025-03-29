@@ -1,4 +1,4 @@
-;('')
+; ('')
 import toast from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -30,7 +30,7 @@ import {
   TELE_CALLER,
 } from '@/../config/roles.config'
 import { useAppContext } from '@/context'
-import { CloudCog } from 'lucide-react'
+import { Bug, ServerCrash } from 'lucide-react'
 
 export default function CitizenComplaintForm() {
   const [isTransactionIssue, setisTransactionIssue] = useState<boolean>(false)
@@ -85,9 +85,9 @@ export default function CitizenComplaintForm() {
     defaultValues: {
       ulbId:
         user?.roleId === SUPER_ADMIN ||
-        user?.roleId === STATE_ADMIN ||
-        user?.roleId === STATE_GRO ||
-        user?.roleId === STATE_JSK_IVR_CALLING
+          user?.roleId === STATE_ADMIN ||
+          user?.roleId === STATE_GRO ||
+          user?.roleId === STATE_JSK_IVR_CALLING
           ? ''
           : user?.userUlbId,
       moduleName: '',
@@ -101,8 +101,8 @@ export default function CitizenComplaintForm() {
     if ((newRole === 'Telecaller' || newRole === 'State Jsk/Ivr/Calling') && !data.mobileNo) {
       return toast.error('Please add a mobile number before proceeding.');
     }
-    
-   
+
+
     try {
       const formData = new FormData()
       formData.append('citizenName', data?.citizenName || '')
@@ -221,13 +221,6 @@ export default function CitizenComplaintForm() {
     }
   }, [complaintId, data])
 
-  const getUlbData = useApi<any>({
-    api: `${grievanceAPI?.getAllUlbDirect}?page=1&limit=10000`,
-    key: 'getAllUlb',
-    options: {
-      enabled: true,
-    },
-  })
 
   const getModuleData = useApi<any>({
     api: `${grievanceAPI?.getAllModule}?page=1&limit=10000`,
@@ -237,29 +230,16 @@ export default function CitizenComplaintForm() {
     },
   })
 
-  const getComplaintTypeData = useApi<any>({
-    api: `${grievanceAPI?.getAllComplaintType}?page=1&limit=10000`,
-    key: 'getAllComplaintTypes',
+  const getPlatformData = useApi<any>({
+    api: `${grievanceAPI?.getAllComplaintSource}?page=1&limit=10000`,
+    key: 'getAllPlatformData',
     options: {
       enabled: true,
     },
   })
 
-  const getPriorityData = useApi<any>({
-    api: `${grievanceAPI?.getAllPriority}?page=1&limit=10000`,
-    key: 'getAllPriority',
-    options: {
-      enabled: true,
-    },
-  })
+  console.log('teh data is..',getPlatformData)
 
-  const getTargetTypeData = useApi<any>({
-    api: `${grievanceAPI?.getAllTarget}?page=1&limit=10000`,
-    key: 'getAllTargetTypes',
-    options: {
-      enabled: true,
-    },
-  })
 
   const problemTypeData = useApi<any>({
     api: `${grievanceAPI.getAllProblemDirect}?page=1&limit=10000`,
@@ -270,58 +250,7 @@ export default function CitizenComplaintForm() {
     },
   })
 
-  const wardList = [
-    { wardNo: '1' },
-    { wardNo: '2' },
-    { wardNo: '3' },
-    { wardNo: '4' },
-    { wardNo: '5' },
-    { wardNo: '6' },
-    { wardNo: '7' },
-    { wardNo: '8' },
-    { wardNo: '9' },
-    { wardNo: '10' },
-    { wardNo: '11' },
-    { wardNo: '12' },
-    { wardNo: '13' },
-    { wardNo: '14' },
-    { wardNo: '15' },
-    { wardNo: '16' },
-    { wardNo: '17' },
-    { wardNo: '18' },
-    { wardNo: '19' },
-    { wardNo: '20' },
-    { wardNo: '21' },
-    { wardNo: '22' },
-    { wardNo: '23' },
-    { wardNo: '24' },
-    { wardNo: '25' },
-    { wardNo: '26' },
-    { wardNo: '27' },
-    { wardNo: '28' },
-    { wardNo: '29' },
-    { wardNo: '30' },
-    { wardNo: '31' },
-    { wardNo: '32' },
-    { wardNo: '33' },
-    { wardNo: '34' },
-    { wardNo: '35' },
-    { wardNo: '36' },
-    { wardNo: '37' },
-    { wardNo: '38' },
-    { wardNo: '39' },
-    { wardNo: '40' },
-    { wardNo: '41' },
-    { wardNo: '42' },
-    { wardNo: '43' },
-    { wardNo: '44' },
-    { wardNo: '45' },
-    { wardNo: '46' },
-    { wardNo: '47' },
-    { wardNo: '48' },
-    { wardNo: '49' },
-    { wardNo: '50' },
-  ]
+  
 
   useEffect(() => {
     if (methods.watch('moduleId')) {
@@ -354,235 +283,67 @@ export default function CitizenComplaintForm() {
     <FormProviders methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
       <div className='grid grid-cols-4 gap-x-2 gap-y-4 bg-background p-10'>
         <div
-          className={`${
-            (user?.roleId === ULB_ADMIN ||
-              user?.roleId === ULB_GRO ||
-              user?.roleId === JSK_IVR_CALLING ||
-              user?.roleId === NORMAL) &&
+          className={`${(user?.roleId === ULB_ADMIN ||
+            user?.roleId === ULB_GRO ||
+            user?.roleId === JSK_IVR_CALLING ||
+            user?.roleId === NORMAL) &&
             'hidden'
-          }`}
+            }`}
         >
-          <Label htmlFor='ulbId'>
+          <Label htmlFor='platformId'>
             <span className='text-red-500'>*</span>ULB
           </Label>
           <div className="">
 
-  <SelectField
-    className="cursor-pointer bg-background"
-    name="ulbId"
-    disabled={user?.roleId === TELE_CALLER} 
-    data={
-      Array.isArray(getUlbData?.data?.data) && getUlbData?.data?.data?.length !== 0
-        ? getUlbData?.data?.data?.map((item: any) => ({
-            value: item._id,
-            label: item.ulbName,
-          }))
-        : []
-    }
-  />
-</div>
+            <SelectField
+              className="cursor-pointer bg-background"
+              name="platformId"
+              disabled={user?.roleId === TELE_CALLER}
+              data={
+                Array.isArray(getPlatformData?.data?.data?.docs) && getPlatformData?.data?.data?.docs?.length !== 0
+                  ? getPlatformData?.data?.data?.docs?.map((item: any) => ({
+                    value: item?._id,
+                    label: item?.source,
+                  }))
+                  : []
+              }
+            />
+          </div>
 
         </div>
 
         <div className='col-span-4'></div>
 
         {/* ═══════════════════════║ COMPLAINT INFO  ║════════════════════════════// */}
-        <h1 className='text-xl font-bold uppercase text-blue-800'>
-          Grievance Info
+        <h1 className='text-xl font-bold uppercase text-blue-800 flex items-center gap-2'>
+        <ServerCrash /> Bug Entry
         </h1>
         <Separator className='col-span-4' />
 
-        <div className='col-span-3'>
-          <Label htmlFor='complaintDescription'>
-            <span className='text-red-500'>*</span>Grievance Description
-          </Label>
-          <RHFTextArea
-            className='h-20 w-full rounded-md border bg-background p-4'
-            name='complaintDescription'
-            placeholder='write Grievance'
-          />
-        </div>
 
         <div className='col-span-4'></div>
-
-        <div className='flex items-center space-x-2'>
-          <RHFTextField
-            className='h-5 w-5 cursor-pointer'
-            type='checkbox'
-            name='extraInfo'
-            placeholder=''
-          />
-          <Label className='text-amber-600 opacity-80'>
-            Give More Information
-          </Label>
-        </div>
-
-        <div className='col-span-4'></div>
-
-        {isExtraInfo && (
-          <>
-            <div>
-              <Label>Grievance Location</Label>
-              <RHFTextField
-                name='grievanceLocation'
-                inputValidation={[
-                  'CapitalFirstLetter',
-                  'removeDoubleSpace',
-                  'string',
-                ]}
-                placeholder=''
-              />
-            </div>
-
-            <div>
-              <Label>Grievance Type</Label>
-              <SelectField
-                selectedText='problem'
-                className='cursor-pointer bg-background'
-                name='problemTypeId'
-                data={
-                  problemTypeData.data?.data?.docs?.map((item: any) => {
-                    return {
-                      value: item?._id,
-                      label: item?.problem,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-            <div>
-              <Label htmlFor='moduleId'>Module</Label>
-              <SelectField
-                selectedText='moduleName'
-                className='cursor-pointer bg-background'
-                name='moduleId'
-                data={
-                  getModuleData.data?.data?.docs?.map((item: any) => {
-                    return {
-                      value: item?._id,
-                      label: item?.moduleName,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-
-            {fixedNoLabel && (
-              <div>
-                <Label>
-                  {fixedNoLabel}
-                  <span className='text-xs opacity-80'></span>
-                </Label>
-                <RHFTextField name='fixedNo' placeholder='' />
-              </div>
-            )}
-            {tempNoLabel && (
-              <div>
-                <Label>
-                  {tempNoLabel}
-                  <span className='text-xs opacity-80'></span>
-                </Label>
-                <RHFTextField name='tempNo' placeholder='' />
-              </div>
-            )}
-
-            <div>
-              <Label htmlFor='complaintTypeId'>Grievance Type</Label>
-              <SelectField
-                className='cursor-pointer bg-background'
-                name='complaintTypeId'
-                data={
-                  getComplaintTypeData?.data?.data?.docs?.map((item: any) => {
-                    return {
-                      value: item?._id,
-                      label: item?.complaintTypeName,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-            <div>
-              <Label htmlFor='priorityId'>Priority</Label>
-              <SelectField
-                className='cursor-pointer bg-background'
-                name='priorityId'
-                data={
-                  getPriorityData?.data?.data?.docs?.map((item: any) => {
-                    return {
-                      value: item?._id,
-                      label: item?.priorityName,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-            <div>
-              <Label htmlFor='targetTypeId'>Target Type</Label>
-              <SelectField
-                className='cursor-pointer bg-background'
-                name='targetTypeId'
-                data={
-                  getTargetTypeData?.data?.data?.docs?.map((item: any) => {
-                    return {
-                      value: item._id,
-                      label: item?.targetType,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-
-            <div className='col-span-2 flex'>
-              <div>
-                <Label>
-                  Grievance Document
-                  <span className='text-xs opacity-80'>
-                    (acceptable formats are jpg, jpeg, png, pdf)
-                  </span>
-                </Label>
-                <RHFUploadFiled
-                  className='cursor-pointer'
-                  accept='image/jpeg,image/jpg,image/png,application/pdf'
-                  name='complaintDocument'
-                  placeholder='Select document'
-                />
-              </div>
-              <div className=''>
-                {(methods.watch('complaintDocument')?.type == 'image/png' ||
-                  methods.watch('complaintDocument')?.type == 'image/jpg' ||
-                  methods.watch('complaintDocument')?.type == 'image/jpeg') && (
-                  <Image
-                    className='w-28'
-                    src={URL.createObjectURL(
-                      methods.watch('complaintDocument')
-                    )}
-                  />
-                )}
-                {methods.watch('complaintDocument')?.type ==
-                  'application/pdf' && (
-                  <Image
-                    className='w-16 cursor-pointer hover:scale-105'
-                    src='/images/pdf.png'
-                  />
-                )}
-              </div>
-            </div>
-          </>
-        )}
-
-        <div className='col-span-4'></div>
-
-        {/* ═══════════════════════║ BASIC INFO  ║════════════════════════════// */}
-        <h1 className='text-xl font-bold uppercase text-blue-800'>
-          Basic Info
-        </h1>
-        <Separator className='col-span-4' />
 
         <div>
-          <Label htmlFor='citizenName'>Citizen Name</Label>
+          <Label>Platform</Label>
+          <SelectField
+            selectedText='problem'
+            className='cursor-pointer bg-background'
+            name='problemTypeId'
+            data={
+              problemTypeData.data?.data?.docs?.map((item: any) => {
+                return {
+                  value: item?._id,
+                  label: item?.problem,
+                }
+              }) ?? []
+            }
+          />
+        </div>
+
+        <div>
+          <Label>Bug Title</Label>
           <RHFTextField
-            className='bg-background'
-            name='citizenName'
+            name='grievanceLocation'
             inputValidation={[
               'CapitalFirstLetter',
               'removeDoubleSpace',
@@ -592,111 +353,53 @@ export default function CitizenComplaintForm() {
           />
         </div>
 
-        <div>
-          <Label>
-          {(newRole === 'Telecaller' || newRole === 'State Jsk/Ivr/Calling') && <span className='text-red-500'>*</span>} Mobile No.
-        </Label>
-          <RHFTextField
-            name='mobileNo'
-            inputValidation={['mobile', 'number']}
-            placeholder=''
+
+        <div className='col-span-3'>
+          <Label htmlFor='complaintDescription'>
+            <span className='text-red-500'>*</span>Bug Description</Label>
+          <RHFTextArea
+            className='h-20 w-full rounded-md border bg-background p-4'
+            name='complaintDescription'
+            placeholder='write Grievance'
           />
         </div>
 
-        <div className='col-span-4'></div>
 
-        <div className='flex items-center space-x-2'>
-          <RHFTextField
-            className='h-5 w-5 cursor-pointer'
-            type='checkbox'
-            name='extraBasicInfo'
-            placeholder=''
-          />
-          <Label className='text-amber-600 opacity-80'>
-            Give More Information
-          </Label>
-        </div>
-
-        <div className='col-span-4'></div>
-
-        {isExtraBasicInfo && (
-          <>
-            <div>
-              <Label>Email</Label>
-              <RHFTextField
-                inputValidation={['email']}
-                name='email'
-                placeholder=''
-              />
-            </div>
-
-            <div>
-              <Label>Ward</Label>
-              <SelectField
-                selectedText='ward'
-                className='cursor-pointer bg-background'
-                name='wardNo'
-                data={
-                  wardList?.map((item: any) => {
-                    return {
-                      value: item?.wardNo,
-                      label: item?.wardNo,
-                    }
-                  }) ?? []
-                }
-              />
-            </div>
-            <div>
-              <Label>Area</Label>
-              <RHFTextField
-                name='area'
-                inputValidation={['CapitalFirstLetter', 'removeDoubleSpace']}
-                placeholder=''
-              />
-            </div>
-            <div>
-              <Label>Holding No.</Label>
-              <RHFTextField name='holdingNo' maxLength={20} placeholder='' />
-            </div>
-            <div>
-              <Label>Saf No.</Label>
-              <RHFTextField name='safNo' maxLength={20} placeholder='' />
-            </div>
-            <div>
-              <Label>Consumer No.</Label>
-              <RHFTextField name='consumerNo' maxLength={20} placeholder='' />
-            </div>
-          </>
-        )}
-
-        <div className='col-span-4'></div>
-
-        {/* ═══════════════════════║ FINANCIAL INFO  ║════════════════════════════// */}
-        <h1 className='text-xl font-bold uppercase text-blue-800'>
-          Financial Info
-        </h1>
-        <Separator className='col-span-4' />
-
-        <div className='col-span-2  flex items-center space-x-2'>
-          <RHFTextField
-            className='h-5 w-5 cursor-pointer'
-            type='checkbox'
-            name='isTransactionIssue'
-            placeholder=''
-          />
-          <Label className='text-amber-600 opacity-80'>
-            Is issue related with financial transaction
-          </Label>
-        </div>
-
-        <div className='col-span-4'></div>
-        {isTransactionIssue && (
+        <div className='col-span-2 flex'>
           <div>
-            <Label>Transaction No.</Label>
-            <RHFTextField name='transactionNo' placeholder='' />
+            <Label>
+              Bug Document
+              <span className='text-xs opacity-80'>
+                (acceptable formats are jpg, jpeg, png, pdf)
+              </span>
+            </Label>
+            <RHFUploadFiled
+              className='cursor-pointer'
+              accept='image/jpeg,image/jpg,image/png,application/pdf'
+              name='complaintDocument'
+              placeholder='Select document'
+            />
           </div>
-        )}
-        <div className='col-span-4'></div>
+          <div className=''>
+            {(methods.watch('complaintDocument')?.type == 'image/png' ||
+              methods.watch('complaintDocument')?.type == 'image/jpg' ||
+              methods.watch('complaintDocument')?.type == 'image/jpeg') && (
+                <Image
+                  className='w-28'
+                  src={URL.createObjectURL(
+                    methods.watch('complaintDocument')
+                  )}
+                />
+              )}
+            {methods.watch('complaintDocument')?.type ==
+              'application/pdf' && (
+                <Image
+                  className='w-16 cursor-pointer hover:scale-105'
+                  src='/images/pdf.png'
+                />
+              )}
+          </div>
+        </div>
 
         <div className='col-span-4'>
           <ButtonLoading

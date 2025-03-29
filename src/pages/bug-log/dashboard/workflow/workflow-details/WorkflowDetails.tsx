@@ -337,31 +337,13 @@ export default function EnteranceWorkflowDetails({
             <div className='mx-auto max-w-7xl  rounded-lg p-8 shadow-lg'>
               <div className='flex justify-between'>
                 <h1 className='mb-6 text-xl font-bold uppercase text-blue-800'>
-                  Grievance No : {complaintData?.data?.data?.complaintRefNo}
+                  Tracking No : {complaintData?.data?.data?.complaintRefNo}
                 </h1>
-                {complaintData?.data?.data?.workflow?.workFlowName && (
-                  <h1 className='text- Capitalize  mb-6 font-bold'>
-                    <span className='opacity-60'>Current Stage : </span>
-                    {complaintData?.data?.data?.workflow?.workFlowName}
-                  </h1>
-                )}
-                {!complaintData?.data?.data?.workflow?.workFlowName && (
-                  <h1 className='text- Capitalize  mb-6 font-bold'>
-                    <span className='opacity-60'>Current Stage : </span>
-                    {complaintData?.data?.data?.currentUser &&
-                      `${complaintData?.data?.data?.currentUser?.fullName} `}
-                    {complaintData?.data?.data?.currentWorkflow &&
-                      `(${complaintData?.data?.data?.currentWorkflow?.workFlowName})`}
-                    {!complaintData?.data?.data?.currentWorkflow &&
-                      !complaintData?.data?.data?.currentUser &&
-                      complaintData?.data?.data?.moduleId === MODULE_OTHERS &&
-                      'State GRO'}
-                    {!complaintData?.data?.data?.currentWorkflow &&
-                      !complaintData?.data?.data?.currentUser &&
-                      complaintData?.data?.data?.moduleId !== MODULE_OTHERS &&
-                      'ULB GRO'}
-                  </h1>
-                )}
+                <h1 className='text- Capitalize  mb-6 font-bold'>
+                  <span className='opacity-60'>Project : </span>
+                  {complaintData?.data?.data?.workflow?.workFlowName}
+                </h1>
+
                 <h1 className='text-md mb-6  flex items-center font-bold'>
                   <span>
                     Status -
@@ -396,168 +378,44 @@ export default function EnteranceWorkflowDetails({
 
               <div className='mt-4  grid grid-cols-1 space-y-4   md:grid-cols-3'>
                 <div className='flex items-center  space-x-4'>
-                  <div className='font-semibold'>Full Name : </div>
+                  <div className='font-semibold'>Platform : </div>
                   <div>
                     <p className='opacity-90'>
                       {complaintData?.data?.data?.citizenName || 'N/A'}
                     </p>{' '}
                   </div>
                 </div>
+
                 <div className='flex items-center  space-x-4'>
-                  <div className='font-semibold'>Mobile No : </div>
+                </div>
+                <div className='flex items-center  space-x-4'>
+                </div>
+
+                <div className='flex items-center  space-x-4'>
+                  <div className='font-semibold'>Priority Type : </div>
                   <div>
                     <p className='opacity-90'>
-                      {complaintData?.data?.data?.mobileNo || 'N/A'}
+                      {complaintData?.data?.data?.priorityType?.priorityName}
                     </p>{' '}
                   </div>
                 </div>
+
                 <div className='flex items-center  space-x-4'>
-                  <div className='font-semibold'>Email : </div>
-                  <div>
-                    <p className='opacity-90'>
-                      {complaintData?.data?.data?.email || 'N/A'}
-                    </p>{' '}
-                  </div>
                 </div>
                 <div className='flex items-center  space-x-4'>
-                  <div className='font-semibold'>ULB : </div>
+                </div>
+
+                <div className='flex items-center  space-x-4'>
+                  <div className='font-semibold'>Title : </div>
                   <div>
                     <p className='opacity-90'>
                       {complaintData?.data?.data?.ulb?.ulbName}
                     </p>{' '}
                   </div>
                 </div>
-                <div className='flex items-center  space-x-4'>
-                  <div className='font-semibold'>Grievance Type : </div>
-                  <div>
-                    <p className='opacity-90'>
-                      {complaintData?.data?.data?.problemType?.problem || 'N/A'}
-                    </p>{' '}
-                  </div>
-                </div>
 
-               
-                {(complaintData?.data?.data?.holdingNo ||
-                  complaintData?.data?.data?.safNo ||
-                  complaintData?.data?.data?.consumerNo) && 
-                  <>
-                    {complaintData?.data?.data?.holdingNo && (
-                      <div className='flex items-center space-x-4'>
-                        <div className='font-semibold'>Holding No:</div>
-                        <div>
-                          <p className='opacity-90'>
-                            {complaintData.data.data.holdingNo}
-                          </p>
-                        </div>
-                      </div>
-                    )}
 
-                    {complaintData?.data?.data?.safNo && (
-                      <div className='flex items-center space-x-4'>
-                        <div className='font-semibold'>SAF No:</div>
-                        <div>
-                          <p className='opacity-90'>
-                            {complaintData.data.data.safNo}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    {complaintData?.data?.data?.consumerNo && (
-                      <div className='flex items-center space-x-4'>
-                        <div className='font-semibold'>Consumer No:</div>
-                        <div>
-                          <p className='opacity-90'>
-                            {complaintData.data.data.consumerNo}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                    </>
-                }
-
-                
-                {complaintData?.data?.data?.fixedNo && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>
-                      {complaintData?.data?.data?.fixedNoLabel} :{' '}
-                    </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {complaintData?.data?.data?.fixedNo}
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
-                {complaintData?.data?.data?.tempNo && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>
-                      {complaintData?.data?.data?.tempNoLabel} :{' '}
-                    </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {complaintData?.data?.data?.tempNo}
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
-                {(complaintData?.data?.data?.wf_status === 0 ||
-                  complaintData?.data?.data?.wf_status === 3) && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>Pending From : </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {moment().diff(
-                          moment(complaintData?.data?.data?.createdAt),
-                          'days'
-                        )}{' '}
-                        days
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
-                {complaintData?.data?.data?.priorityType && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>Priority Type : </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {complaintData?.data?.data?.priorityType?.priorityName}
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
-                {complaintData?.data?.data?.targetType && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>Target Type : </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {complaintData?.data?.data?.targetType?.targetType ||
-                          'N/A'}
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
-                {complaintData?.data?.data?.complaintType && (
-                  <div className='flex items-center  space-x-4'>
-                    <div className='font-semibold'>Grievance Type : </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {
-                          complaintData?.data?.data?.complaintType
-                            ?.complaintTypeName
-                        }
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
                 <div className='col-span-3 my-20 border-b border-[#99B37C]'></div>
-                {/* <div className='col-span-2 flex flex-col'>
-                  <div className='font-semibold'>Title : </div>
-                  <div>
-                    <p className='opacity-90'>
-                      {complaintData?.data?.data?.complaintTitle || 'N/A'}
-                    </p>{' '}
-                  </div>
-                </div> */}
                 <div className='col-span-2 flex flex-col'>
                   <div className='font-semibold'>Description : </div>
                   <div>
@@ -566,25 +424,17 @@ export default function EnteranceWorkflowDetails({
                     </p>{' '}
                   </div>
                 </div>
-                {/* <div className='col-span-2 flex flex-col'>
-                  <div className='font-semibold'>Remark : </div>
-                  <div>
-                    <p className='opacity-90'>
-                      {complaintData?.data?.data?.wf_currentReopenComment}
-                    </p>{' '}
-                  </div>
-                </div> */}
 
-{complaintData?.data?.data?.wf_currentReopenComment && (
-  <div className="col-span-2 flex flex-col">
-    <div className="font-semibold">Remark :</div>
-    <div>
-      <p className="opacity-90">
-        {complaintData.data.data.wf_currentReopenComment}
-      </p>
-    </div>
-  </div>
-)}
+                {complaintData?.data?.data?.wf_currentReopenComment && (
+                  <div className="col-span-2 flex flex-col">
+                    <div className="font-semibold">Remark :</div>
+                    <div>
+                      <p className="opacity-90">
+                        {complaintData.data.data.wf_currentReopenComment}
+                      </p>
+                    </div>
+                  </div>
+                )}
 
                 {complaintData?.data?.data?.customAddress && (
                   <div className='col-span-2 flex flex-col'>
@@ -599,226 +449,27 @@ export default function EnteranceWorkflowDetails({
 
                 {/* COMPLAINT DOCUMENT SECTION */}
                 <div className='col-span-3 flex flex-col'>
-                  <div className='font-semibold'>Grievance Document:</div>
-                  <Dialog>
-                    <DialogHeader></DialogHeader>
-                    <DialogContent className='sm:max-w-[500px]'>
-                      <div className='py-4'>
-                        {/* Check if the uploaded file is an image */}
-                        {complaintData?.data?.data?.imgUrl &&
-                        complaintData?.data?.data?.imgUrl.includes('.pdf') ? (
-                          <iframe
-                            src={complaintData?.data?.data?.imgUrl}
-                            width='100%'
-                            height='400px'
-                            title='Document Preview'
-                          />
-                        ) : (
-                          <Image
-                            src={complaintData?.data?.data?.imgUrl}
-                            className='w-80'
-                          />
-                        )}
+                  <div className='font-semibold'>Bug Document :</div>
+                  <div className='cursor-pointer'>
+                    {!complaintData?.data?.data?.imgUrl && <span className='font-semibold text-gray-700'>No Document Found !</span>}
+
+                    {complaintData?.data?.data?.imgUrl &&
+                      complaintData?.data?.data?.imgUrl.includes('.pdf') ? (
+                      <div className='flex h-20  w-20 items-center justify-center'>
+                        {' '}
+                        <FileText className='h-20 w-20 ' />
                       </div>
-                    </DialogContent>
-                    {/* IMAGE TRIGGER */}
-                    <DialogTrigger asChild>
-                      <div className='cursor-pointer'>
-                        {complaintData?.data?.data?.imgUrl &&
-                        complaintData?.data?.data?.imgUrl.includes('.pdf') ? (
-                          <div className='flex h-20  w-20 items-center justify-center'>
-                            {' '}
-                            <FileText className='h-20 w-20 ' />
-                          </div>
-                        ) : (
-                          <Image
-                            src={complaintData?.data?.data?.imgUrl}
-                            className='w-40'
-                          />
-                        )}
-                      </div>
-                    </DialogTrigger>
-                  </Dialog>
+                    ) : (
+                      <Image
+                        src={complaintData?.data?.data?.imgUrl}
+                        className='w-40'
+                      />
+                    )}
+
+                  </div>
                 </div>
               </div>
 
-              <section className='mt-8'>
-                <div className='flex justify-between'>
-                  <h2 className='text-xl font-semibold text-blue-800'>
-                    Grievance Flow History{' '}
-                    <span
-                      onClick={() =>
-                        setisFlowHistoryVisible(!isFlowHistoryVisible)
-                      }
-                      className='cursor-pointer'
-                    >
-                      {!isFlowHistoryVisible && (
-                        <span className='rounded-lg bg-gray-100 px-2 py-1 text-xs text-gray-400 hover:bg-gray-200 '>
-                          Show <ChevronUp size={15} className='inline' />
-                        </span>
-                      )}
-                      {isFlowHistoryVisible && (
-                        <span className='rounded-lg bg-gray-100 px-2 py-1 text-xs text-gray-400 hover:bg-gray-200 '>
-                          Hide <ChevronDown size={15} className='inline' />
-                        </span>
-                      )}
-                    </span>{' '}
-                  </h2>
-
-                  <h1 className='text-md mb-6  flex items-center font-bold'>
-                  <span>
-                    Reminder -
-                      <Badge className="ml-2 w-20 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md"
-                      >{complaintData?.data?.data?.reminder}Times</Badge>
-                    
-                    {/* {complaintData?.data?.data?.wf_status === 1 && (
-                      <Badge className='ml-2 bg-green-500'>Resolved</Badge>
-                    )}
-                    {complaintData?.data?.data?.wf_status === 2 && (
-                      <Badge className='ml-2 bg-red-500'>Rejected</Badge>
-                    )}
-                    {complaintData?.data?.data?.wf_status === 3 && (
-                      <Badge className='ml-2 bg-yellow-500'>
-                        Pending(re-opened)
-                      </Badge>
-                    )}
-                    {complaintData?.data?.data?.wf_status === 4 && (
-                      <Badge variant={'destructive'}>Closed</Badge>
-                    )} */}
-                  </span>
-                </h1>
-
-                  {actionPermissions?.data?.permission?.canMoveComplaint && (
-                    <Button onClick={moveComplaintToMe}>
-                      Move Grievance to my Panel
-                    </Button>
-                  )}
-                  {actionPermissions?.data?.permission?.canUpdate && (
-                    <Link
-                      to={`/bug-log/dashboard/management-complaint-form?complaintId=${complaintData?.data?.data?._id}`}
-                    >
-                      <Button>Update Details</Button>
-                    </Link>
-                  )}
-                </div>
-                <div className='mt-1 border-b border-[#99B37C]'></div>
-                {isFlowHistoryVisible && (
-                  <div className='mt-4 flex flex-col space-y-4'>
-                    {complaintLogData?.data?.data?.map(
-                      (item: any, index: any) => (
-                        <div
-                          key={`flow${index}`}
-                          className='flex items-center space-x-4'
-                        >
-                          <div>{index + 1}</div>
-                          <div>
-                            {item?.actionStatus === 0 && (
-                              <Badge className='text-dark bg-gray-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 1 && (
-                              <Badge className='bg-green-400 text-white'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 2 && (
-                              <Badge className='bg-red-400 text-white'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 3 && (
-                              <Badge>{item?.statusText}</Badge>
-                            )}
-                            {item?.actionStatus === 4 && (
-                              <Badge className='text-dark bg-amber-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 5 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 6 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 7 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 8 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 9 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 10 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 11 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            {item?.actionStatus === 12 && (
-                              <Badge className='text-dark bg-cyan-200'>
-                                {item?.statusText}
-                              </Badge>
-                            )}
-                            <div className='mt-1 text-xs font-semibold text-gray-600'>
-                              {moment(
-                                complaintData?.data?.data?.createdAt
-                              ).format('DD-MM-YYYY hh:mm a')}
-                            </div>
-                          </div>
-                          <MoveRight />
-                          <div>
-                            <Dialog>
-                              <DialogHeader></DialogHeader>
-                              <DialogContent className='sm:max-w-[500px]'>
-                                <div className='py-4'>
-                                  <Image
-                                    src={item?.actionBy?.fullImgUrl}
-                                    className='w-60'
-                                  />
-                                </div>
-                              </DialogContent>
-
-                              {/* IMAGE TRIGGER */}
-                              <DialogTrigger asChild>
-                                <div className='h-10 w-10 cursor-pointer overflow-hidden rounded-full border'>
-                                  <Image
-                                    src={item?.actionBy?.fullImgUrl || profile}
-                                    className='w-10 cursor-pointer hover:scale-105'
-                                  />
-                                </div>
-                              </DialogTrigger>
-                            </Dialog>
-                            <div className='text-xs text-gray-700'>
-                              Action by{' '}
-                              <span className='text-md font-semibold text-black'>
-                                {item?.actionByUserId === null
-                                  ? 'Direct Citizen'
-                                  : item?.actionBy?.fullName}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </div>
-                )}
-              </section>
             </div>
           </div>
         </div>
@@ -893,22 +544,22 @@ export default function EnteranceWorkflowDetails({
 
                       {(complaintData?.data?.data?.wf_status === 0 ||
                         complaintData?.data?.data?.wf_status === 3) && (
-                        <div className='mb-4 flex items-center space-x-2'>
-                          <RHFTextField
-                            checked={complaintData?.data?.data?.isEscalated}
-                            onChange={(e) => escalateAction(e)}
-                            className='h-5 w-5 cursor-pointer'
-                            type='checkbox'
-                            name='isTransactionIssue'
-                            placeholder=''
-                          />
-                          <Label className='text-amber-700 opacity-80'>
-                            {complaintData?.data?.data?.isEscalated
-                              ? 'De-Escalate'
-                              : 'Escalate'}
-                          </Label>
-                        </div>
-                      )}
+                          <div className='mb-4 flex items-center space-x-2'>
+                            <RHFTextField
+                              checked={complaintData?.data?.data?.isEscalated}
+                              onChange={(e) => escalateAction(e)}
+                              className='h-5 w-5 cursor-pointer'
+                              type='checkbox'
+                              name='isTransactionIssue'
+                              placeholder=''
+                            />
+                            <Label className='text-amber-700 opacity-80'>
+                              {complaintData?.data?.data?.isEscalated
+                                ? 'De-Escalate'
+                                : 'Escalate'}
+                            </Label>
+                          </div>
+                        )}
                     </div>
 
                     <div className='flex justify-end'>
@@ -928,128 +579,128 @@ export default function EnteranceWorkflowDetails({
                       {/* ═══════════════════║ THIS SHOWS ACTION BUTTONS WHEN NOT APROVED ║════════════════════════ */}
                       {(complaintData?.data?.data?.wf_status === 0 ||
                         complaintData?.data?.data?.wf_status === 3) && (
-                        <>
-                          {actionPermissions?.data?.permission
-                            ?.isNeededMoreDocuments && (
-                            <div className='col-span-4'>
-                              <DialogTrigger
-                                onClick={() => {
-                                  setisDialogOpen(true)
-                                  setActionComponentStatus(1)
-                                }}
-                                asChild
-                              >
-                                <Button
-                                  variant={'secondary'}
-                                  name='bts'
-                                  className='mr-4'
-                                  disabled={mutate.isPending}
+                          <>
+                            {actionPermissions?.data?.permission
+                              ?.isNeededMoreDocuments && (
+                                <div className='col-span-4'>
+                                  <DialogTrigger
+                                    onClick={() => {
+                                      setisDialogOpen(true)
+                                      setActionComponentStatus(1)
+                                    }}
+                                    asChild
+                                  >
+                                    <Button
+                                      variant={'secondary'}
+                                      name='bts'
+                                      className='mr-4'
+                                      disabled={mutate.isPending}
+                                    >
+                                      Need More Documents
+                                    </Button>
+                                  </DialogTrigger>
+                                </div>
+                              )}
+                            {actionPermissions?.data?.permission?.canResolve && (
+                              <div className='col-span-4'>
+                                <DialogTrigger
+                                  onClick={() => {
+                                    setisDialogOpen(true)
+                                    setActionComponentStatus(1)
+                                  }}
+                                  asChild
                                 >
-                                  Need More Documents
-                                </Button>
-                              </DialogTrigger>
-                            </div>
-                          )}
-                          {actionPermissions?.data?.permission?.canResolve && (
-                            <div className='col-span-4'>
-                              <DialogTrigger
-                                onClick={() => {
-                                  setisDialogOpen(true)
-                                  setActionComponentStatus(1)
-                                }}
-                                asChild
-                              >
-                                <Button
-                                  variant={'secondary'}
-                                  name='bts'
-                                  className='mr-4'
-                                  disabled={mutate.isPending}
+                                  <Button
+                                    variant={'secondary'}
+                                    name='bts'
+                                    className='mr-4'
+                                    disabled={mutate.isPending}
+                                  >
+                                    Resolve
+                                  </Button>
+                                </DialogTrigger>
+                              </div>
+                            )}
+                            {actionPermissions?.data?.permission?.canReject && (
+                              <div className='col-span-4'>
+                                <DialogTrigger
+                                  onClick={() => {
+                                    setisDialogOpen(true)
+                                    setActionComponentStatus(2)
+                                  }}
+                                  asChild
                                 >
-                                  Resolve
-                                </Button>
-                              </DialogTrigger>
-                            </div>
-                          )}
-                          {actionPermissions?.data?.permission?.canReject && (
-                            <div className='col-span-4'>
-                              <DialogTrigger
-                                onClick={() => {
-                                  setisDialogOpen(true)
-                                  setActionComponentStatus(2)
-                                }}
-                                asChild
-                              >
-                                <Button
-                                  variant={'secondary'}
-                                  name='reject'
-                                  className='mr-4'
-                                  disabled={mutate.isPending}
-                                >
-                                  Reject
-                                </Button>
-                              </DialogTrigger>
-                            </div>
-                          )}
+                                  <Button
+                                    variant={'secondary'}
+                                    name='reject'
+                                    className='mr-4'
+                                    disabled={mutate.isPending}
+                                  >
+                                    Reject
+                                  </Button>
+                                </DialogTrigger>
+                              </div>
+                            )}
 
-                          {actionPermissions?.data?.permission
-                            ?.canTransferToMember && (
-                            <div className='col-span-4'>
-                              <DialogTrigger
-                                onClick={() => {
-                                  setisDialogOpen(true)
-                                  setActionComponentStatus(3)
-                                }}
-                                asChild
-                              >
-                                <Button
-                                  name='approve'
-                                  disabled={mutate.isPending}
-                                  className='mr-4'
-                                >
-                                  Transfer to Current Member
-                                </Button>
-                              </DialogTrigger>
-                            </div>
-                          )}
-                          {actionPermissions?.data?.permission
-                            ?.canSendToUlb && (
-                            <div className='col-span-4'>
-                              <DialogTrigger
-                                onClick={() => {
-                                  setisDialogOpen(true)
-                                  setActionComponentStatus(4)
-                                }}
-                                asChild
-                              >
-                                <Button
-                                  name='approve'
-                                  disabled={mutate.isPending}
-                                  type='button'
-                                  className='mr-4'
-                                >
-                                  Transfer to Ulb
-                                </Button>
-                              </DialogTrigger>
-                            </div>
-                          )}
-                          {actionPermissions?.data?.permission
-                            ?.canTransferToWorkflow && (
-                            <div className='col-span-4'>
-                              <Link
-                                to={`/bug-log/dashboard/transfer-complaint?parentId=null&levelSerial=1&complaintId=${complaintData?.data?.data?._id}&complaintRefNo=${complaintData?.data?.data?.complaintRefNo}`}
-                              >
-                                <Button
-                                  name='approve'
-                                  disabled={mutate.isPending}
-                                  type='button'
-                                >
-                                  Transfer to Workflow
-                                </Button>
-                              </Link>
-                            </div>
-                          )}
-                        </>
-                      )}
+                            {actionPermissions?.data?.permission
+                              ?.canTransferToMember && (
+                                <div className='col-span-4'>
+                                  <DialogTrigger
+                                    onClick={() => {
+                                      setisDialogOpen(true)
+                                      setActionComponentStatus(3)
+                                    }}
+                                    asChild
+                                  >
+                                    <Button
+                                      name='approve'
+                                      disabled={mutate.isPending}
+                                      className='mr-4'
+                                    >
+                                      Transfer to Current Member
+                                    </Button>
+                                  </DialogTrigger>
+                                </div>
+                              )}
+                            {actionPermissions?.data?.permission
+                              ?.canSendToUlb && (
+                                <div className='col-span-4'>
+                                  <DialogTrigger
+                                    onClick={() => {
+                                      setisDialogOpen(true)
+                                      setActionComponentStatus(4)
+                                    }}
+                                    asChild
+                                  >
+                                    <Button
+                                      name='approve'
+                                      disabled={mutate.isPending}
+                                      type='button'
+                                      className='mr-4'
+                                    >
+                                      Transfer to Ulb
+                                    </Button>
+                                  </DialogTrigger>
+                                </div>
+                              )}
+                            {actionPermissions?.data?.permission
+                              ?.canTransferToWorkflow && (
+                                <div className='col-span-4'>
+                                  <Link
+                                    to={`/bug-log/dashboard/transfer-complaint?parentId=null&levelSerial=1&complaintId=${complaintData?.data?.data?._id}&complaintRefNo=${complaintData?.data?.data?.complaintRefNo}`}
+                                  >
+                                    <Button
+                                      name='approve'
+                                      disabled={mutate.isPending}
+                                      type='button'
+                                    >
+                                      Transfer to Workflow
+                                    </Button>
+                                  </Link>
+                                </div>
+                              )}
+                          </>
+                        )}
                     </div>
                   </div>
                 </Dialog>
