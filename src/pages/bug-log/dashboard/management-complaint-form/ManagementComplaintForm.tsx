@@ -14,7 +14,7 @@ import {
 import { useApi, usePostMutation } from '@/hooks/useCustomQuery'
 import { grievanceAPI } from '@/lib'
 import { Label } from '@/components/ui/label'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Separator } from '@/components/ui/separator'
 import { useEffect, useState } from 'react'
 import { Image } from '@/components/image'
@@ -22,16 +22,9 @@ import { useAppContext } from '@/context'
 import {  ServerCrash } from 'lucide-react'
 
 export default function CitizenComplaintForm() {
-  const [isTransactionIssue, setisTransactionIssue] = useState<boolean>(false)
-  const [tempNoLabel, settempNoLabel] = useState<string>('')
-  const [fixedNoLabel, setfixedNoLabel] = useState<string>('')
-  const [complaintData, setcomplaintData] = useState<any>({})
   const [newRole, setNewRole] = useState<any>('')
-  const [isExtraInfo, setisExtraInfo] = useState<boolean>(false)
-  const [isExtraBasicInfo, setisExtraBasicInfo] = useState<boolean>(false)
   const { user } = useAppContext()
   const postMutation = usePostMutation({})
-  const navigate = useNavigate()
 
   const useQuery = () => new URLSearchParams(useLocation().search)
   const query = useQuery()
