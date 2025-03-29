@@ -10,7 +10,7 @@ const Loadable =
       return (
         <Suspense fallback={<SuspenseLoader />}>
           <Component {...props} />
-        </Suspense> 
+        </Suspense>
       )
     }
 
@@ -63,6 +63,9 @@ const Target = lazyWithRetries(
 )
 const Location = lazyWithRetries(
   () => import('@/pages/grievance/dashboard/masters/location')
+)
+const Project = lazyWithRetries(
+  () => import('@/pages/grievance/dashboard/masters/project')
 )
 const WorkFlowMaster = lazyWithRetries(
   () => import('@/pages/grievance/dashboard/masters/workFlowMaster')
@@ -358,7 +361,7 @@ const routes: Route[] = [
         path: 'citizen-grievance-via-whatsapp',
         element: <CitizenGrievanceViaWhatsApp />,
       },
-     
+
       {
         id: '19',
         name: 'MOdule Track',
@@ -557,6 +560,12 @@ const routes: Route[] = [
         name: 'Location',
         path: 'location',
         element: <Location />,
+      },
+      {
+        id: '15',
+        name: 'Project Master',
+        path: 'project-mstrs',
+        element: <Project />,
       },
       {
         id: '16',

@@ -29,6 +29,15 @@ export const grievanceAPI = {
   deleteRole: '/role/delete-role',
   getRoleById: '/role/get-role-by-id',
   updateRoleStatus: '/role/update-role-status',
+
+   // ════════════════════════════║  API OF PROJECT MASTER ║═════════════════════════════════
+   createProject: '/project/create-project',
+   getAllProject: '/project/get-all-project',
+   updateProject: '/project/update-project',
+   deleteProject: '/project/delete-project',
+   getProjectById: '/project/get-project-by-id',
+   updateProjectStatus: '/project/update-project-status',
+   
   // ════════════════════════════║  API OF PROBLEM MASTER ║═════════════════════════════════
   createProblem: '/problem/create-problem',
   getAllProblem: '/problem/get-all-problem',

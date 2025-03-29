@@ -655,6 +655,12 @@ export const ulbGroSidelinks: SideLink[] = [
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
+        title: 'Projects',
+        label: '',
+        href: '/grievance/dashboard/project-mstrs',
+        icon: <IconHexagonNumber9 size={18} />,
+      },
+      {
         title: 'Users Master',
         label: '',
         href: '/grievance/dashboard/users-master',
