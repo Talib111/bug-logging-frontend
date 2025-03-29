@@ -121,11 +121,11 @@ export default function WorkflowList() {
                       <TableHeader>
                         <TableRow>
                           <TableHead className=''>#</TableHead>
-                          <TableHead className=''>Name</TableHead>
-                          <TableHead className=''>Department</TableHead>
-                          <TableHead className=''>ULB</TableHead>
-                          <TableHead className=''>Grievance No.</TableHead>
-                          <TableHead className=''>Module</TableHead>
+                          <TableHead className=''>Platform</TableHead>
+                          <TableHead className=''>Title</TableHead>
+                          <TableHead className=''>Description</TableHead>
+                          <TableHead className=''>Priority</TableHead>
+                          <TableHead className=''>Tracking No.</TableHead>
                           <TableHead className=''>Date</TableHead>
                           <TableHead className=''>Status</TableHead>
                           {/* <TableHead className=''>Pending From</TableHead> */}
@@ -136,11 +136,11 @@ export default function WorkflowList() {
                         {inboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell>{index + 1}</TableCell>
-                            <TableCell>{items?.citizenName || 'N/A'}</TableCell>
-                            <TableCell className='font-semibold'>{items?.complaintTitle || 'N/A'}</TableCell>
+                            <TableCell  className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
+                            <TableCell>{items?.complaintTitle || 'N/A'}</TableCell>
                             <TableCell>{items?.ulb?.ulbName || 'N/A'}</TableCell>
                             <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
-                            <TableCell>{items?.module?.moduleName || 'N/A'}</TableCell>
+                            <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
