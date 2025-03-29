@@ -1,0 +1,11 @@
+export const SUPER_ADMIN = '66ed209338cab18a44004928'
+export const STATE_ADMIN = '66b221397f7cbfccf08e3007'
+export const STATE_GRO = '66c2f05090098a7b287de760'
+export const STATE_JSK_IVR_CALLING = '66fa8b4d254df1917a7eede0'
+
+export const ULB_ADMIN = '66f3b14ba407f6bb62d8e5d4'
+export const ULB_GRO = '66c23c592029cab92b89b33b'
+export const JSK_IVR_CALLING = '66db3d517604b77db45e5953'
+export const NORMAL = '66d734ddef363f82a00c6f21'
+export const CITIZEN_USER = '66d2a49adcdbb5c654b983cc'
+export const TELE_CALLER='677289ed4c56dd977990fdf4'
