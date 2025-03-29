@@ -18,19 +18,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Separator } from '@/components/ui/separator'
 import { useEffect, useState } from 'react'
 import { Image } from '@/components/image'
-import {
-  SUPER_ADMIN,
-  STATE_ADMIN,
-  STATE_GRO,
-  STATE_JSK_IVR_CALLING,
-  ULB_ADMIN,
-  ULB_GRO,
-  JSK_IVR_CALLING,
-  NORMAL,
-  TELE_CALLER,
-} from '@/../config/roles.config'
 import { useAppContext } from '@/context'
-import { Bug, ServerCrash } from 'lucide-react'
+import {  ServerCrash } from 'lucide-react'
 
 export default function CitizenComplaintForm() {
   const [isTransactionIssue, setisTransactionIssue] = useState<boolean>(false)
