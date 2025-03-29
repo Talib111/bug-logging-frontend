@@ -103,7 +103,7 @@ export default function Sidebar({
           sticky
           className='z-50 flex justify-between px-4 py-3 shadow-sm md:px-4'
         >
-          <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`} onClick={() => navigate('/grievance/main')} >
+          <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`} onClick={() => navigate('/bug-log/main')} >
             <div>
               <img src="https://i.ibb.co/vz5hT4c/jharkhand-Logo-uf1gjn.png" alt="" className='w-11' />
             </div>

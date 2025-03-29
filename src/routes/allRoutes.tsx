@@ -1,6 +1,6 @@
 import { LazyExoticComponent, Suspense, lazy, ElementType } from 'react'
 import SuspenseLoader from '@/components/loaders/SuspenseLoader'
-// import CitizenSendReminder from '@/pages/grievance/citizen/citizen-send-reminder/CitizenSendReminder'
+// import CitizenSendReminder from '@/pages/bug-log/citizen/citizen-send-reminder/CitizenSendReminder'
 
 
 // ----------------------------------------------------------------------
@@ -26,114 +26,114 @@ const lazyWithRetries = (importer: () => Promise<{ default: ElementType }>) => {
 }
 
 // // -------------------------------Before auth routes--------------------------------
-const Login = lazyWithRetries(() => import('@/pages/grievance/auth/login'))
-const CitizenLogin = lazyWithRetries(() => import('@/pages/grievance/auth/citizen-login/LoginForm'))
-const CitizenSingUp = lazyWithRetries(() => import('@/pages/grievance/auth/citizen-login'))
-const CitizenResetPassword = lazyWithRetries(() => import('@/pages/grievance/auth/citizen-login/ResetPassword'))
+const Login = lazyWithRetries(() => import('@/pages/bug-log/auth/login'))
+const CitizenLogin = lazyWithRetries(() => import('@/pages/bug-log/auth/citizen-login/LoginForm'))
+const CitizenSingUp = lazyWithRetries(() => import('@/pages/bug-log/auth/citizen-login'))
+const CitizenResetPassword = lazyWithRetries(() => import('@/pages/bug-log/auth/citizen-login/ResetPassword'))
 // // -------------------------------After auth routes--------------------------------
 
-const Home = lazyWithRetries(() => import('@/pages/grievance/dashboard/home'))
+const Home = lazyWithRetries(() => import('@/pages/bug-log/dashboard/home'))
 const Role = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/role')
+  () => import('@/pages/bug-log/dashboard/masters/role')
 )
 
 const Complaint = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/complaint')
+  () => import('@/pages/bug-log/dashboard/masters/complaint')
 )
 const ModuleMaster = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/moduleMaster')
+  () => import('@/pages/bug-log/dashboard/masters/moduleMaster')
 )
 const UlbList = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/ulbList')
+  () => import('@/pages/bug-log/dashboard/masters/ulbList')
 )
 const GrProblemList = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/grProblem')
+  () => import('@/pages/bug-log/dashboard/masters/grProblem')
 )
 const GrDepartment = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/grDepartment')
+  () => import('@/pages/bug-log/dashboard/masters/grDepartment')
 )
 const WorkFlowRole = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/workFlowRole')
+  () => import('@/pages/bug-log/dashboard/masters/workFlowRole')
 )
 const Priority = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/priority')
+  () => import('@/pages/bug-log/dashboard/masters/priority')
 )
 const Target = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/targetMaster')
+  () => import('@/pages/bug-log/dashboard/masters/targetMaster')
 )
 const Location = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/location')
+  () => import('@/pages/bug-log/dashboard/masters/location')
 )
 const Project = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/project')
+  () => import('@/pages/bug-log/dashboard/masters/project')
 )
 const WorkFlowMaster = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/workFlowMaster')
+  () => import('@/pages/bug-log/dashboard/masters/workFlowMaster')
 )
 const WorkFlowMemberList = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/workFlowMaster/members')
+  () => import('@/pages/bug-log/dashboard/masters/workFlowMaster/members')
 )
 const ManagementComplaintForm = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/management-complaint-form')
+  () => import('@/pages/bug-log/dashboard/management-complaint-form')
 )
 const ManagementComplaintSuccess = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/complaint-success')
+  () => import('@/pages/bug-log/dashboard/complaint-success')
 )
 const ManagementComplaintDetails = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/complaint-details')
+  () => import('@/pages/bug-log/dashboard/complaint-details')
 )
 const SearchComplaint = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/search-complaint')
+  () => import('@/pages/bug-log/dashboard/search-complaint')
 )
 const ManagementChangePassword = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/change-password')
+  () => import('@/pages/bug-log/dashboard/change-password')
 )
 const TransferComplaint = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/workflow/workflow-details/transfer-complaint')
+  () => import('@/pages/bug-log/dashboard/workflow/workflow-details/transfer-complaint')
 )
 const TableForm = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/tableForm')
+  () => import('@/pages/bug-log/dashboard/masters/tableForm')
 )
 const Users = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/users')
+  () => import('@/pages/bug-log/dashboard/masters/users')
 )
 
 const ComplaintSource = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/complaintSource')
+  () => import('@/pages/bug-log/dashboard/masters/complaintSource')
 )
 const ComplaintType = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/complaintType')
+  () => import('@/pages/bug-log/dashboard/masters/complaintType')
 )
 const ComplaintWorkflow = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/workflow/complaint-workflow')
+  () => import('@/pages/bug-log/dashboard/workflow/complaint-workflow')
 )
 const WorkflowDetails = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/workflow/workflow-details')
+  () => import('@/pages/bug-log/dashboard/workflow/workflow-details')
 )
 const Notification = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/notification')
+  () => import('@/pages/bug-log/dashboard/masters/notification')
 )
 
 const AnalyticalDashboard = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/analytical-dashboard')
+  () => import('@/pages/bug-log/dashboard/analytical-dashboard')
 )
 const ComplaintReports = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/reports/complaint-report')
+  () => import('@/pages/bug-log/dashboard/reports/complaint-report')
 )
 const ComplaintSlaReports = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/reports/complaint-sla-report')
+  () => import('@/pages/bug-log/dashboard/reports/complaint-sla-report')
 )
 const ResolutionDaysReports = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/reports/resolution-day-wise-report')
+  () => import('@/pages/bug-log/dashboard/reports/resolution-day-wise-report')
 )
 const WorkflowWiseReports = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/reports/wf-wise-report')
+  () => import('@/pages/bug-log/dashboard/reports/wf-wise-report')
 )
 const WorkflowByIdReport = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/reports/wf-wise-report/WorkflowByIdReport')
+  () => import('@/pages/bug-log/dashboard/reports/wf-wise-report/WorkflowByIdReport')
 )
 const CitizenFeedback = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/masters/citizenFeedback')
+  () => import('@/pages/bug-log/dashboard/masters/citizenFeedback')
 )
 
 
@@ -141,87 +141,87 @@ const CitizenFeedback = lazyWithRetries(
 
 // -------------------------------Main Routes--------------------------------
 const LandingPage = lazyWithRetries(
-  () => import('@/pages/grievance/main/landing-page')
+  () => import('@/pages/bug-log/main/landing-page')
 )
 
 // -------------------------------Citizen Routes--------------------------------
 const CitizenComplaintForm = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-complaint-form')
+  () => import('@/pages/bug-log/citizen/citizen-complaint-form')
 )
 const CitizenComplaintSearch = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-complaint-form/search-complaint')
+  () => import('@/pages/bug-log/citizen/citizen-complaint-form/search-complaint')
 )
 const CitizenReview = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-review')
+  () => import('@/pages/bug-log/citizen/citizen-review')
 )
 
 const Profile = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/profile')
+  () => import('@/pages/bug-log/citizen/profile')
 )
 const CitizenDashboard = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-dashboard')
+  () => import('@/pages/bug-log/citizen/citizen-dashboard')
 )
 const ClientTestimonials = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-testimonials')
+  () => import('@/pages/bug-log/citizen/citizen-testimonials')
 )
 const CitizenAllComplaints = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-registered-complaints')
+  () => import('@/pages/bug-log/citizen/citizen-registered-complaints')
 )
 const CitizenFaq = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-faq')
+  () => import('@/pages/bug-log/citizen/citizen-faq')
 )
 const CitizenTrackComplaint = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-track-complaint')
+  () => import('@/pages/bug-log/citizen/citizen-track-complaint')
 )
 const TrackReminder = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-reminder')
+  () => import('@/pages/bug-log/citizen/citizen-reminder')
 )
 const CitizenGrievanceViaPhone = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-complaint-via-phone')
+  () => import('@/pages/bug-log/citizen/citizen-complaint-via-phone')
 )
 const CitizenGrievanceViaEmail = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-complaint-via-email')
+  () => import('@/pages/bug-log/citizen/citizen-complaint-via-email')
 )
 const CitizenGrievanceViaWhatsApp = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-complaint-via-whatsApp')
+  () => import('@/pages/bug-log/citizen/citizen-complaint-via-whatsApp')
 )
 const ComplaintSuccess = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/complaint-success')
+  () => import('@/pages/bug-log/citizen/complaint-success')
 )
 const PrivacyPolicy = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/privacy-policy')
+  () => import('@/pages/bug-log/citizen/privacy-policy')
 )
 const ZoneWardList = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/zone-ward-list')
+  () => import('@/pages/bug-log/citizen/zone-ward-list')
 )
 const ComplaintDetails = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/complaint-details')
+  () => import('@/pages/bug-log/citizen/complaint-details')
 )
 const Tools = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/tools')
+  () => import('@/pages/bug-log/citizen/tools')
 )
 const CitizenChangePassword = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-change-password')
+  () => import('@/pages/bug-log/citizen/citizen-change-password')
 )
 
 const ComplaintRegistrationInfo = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-info/about-complaint-registration')
+  () => import('@/pages/bug-log/citizen/citizen-info/about-complaint-registration')
 )
 
 const ModuleTrack = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/moudle-track-page')
+  () => import('@/pages/bug-log/citizen/moudle-track-page')
 )
 const CitizenFindNewHolding = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-find-new-holding-no')
+  () => import('@/pages/bug-log/citizen/citizen-find-new-holding-no')
 )
 const Sharing = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/sharing')
+  () => import('@/pages/bug-log/dashboard/sharing')
 )
 const SharingReceipt = lazyWithRetries(
-  () => import('@/pages/grievance/dashboard/sharing-receipt')
+  () => import('@/pages/bug-log/dashboard/sharing-receipt')
 )
 const SendReminder = lazyWithRetries(
-  () => import('@/pages/grievance/citizen/citizen-reminder')
+  () => import('@/pages/bug-log/citizen/citizen-reminder')
 )
 
 

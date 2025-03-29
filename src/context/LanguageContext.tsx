@@ -1,4 +1,4 @@
-import MyLanguage from '@/pages/grievance/citizen/citizen-complaint-form/user-inputs/language';
+import MyLanguage from '@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language';
 import { useState } from 'react';
 
 export default function LanguageContext() {

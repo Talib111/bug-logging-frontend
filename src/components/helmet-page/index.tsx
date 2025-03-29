@@ -17,7 +17,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { useAppContext } from '@/context'
-import MyLanguage from "@/pages/grievance/citizen/citizen-complaint-form/user-inputs/language"
+import MyLanguage from "@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language"
 
 type PageProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -65,7 +65,7 @@ const Page = forwardRef(
             <DialogHeader>
             </DialogHeader>
             <DialogContent className="sm:max-w-[600px]">
-              <CardTitle className='mt-4 text-xl text-gray-500 font-bold flex justify-between'>This is your process<Link to={`/grievance/citizen/complaint-registration-info`} target='_blank'></Link> </CardTitle>
+              <CardTitle className='mt-4 text-xl text-gray-500 font-bold flex justify-between'>This is your process<Link to={`/bug-log/citizen/complaint-registration-info`} target='_blank'></Link> </CardTitle>
 
               <div className="py-4">
                 <video controls autoPlay width={'fill'} >

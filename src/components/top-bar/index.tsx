@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/custom/button'
-import CitizenComplaintForm from '@/pages/grievance/citizen/citizen-complaint-form/CitizenComplaintForm'
+import CitizenComplaintForm from '@/pages/bug-log/citizen/citizen-complaint-form/CitizenComplaintForm'
 import { Image } from '@/components/image'
 import {
   Tooltip,
@@ -27,7 +27,7 @@ import {
 } from '@/components/ui/tooltip'
 import { useAppContext } from '@/context'
 import { Confirm } from '@/components/confirm-box'
-import MyLanguage from '@/pages/grievance/citizen/citizen-complaint-form/user-inputs/language'
+import MyLanguage from '@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language'
 import { getRedirect } from '@/lib'
 import CitizenSidebar from '@/components/citizenSidebar'
 import useIsCollapsed from '@/hooks/use-is-collapsed'
@@ -57,77 +57,77 @@ export default function TopBar({ setloggedOutAnimation }: any) {
     {
       id: 1,
       label: currentLanguage?.G_T,
-      href: '/grievance/citizen/tools?type=general',
+      href: '/bug-log/citizen/tools?type=general',
     },
     {
       id: 2,
       label: currentLanguage?.PT_TL,
-      href: '/grievance/citizen/tools?type=property',
+      href: '/bug-log/citizen/tools?type=property',
     },
     {
       id: 3,
       label: currentLanguage?.WT_TL,
-      href: '/grievance/citizen/tools?type=water',
+      href: '/bug-log/citizen/tools?type=water',
     },
     {
       id: 4,
       label: currentLanguage?.TRADE_TOOLS,
-      href: '/grievance/citizen/tools?type=trade_License',
+      href: '/bug-log/citizen/tools?type=trade_License',
     },
     {
       id: 5,
       label: currentLanguage?.SEPTIC_TANK_CLEANING_TOOLS,
-      href: '/grievance/citizen/tools?type=septic_Tank_Cleaning',
+      href: '/bug-log/citizen/tools?type=septic_Tank_Cleaning',
     },
     {
       id: 6,
       label: currentLanguage?.PET_REGISTRATION,
-      href: '/grievance/citizen/tools?type=pet_Registration',
+      href: '/bug-log/citizen/tools?type=pet_Registration',
     },
     {
       id: 7,
       label: currentLanguage?.WT_BK_TL,
-      href: '/grievance/citizen/tools?type=water_Tanker_Booking',
+      href: '/bug-log/citizen/tools?type=water_Tanker_Booking',
     },
     {
       id: 8,
       label: currentLanguage?.ADVERTISEMENT_TAX,
-      href: '/grievance/citizen/tools?type=advertisement_Tax',
+      href: '/bug-log/citizen/tools?type=advertisement_Tax',
     },
     {
       id: 9,
       label: currentLanguage?.LB_REG_TL,
-      href: '/grievance/citizen/tools?type=lodge_And_Banquet_Registration',
+      href: '/bug-log/citizen/tools?type=lodge_And_Banquet_Registration',
     },
     {
       id: 10,
       label: currentLanguage?.SW_UC_TL,
-      href: '/grievance/citizen/tools?type=solid_Waste_User_Charge',
+      href: '/bug-log/citizen/tools?type=solid_Waste_User_Charge',
     },
     {
       id: 11,
       label: currentLanguage?.MARRIAGE_REGISTRATION,
-      href: '/grievance/citizen/tools?type=marriage_Registration',
+      href: '/bug-log/citizen/tools?type=marriage_Registration',
     },
     {
       id: 12,
       label: currentLanguage?.PT_CB_TL,
-      href: '/grievance/citizen/tools?type=public_Transport_City_Bus',
+      href: '/bug-log/citizen/tools?type=public_Transport_City_Bus',
     },
     {
       id: 13,
       label: currentLanguage?.PARKING_MANAGEMENT,
-      href: '/grievance/citizen/tools?type=parking_Management',
+      href: '/bug-log/citizen/tools?type=parking_Management',
     },
     {
       id: 14,
       label: currentLanguage?.RM_REG_TL,
-      href: '/grievance/citizen/tools?type=Rig_Machine_Registration',
+      href: '/bug-log/citizen/tools?type=Rig_Machine_Registration',
     },
     {
       id: 15,
       label: currentLanguage?.HRMS_AND_PAYROLL,
-      href: '/grievance/citizen/tools?type=hrms_And_Payroll',
+      href: '/bug-log/citizen/tools?type=hrms_And_Payroll',
     },
   ]
 
@@ -135,47 +135,47 @@ export default function TopBar({ setloggedOutAnimation }: any) {
     {
       id: 1,
       label: currentLanguage?.PROPERTY_STATUS,
-      href: '/grievance/citizen/track-status?type=property',
+      href: '/bug-log/citizen/track-status?type=property',
     },
     {
       id: 2,
       label: currentLanguage?.WATER_STATUS,
-      href: '/grievance/citizen/track-status?type=water',
+      href: '/bug-log/citizen/track-status?type=water',
     },
     {
       id: 3,
       label: currentLanguage?.TRADE_STATUS,
-      href: '/grievance/citizen/track-status?type=trade_License',
+      href: '/bug-log/citizen/track-status?type=trade_License',
     },
     {
       id: 4,
       label: currentLanguage?.RIG_STATUS,
-      href: '/grievance/citizen/track-status?type=Rig_Machine_Registration',
+      href: '/bug-log/citizen/track-status?type=Rig_Machine_Registration',
     },
     {
       id: 5,
       label: currentLanguage?.PET_STATUS,
-      href: '/grievance/citizen/track-status?type=pet_Registration',
+      href: '/bug-log/citizen/track-status?type=pet_Registration',
     },
     {
       id: 6,
       label: currentLanguage?.SWM_STATUS,
-      href: '/grievance/citizen/track-status?type=solid_Waste_User_Charge',
+      href: '/bug-log/citizen/track-status?type=solid_Waste_User_Charge',
     },
     {
       id: 7,
       label: currentLanguage?.LODGE_BANQUET_STATUS,
-      href: '/grievance/citizen/track-status?type=lodge_And_Banquet_Registration',
+      href: '/bug-log/citizen/track-status?type=lodge_And_Banquet_Registration',
     },
     {
       id: 8,
       label: currentLanguage?.WATER_TANKER_STATUS,
-      href: '/grievance/citizen/track-status?type=water_Tanker_Booking',
+      href: '/bug-log/citizen/track-status?type=water_Tanker_Booking',
     },
     {
       id: 9,
       label: currentLanguage?.SEPTIC_STATUS,
-      href: '/grievance/citizen/track-status?type=septic_Tank_Cleaning',
+      href: '/bug-log/citizen/track-status?type=septic_Tank_Cleaning',
     },
   ]
 
@@ -183,37 +183,37 @@ export default function TopBar({ setloggedOutAnimation }: any) {
     {
       id: '1',
       label: currentLanguage?.TRACK_GR,
-      path: '/grievance/citizen/citizen-track-complaint',
+      path: '/bug-log/citizen/citizen-track-complaint',
       isWeb: false,
     },
     {
       id: '2',
       label: 'Give Feedback',
-      path: '/grievance/citizen/citizen-review',
+      path: '/bug-log/citizen/citizen-review',
       isWeb: false,
     },
     {
       id: '3',
       label: 'Citizen Feedback',
-      path: '/grievance/citizen/citizen-testimonials',
+      path: '/bug-log/citizen/citizen-testimonials',
       isWeb: false,
     },
     {
       id: '4',
       label: 'ULB Wise Ward List',
-      path: '/grievance/citizen/zone-ward-list',
+      path: '/bug-log/citizen/zone-ward-list',
       isWeb: false,
     },
     {
       id: '5',
       label: 'Privacy Policy',
-      path: '/grievance/citizen/privacy-policy',
+      path: '/bug-log/citizen/privacy-policy',
       isWeb: false,
     },
     {
       id: '6',
       label: 'FAQ',
-      path: '/grievance/citizen/citizen-faq',
+      path: '/bug-log/citizen/citizen-faq',
       isWeb: false,
     },
   ]
@@ -246,7 +246,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                   <div className='h-screen w-64 '>
                     <nav className='space-y-2'>
                       {(window as any).ReactNativeWebView &&
-                      pathName == '/grievance/main' ? (
+                      pathName == '/bug-log/main' ? (
                         <div className=' p-1 text-left '>
                           {' '}
                           <a href={`${window.location.origin}/citizen`}>
@@ -287,7 +287,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=general'
+                                    '/bug-log/citizen/tools?type=general'
                                   )
                                 }
                               >
@@ -301,7 +301,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=property'
+                                    '/bug-log/citizen/tools?type=property'
                                   )
                                 }
                               >
@@ -314,7 +314,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=water'
+                                    '/bug-log/citizen/tools?type=water'
                                   )
                                 }
                               >
@@ -327,7 +327,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=trade_License'
+                                    '/bug-log/citizen/tools?type=trade_License'
                                   )
                                 }
                               >
@@ -342,7 +342,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=septic_Tank_Cleaning'
+                                    '/bug-log/citizen/tools?type=septic_Tank_Cleaning'
                                   )
                                 }
                               >
@@ -356,7 +356,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=pet_Registration'
+                                    '/bug-log/citizen/tools?type=pet_Registration'
                                   )
                                 }
                               >
@@ -370,7 +370,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=water_User_Charge'
+                                    '/bug-log/citizen/tools?type=water_User_Charge'
                                   )
                                 }
                               >
@@ -384,7 +384,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=advertisement_Tax'
+                                    '/bug-log/citizen/tools?type=advertisement_Tax'
                                   )
                                 }
                               >
@@ -398,7 +398,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=solid_Waste_User_Charge'
+                                    '/bug-log/citizen/tools?type=solid_Waste_User_Charge'
                                   )
                                 }
                               >
@@ -412,7 +412,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=lodge_And_Banquet_Registration'
+                                    '/bug-log/citizen/tools?type=lodge_And_Banquet_Registration'
                                   )
                                 }
                               >
@@ -426,7 +426,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=marriage_Registration'
+                                    '/bug-log/citizen/tools?type=marriage_Registration'
                                   )
                                 }
                               >
@@ -440,7 +440,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=public_Transport_City_Bus'
+                                    '/bug-log/citizen/tools?type=public_Transport_City_Bus'
                                   )
                                 }
                               >
@@ -454,7 +454,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=parking_Management'
+                                    '/bug-log/citizen/tools?type=parking_Management'
                                   )
                                 }
                               >
@@ -468,7 +468,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=Rig_Machine_Registration'
+                                    '/bug-log/citizen/tools?type=Rig_Machine_Registration'
                                   )
                                 }
                               >
@@ -482,7 +482,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                               <button
                                 onClick={() =>
                                   navigate(
-                                    '/grievance/citizen/tools?type=hrms_And_Payroll'
+                                    '/bug-log/citizen/tools?type=hrms_And_Payroll'
                                   )
                                 }
                               >
@@ -525,10 +525,10 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                 </div>
               </div>
               <div className='flex flex-1 justify-end space-x-2'>
-                <Link to='/grievance/auth/citizen-sign-up'>
+                <Link to='/bug-log/auth/citizen-sign-up'>
                   <Button variant='secondary'>Signup</Button>
                 </Link>
-                <Link to='/grievance/auth/citizen-login'>
+                <Link to='/bug-log/auth/citizen-login'>
                   <Button className='bg-gradient-to-r from-yellow-500 to-red-500 text-white'>
                     {currentLanguage?.LOG_IN}
                   </Button>
@@ -542,10 +542,10 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                     <div className="capitalize text-xs text-gray-600  font-semibold">Redressal System</div>
                 </div>
                 <div className="flex-1 flex justify-end space-x-2">
-                    <Link to={'/grievance/auth/citizen-sign-up'}>
+                    <Link to={'/bug-log/auth/citizen-sign-up'}>
                         <Button variant={'secondary'} className="">Singup</Button>
                     </Link>
-                    <Link to={'/grievance/auth/citizen-login'}>
+                    <Link to={'/bug-log/auth/citizen-login'}>
                         <Button className="bg-gradient-to-r from-yellow-500 to-red-500    text-white">{currentLanguage?.LOG_IN} </Button>
                     </Link>
                 </div> */}
@@ -553,7 +553,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
       <div className='hidden h-auto w-full space-x-4 bg-[#99B37C] px-6 py-2 text-sm text-white sm:block md:flex'>
         <div>
           <Link
-            to={'/grievance/main'}
+            to={'/bug-log/main'}
             className='flex h-full flex-initial items-center '
           >
             {currentLanguage?.GOVT_JH}
@@ -580,7 +580,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
         </div>
         <div>
           <Link
-            to={'/grievance/main'}
+            to={'/bug-log/main'}
             className='flex h-full flex-initial items-center '
           >
             {currentLanguage?.HELPLINE_NO}
@@ -611,7 +611,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
 
           <Link
             className='link-underline link-underline-black flex items-center'
-            to={'/grievance/citizen/citizen-track-complaint'}
+            to={'/bug-log/citizen/citizen-track-complaint'}
           >
             <span className='cursor-pointer  px-2 '>
               {currentLanguage?.TRACK_GR}
@@ -666,7 +666,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
             </button>
             <div className='absolute z-10 mt-0 hidden w-40 rounded-md bg-white text-black shadow-lg group-hover:block'>
               <ul className='py-2 text-left'>
-                <Link to={'/grievance/citizen/citizen-review'}>
+                <Link to={'/bug-log/citizen/citizen-review'}>
                   <li className='w-full px-4 py-2 text-left hover:bg-[#99B37C] hover:text-white'>
                     <span className='w-full cursor-pointer py-2 text-left'>
                       {currentLanguage?.GIVE_FEED}
@@ -703,11 +703,11 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                   <Recentpdates notificationSide={1} notificationType={1} />
                 </SidePanel>
 
-                {/* <Link to={'/grievance/citizen/zone-ward-list'}><li className="px-4 py-2 hover:bg-[#99B37C] hover:text-white w-full">
+                {/* <Link to={'/bug-log/citizen/zone-ward-list'}><li className="px-4 py-2 hover:bg-[#99B37C] hover:text-white w-full">
                                     <span className="cursor-pointer py-2 w-full">{currentLanguage?.ULB_WISE_WARD_LIST}</span>
                                 </li>
                                 </Link> */}
-                <Link to={'/grievance/citizen/privacy-policy'}>
+                <Link to={'/bug-log/citizen/privacy-policy'}>
                   {' '}
                   <li className='w-full px-4 py-2 hover:bg-[#99B37C] hover:text-white'>
                     <span className='w-full cursor-pointer py-2'>
@@ -715,7 +715,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                     </span>
                   </li>
                 </Link>
-                <Link to={'/grievance/citizen/citizen-faq'}>
+                <Link to={'/bug-log/citizen/citizen-faq'}>
                   {' '}
                   <li className='w-full px-4 py-2 hover:bg-[#99B37C] hover:text-white'>
                     <span className='w-full  cursor-pointer py-2'>
@@ -723,7 +723,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                     </span>
                   </li>
                 </Link>
-                <Link to={'/grievance/citizen/citizen-testimonials'}>
+                <Link to={'/bug-log/citizen/citizen-testimonials'}>
                   {' '}
                   <li className='w-full px-4 py-2 hover:bg-[#99B37C] hover:text-white'>
                     <span className='w-full  cursor-pointer py-2'>
@@ -738,7 +738,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
 
           <div className='flex-initial border-l border-l-white'></div>
 
-          {/* <Link className="link-underline link-underline-black flex items-center" to={'/grievance'}>
+          {/* <Link className="link-underline link-underline-black flex items-center" to={'/bug-log'}>
                         <span className="cursor-pointer  px-2"><ChangeLanguage/></span>
                     </Link>
                     <div className="flex-initial border-l border-l-white"></div> */}
@@ -779,14 +779,14 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className='cursor-pointer'>
                   {' '}
-                  <Link to={'/grievance/auth/citizen-sign-up'}>
+                  <Link to={'/bug-log/auth/citizen-sign-up'}>
                     <span className='cursor-pointer  px-2 '>
                       {currentLanguage?.CITIZEN_LOGIN}
                     </span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className='cursor-pointer'>
-                  <Link to={'/grievance/auth/login'}>
+                  <Link to={'/bug-log/auth/login'}>
                     <span className='cursor-pointer  px-2 '>
                       {currentLanguage?.ADMIN_LOGIN}
                     </span>

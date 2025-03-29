@@ -36,27 +36,27 @@ export default function AllRoutes() {
   return (
     <Routes>
       <Route
-        path='/grievance'
-        element={<Navigate to='/grievance/main' />}
+        path='/bug-log'
+        element={<Navigate to='/bug-log/main' />}
         index={true}
       />
       {/* <Route
-        path='/grievance'
-        element={<Navigate to='/grievance/main' />}
+        path='/bug-log'
+        element={<Navigate to='/bug-log/main' />}
         index={true}
       /> */}
 
       {user?.role == 'Citizen user' && (
         <Route
-          path='/grievance'
-          element={<Navigate to='/grievance/citizen-dashboard/home' />}
+          path='/bug-log'
+          element={<Navigate to='/bug-log/citizen-dashboard/home' />}
           index={true}
         />
       )}
       {user?.role == 'State Admin' && (
         <Route
-          path='/grievance'
-          element={<Navigate to='/grievance/dashboard/analytics-dashboard' />}
+          path='/bug-log'
+          element={<Navigate to='/bug-log/dashboard/analytics-dashboard' />}
           index={true}
         />
       )}
@@ -64,17 +64,17 @@ export default function AllRoutes() {
         user?.role != 'State Admin' &&
         user?.role != 'Citizen user' && (
           <Route
-            path='/grievance'
-            element={<Navigate to='/grievance/dashboard/home' />}
+            path='/bug-log'
+            element={<Navigate to='/bug-log/dashboard/home' />}
             index={true}
           />
         )}
       <Route
-        path='/grievance/auth/login/transfer'
-        element={<Navigate to='/grievance/auth/login' />}
+        path='/bug-log/auth/login/transfer'
+        element={<Navigate to='/bug-log/auth/login' />}
       />
 
-      <Route path='/grievance/main' element={<MainLayout />}>
+      <Route path='/bug-log/main' element={<MainLayout />}>
         {routes?.map(
           ({ layout, pages }) =>
             layout === 'main' &&
@@ -83,7 +83,7 @@ export default function AllRoutes() {
             ))
         )}
       </Route>
-      <Route path='/grievance/citizen' element={<CitizenLayout />}>
+      <Route path='/bug-log/citizen' element={<CitizenLayout />}>
         {routes?.map(
           ({ layout, pages }) =>
             layout === 'citizen' &&
@@ -95,7 +95,7 @@ export default function AllRoutes() {
 
       {/*************************************Auth Routes********************************************/}
       <Route
-        path='/grievance/auth'
+        path='/bug-log/auth'
         element={
           <GuestGuard>
             <AuthLayout />
@@ -113,7 +113,7 @@ export default function AllRoutes() {
 
       {/*************************************Dashboard Routes*******************************************/}
       <Route
-        path='/grievance/dashboard'
+        path='/bug-log/dashboard'
         element={
           <AuthGuard>
             <DashboardLayout />
@@ -130,7 +130,7 @@ export default function AllRoutes() {
       </Route>
       {/* citizen dashboard */}
       <Route
-        path='/grievance/citizen-dashboard'
+        path='/bug-log/citizen-dashboard'
         element={
           <AuthGuard>
             <CitizenDashboardLayout />

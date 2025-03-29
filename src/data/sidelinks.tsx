@@ -38,37 +38,37 @@ export const sidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Analytics Dashboard',
     label: '',
-    href: '/grievance/dashboard/analytics-dashboard',
+    href: '/bug-log/dashboard/analytics-dashboard',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Grievance Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 
@@ -81,7 +81,7 @@ export const sidelinks: SideLink[] = [
       {
         title: 'Grievance Workflow',
         label: '',
-        href: '/grievance/dashboard/complaint-workflow',
+        href: '/bug-log/dashboard/complaint-workflow',
         icon: <IconHexagonNumber1 size={18} />,
       },
     ],
@@ -95,49 +95,49 @@ export const sidelinks: SideLink[] = [
       // {
       //   title: 'Users Master',
       //   label: '',
-      //   href: '/grievance/dashboard/users-master',
+      //   href: '/bug-log/dashboard/users-master',
       //   icon: <Hexagon size={18} />,
       // },
       {
         title: 'Role List',
         label: '',
-        href: '/grievance/dashboard/role',
+        href: '/bug-log/dashboard/role',
         icon: <IconHexagonNumber1 size={18} />,
       },
       // {
       //   title: 'FAQ List',
       //   label: '',
-      //   href: '/grievance/dashboard/complaint',
+      //   href: '/bug-log/dashboard/complaint',
       //   icon: <IconHexagonNumber2 size={18} />,
       // },
       {
         title: 'Module Master',
         label: '',
-        href: '/grievance/dashboard/module-id',
+        href: '/bug-log/dashboard/module-id',
         icon: <IconHexagonNumber3 size={18} />,
       },
       {
         title: 'Ulb List',
         label: '',
-        href: '/grievance/dashboard/ulb-list',
+        href: '/bug-log/dashboard/ulb-list',
         icon: <IconHexagonNumber4 size={18} />,
       },
       {
         title: 'Priority List',
         label: '',
-        href: '/grievance/dashboard/priority-list',
+        href: '/bug-log/dashboard/priority-list',
         icon: <IconHexagonNumber5 size={18} />,
       },
       {
         title: 'Target Type',
         label: '',
-        href: '/grievance/dashboard/target-type',
+        href: '/bug-log/dashboard/target-type',
         icon: <IconHexagonNumber6 size={18} />,
       },
       {
         title: 'Table Form',
         label: '',
-        href: '/grievance/dashboard/table-form',
+        href: '/bug-log/dashboard/table-form',
         icon: <IconHexagonNumber7 size={18} />,
       },
       // {
@@ -149,31 +149,31 @@ export const sidelinks: SideLink[] = [
       {
         title: 'Work Flow Role',
         label: '',
-        href: '/grievance/dashboard/workflow-roles',
+        href: '/bug-log/dashboard/workflow-roles',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Grievance Source',
         label: '',
-        href: '/grievance/dashboard/complaint-source',
+        href: '/bug-log/dashboard/complaint-source',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Grievance Type',
         label: '',
-        href: '/grievance/dashboard/complaint-type',
+        href: '/bug-log/dashboard/complaint-type',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Location',
         label: '',
-        href: '/grievance/dashboard/location',
+        href: '/bug-log/dashboard/location',
         icon: <IconHexagonNumber9 size={18} />,
       },
       // {
       //   title: 'Notifications',
       //   label: '',
-      //   href: '/grievance/dashboard/notifications',
+      //   href: '/bug-log/dashboard/notifications',
       //   icon: <IconLayoutDashboard size={18} />,
       // },
     ],
@@ -187,13 +187,13 @@ export const sidelinks: SideLink[] = [
       {
         title: 'Users Master',
         label: '',
-        href: '/grievance/dashboard/users-master',
+        href: '/bug-log/dashboard/users-master',
         icon: <Hexagon size={18} />,
       },
       {
         title: 'FAQ List',
         label: '',
-        href: '/grievance/dashboard/complaint',
+        href: '/bug-log/dashboard/complaint',
         icon: <IconHexagonNumber2 size={18} />,
       },
       {
@@ -205,13 +205,13 @@ export const sidelinks: SideLink[] = [
       {
         title: 'Notifications',
         label: '',
-        href: '/grievance/dashboard/notifications',
+        href: '/bug-log/dashboard/notifications',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Citizen Feedback',
         label: '',
-        href: '/grievance/dashboard/citizen-feedback',
+        href: '/bug-log/dashboard/citizen-feedback',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -226,25 +226,25 @@ export const sidelinks: SideLink[] = [
       {
         title: 'Grievance Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Grievance SLA Report',
         label: '',
-        href: '/grievance/dashboard/grievance-sla-reports',
+        href: '/bug-log/dashboard/bug-log-sla-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Workflow Wise Report',
         label: '',
-        href: '/grievance/dashboard/wf-wise-reports',
+        href: '/bug-log/dashboard/wf-wise-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Resolution Days Report',
         label: '',
-        href: '/grievance/dashboard/resolution-days-reports',
+        href: '/bug-log/dashboard/resolution-days-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -263,19 +263,19 @@ export const ulbAdminSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   // {
   //   title: 'Complaint Entry',
   //   label: '',
-  //   href: '/grievance/dashboard/management-complaint-form',
+  //   href: '/bug-log/dashboard/management-complaint-form',
   //   icon: <IconChecklist size={18} />,
   // },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
 
@@ -288,7 +288,7 @@ export const ulbAdminSidelinks: SideLink[] = [
   //     {
   //       title: 'Complaint Workflow',
   //       label: '',
-  //       href: '/grievance/dashboard/complaint-workflow',
+  //       href: '/bug-log/dashboard/complaint-workflow',
   //       icon: <IconHexagonNumber1 size={18} />,
   //     },
   //   ],
@@ -302,7 +302,7 @@ export const ulbAdminSidelinks: SideLink[] = [
       {
         title: 'Users Master',
         label: '',
-        href: '/grievance/dashboard/users-master',
+        href: '/bug-log/dashboard/users-master',
         icon: <Hexagon size={18} />,
       },
       {
@@ -323,25 +323,25 @@ export const ulbAdminSidelinks: SideLink[] = [
       {
         title: 'Grievance Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Grievance SLA Report',
         label: '',
-        href: '/grievance/dashboard/grievance-sla-reports',
+        href: '/bug-log/dashboard/bug-log-sla-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Workflow Wise Report',
         label: '',
-        href: '/grievance/dashboard/wf-wise-reports',
+        href: '/bug-log/dashboard/wf-wise-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Resolution Days Report',
         label: '',
-        href: '/grievance/dashboard/resolution-days-reports',
+        href: '/bug-log/dashboard/resolution-days-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -349,13 +349,13 @@ export const ulbAdminSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -365,19 +365,19 @@ export const superAdminSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Active Bugs',
     label: '',
-    href: '/grievance/dashboard/complaint-workflow',
+    href: '/bug-log/dashboard/complaint-workflow',
     icon: <IconHexagonNumber1 size={18} />,
   },
   {
     title: 'Bug Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
 
@@ -390,27 +390,27 @@ export const superAdminSidelinks: SideLink[] = [
       {
         title: 'Role List',
         label: '',
-        href: '/grievance/dashboard/role',
+        href: '/bug-log/dashboard/role',
         icon: <IconHexagonNumber1 size={18} />,
       },
 
       {
         title: 'Priority List',
         label: '',
-        href: '/grievance/dashboard/priority-list',
+        href: '/bug-log/dashboard/priority-list',
         icon: <IconHexagonNumber5 size={18} />,
       },
 
       {
         title: 'Platform',
         label: '',
-        href: '/grievance/dashboard/complaint-source',
+        href: '/bug-log/dashboard/complaint-source',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Users Master',
         label: '',
-        href: '/grievance/dashboard/users-master',
+        href: '/bug-log/dashboard/users-master',
         icon: <Hexagon size={18} />,
       },
     ],
@@ -424,7 +424,7 @@ export const superAdminSidelinks: SideLink[] = [
       {
         title: 'Bug Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -433,13 +433,13 @@ export const superAdminSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -449,32 +449,32 @@ export const jskSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
 
   {
     title: 'Grievance Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -484,19 +484,19 @@ export const normalSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   // {
   //   title: 'Complaint Entry',
   //   label: '',
-  //   href: '/grievance/dashboard/management-complaint-form',
+  //   href: '/bug-log/dashboard/management-complaint-form',
   //   icon: <IconChecklist size={18} />,
   // },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
@@ -508,7 +508,7 @@ export const normalSidelinks: SideLink[] = [
       {
         title: 'Grievance Workflow',
         label: '',
-        href: '/grievance/dashboard/complaint-workflow',
+        href: '/bug-log/dashboard/complaint-workflow',
         icon: <IconHexagonNumber1 size={18} />,
       },
     ],
@@ -516,13 +516,13 @@ export const normalSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -532,19 +532,19 @@ export const stateGroSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   // {
   //   title: 'Complaint Entry',
   //   label: '',
-  //   href: '/grievance/dashboard/management-complaint-form',
+  //   href: '/bug-log/dashboard/management-complaint-form',
   //   icon: <IconChecklist size={18} />,
   // },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
@@ -556,7 +556,7 @@ export const stateGroSidelinks: SideLink[] = [
       {
         title: 'Grievance Workflow',
         label: '',
-        href: '/grievance/dashboard/complaint-workflow',
+        href: '/bug-log/dashboard/complaint-workflow',
         icon: <IconHexagonNumber1 size={18} />,
       },
     ],
@@ -570,25 +570,25 @@ export const stateGroSidelinks: SideLink[] = [
       {
         title: 'Grievance Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Grievance SLA Report',
         label: '',
-        href: '/grievance/dashboard/grievance-sla-reports',
+        href: '/bug-log/dashboard/bug-log-sla-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Workflow Wise Report',
         label: '',
-        href: '/grievance/dashboard/wf-wise-reports',
+        href: '/bug-log/dashboard/wf-wise-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Resolution Days Report',
         label: '',
-        href: '/grievance/dashboard/resolution-days-reports',
+        href: '/bug-log/dashboard/resolution-days-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -596,13 +596,13 @@ export const stateGroSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -612,19 +612,19 @@ export const ulbGroSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Active Bugs',
     label: '',
-    href: '/grievance/dashboard/complaint-workflow',
+    href: '/bug-log/dashboard/complaint-workflow',
     icon: <IconHexagonNumber1 size={18} />,
   },
   {
     title: 'Bug Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
 
@@ -637,33 +637,33 @@ export const ulbGroSidelinks: SideLink[] = [
       {
         title: 'Role List',
         label: '',
-        href: '/grievance/dashboard/role',
+        href: '/bug-log/dashboard/role',
         icon: <IconHexagonNumber1 size={18} />,
       },
 
       {
         title: 'Priority List',
         label: '',
-        href: '/grievance/dashboard/priority-list',
+        href: '/bug-log/dashboard/priority-list',
         icon: <IconHexagonNumber5 size={18} />,
       },
 
       {
         title: 'Platform',
         label: '',
-        href: '/grievance/dashboard/complaint-source',
+        href: '/bug-log/dashboard/complaint-source',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Projects',
         label: '',
-        href: '/grievance/dashboard/project-mstrs',
+        href: '/bug-log/dashboard/project-mstrs',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Users Master',
         label: '',
-        href: '/grievance/dashboard/users-master',
+        href: '/bug-log/dashboard/users-master',
         icon: <Hexagon size={18} />,
       },
     ],
@@ -677,7 +677,7 @@ export const ulbGroSidelinks: SideLink[] = [
       {
         title: 'Bug Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -686,13 +686,13 @@ export const ulbGroSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -702,19 +702,19 @@ export const stateAdminSidelinks: SideLink[] = [
   {
     title: 'Analytics Dashboard',
     label: '',
-    href: '/grievance/dashboard/analytics-dashboard',
+    href: '/bug-log/dashboard/analytics-dashboard',
     icon: <IconLayoutDashboard size={18} />,
   },
   // {
   //   title: 'Complaint Entry',
   //   label: '',
-  //   href: '/grievance/dashboard/management-complaint-form',
+  //   href: '/bug-log/dashboard/management-complaint-form',
   //   icon: <IconChecklist size={18} />,
   // },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
 
@@ -727,74 +727,74 @@ export const stateAdminSidelinks: SideLink[] = [
       {
         title: 'Role List',
         label: '',
-        href: '/grievance/dashboard/role',
+        href: '/bug-log/dashboard/role',
         icon: <IconHexagonNumber1 size={18} />,
       },
 
       {
         title: 'Module Master',
         label: '',
-        href: '/grievance/dashboard/module-id',
+        href: '/bug-log/dashboard/module-id',
         icon: <IconHexagonNumber3 size={18} />,
       },
       {
         title: 'Ulb List',
         label: '',
-        href: '/grievance/dashboard/ulb-list',
+        href: '/bug-log/dashboard/ulb-list',
         icon: <IconHexagonNumber4 size={18} />,
       },
       {
         title: 'Priority List',
         label: '',
-        href: '/grievance/dashboard/priority-list',
+        href: '/bug-log/dashboard/priority-list',
         icon: <IconHexagonNumber5 size={18} />,
       },
       {
         title: 'Target Type',
         label: '',
-        href: '/grievance/dashboard/target-type',
+        href: '/bug-log/dashboard/target-type',
         icon: <IconHexagonNumber6 size={18} />,
       },
       {
         title: 'Table Form',
         label: '',
-        href: '/grievance/dashboard/table-form',
+        href: '/bug-log/dashboard/table-form',
         icon: <IconHexagonNumber7 size={18} />,
       },
       {
         title: 'Work Flow Role',
         label: '',
-        href: '/grievance/dashboard/workflow-roles',
+        href: '/bug-log/dashboard/workflow-roles',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Grievance Problems',
         label: '',
-        href: '/grievance/dashboard/gr-problems',
+        href: '/bug-log/dashboard/gr-problems',
         icon: <IconHexagonNumber4 size={18} />,
       },
       {
         title: 'Grievance Departments',
         label: '',
-        href: '/grievance/dashboard/gr-department',
+        href: '/bug-log/dashboard/gr-department',
         icon: <IconHexagonNumber4 size={18} />,
       },
       {
         title: 'Grievance Source',
         label: '',
-        href: '/grievance/dashboard/complaint-source',
+        href: '/bug-log/dashboard/complaint-source',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Grievance Type',
         label: '',
-        href: '/grievance/dashboard/complaint-type',
+        href: '/bug-log/dashboard/complaint-type',
         icon: <IconHexagonNumber9 size={18} />,
       },
       {
         title: 'Location',
         label: '',
-        href: '/grievance/dashboard/location',
+        href: '/bug-log/dashboard/location',
         icon: <IconHexagonNumber9 size={18} />,
       },
     ],
@@ -808,13 +808,13 @@ export const stateAdminSidelinks: SideLink[] = [
       {
         title: 'Users Master',
         label: '',
-        href: '/grievance/dashboard/users-master',
+        href: '/bug-log/dashboard/users-master',
         icon: <Hexagon size={18} />,
       },
       {
         title: 'FAQ List',
         label: '',
-        href: '/grievance/dashboard/complaint',
+        href: '/bug-log/dashboard/complaint',
         icon: <IconHexagonNumber2 size={18} />,
       },
       {
@@ -826,13 +826,13 @@ export const stateAdminSidelinks: SideLink[] = [
       {
         title: 'Notifications',
         label: '',
-        href: '/grievance/dashboard/notifications',
+        href: '/bug-log/dashboard/notifications',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Citizen Feedback',
         label: '',
-        href: '/grievance/dashboard/citizen-feedback',
+        href: '/bug-log/dashboard/citizen-feedback',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -847,25 +847,25 @@ export const stateAdminSidelinks: SideLink[] = [
       {
         title: 'Grievance Report',
         label: '',
-        href: '/grievance/dashboard/complaint-reports',
+        href: '/bug-log/dashboard/complaint-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Grievance SLA Report',
         label: '',
-        href: '/grievance/dashboard/grievance-sla-reports',
+        href: '/bug-log/dashboard/bug-log-sla-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Workflow Wise Report',
         label: '',
-        href: '/grievance/dashboard/wf-wise-reports',
+        href: '/bug-log/dashboard/wf-wise-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
       {
         title: 'Resolution Days Report',
         label: '',
-        href: '/grievance/dashboard/resolution-days-reports',
+        href: '/bug-log/dashboard/resolution-days-reports',
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
@@ -874,13 +874,13 @@ export const stateAdminSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -890,32 +890,32 @@ export const stateJskSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
 
   {
     title: 'Grievance Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
@@ -926,26 +926,26 @@ export const stateJskSidelinks: SideLink[] = [
 //   {
 //     title: 'Dashboard' ,
 //     label: '',
-//     href: '/grievance/citizen-dashboard/home',
+//     href: '/bug-log/citizen-dashboard/home',
 //     icon: <IconLayoutDashboard size={18} />,
 //   },
 
 //   {
 //     title: 'All Grievance',
 //     label: '',
-//     href: '/grievance/citizen-dashboard/all-complaints',
+//     href: '/bug-log/citizen-dashboard/all-complaints',
 //     icon: <IconChecklist size={18} />,
 //   },
 //   {
 //     title: 'All Feedbacks',
 //     label: '',
-//     href: '/grievance/citizen-dashboard/citizen-testimonials',
+//     href: '/bug-log/citizen-dashboard/citizen-testimonials',
 //     icon: <IconChecklist size={18} />,
 //   },
 //   {
 //     title: 'Give Your Feedback',
 //     label: '',
-//     href: '/grievance/citizen-dashboard/citizen-review',
+//     href: '/bug-log/citizen-dashboard/citizen-review',
 //     icon: <IconChecklist size={18} />,
 //   },
 //   {
@@ -957,55 +957,55 @@ export const stateJskSidelinks: SideLink[] = [
 //       {
 //         title: 'Property Tools',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=property',
+//         href: '/bug-log/citizen-dashboard/tools?type=property',
 //         icon: <IconHexagonNumber1 size={18} />,
 //       },
 //       {
 //         title: 'Water Tools',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=water',
+//         href: '/bug-log/citizen-dashboard/tools?type=water',
 //         icon: <IconHexagonNumber2 size={18} />,
 //       },
 //       {
 //         title: 'Trade Tools',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=trade_License',
+//         href: '/bug-log/citizen-dashboard/tools?type=trade_License',
 //         icon: <IconHexagonNumber3 size={18} />,
 //       },
 //       {
 //         title: 'General Tools',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=general',
+//         href: '/bug-log/citizen-dashboard/tools?type=general',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //       {
 //         title: 'Pet Registration',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=pet_Registration',
+//         href: '/bug-log/citizen-dashboard/tools?type=pet_Registration',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //       {
 //         title: 'Septic Tank Cleaning Tools',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=septic_Tank_Cleaning',
+//         href: '/bug-log/citizen-dashboard/tools?type=septic_Tank_Cleaning',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //       {
 //         title: 'Water User Charge',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=water_User_Charge',
+//         href: '/bug-log/citizen-dashboard/tools?type=water_User_Charge',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //       {
 //         title: 'Advertisement Tax',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=advertisement_Tax',
+//         href: '/bug-log/citizen-dashboard/tools?type=advertisement_Tax',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //       {
 //         title: 'Lodge And Banquet',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/tools?type=lodge_And_Banquet_Registration',
+//         href: '/bug-log/citizen-dashboard/tools?type=lodge_And_Banquet_Registration',
 //         icon: <IconHexagonNumber4 size={18} />,
 //       },
 //     ],
@@ -1019,19 +1019,19 @@ export const stateJskSidelinks: SideLink[] = [
 //       {
 //         title: 'Zone Wise Ward List',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/zone-ward-list',
+//         href: '/bug-log/citizen-dashboard/zone-ward-list',
 //         icon: <IconHexagonNumber1 size={18} />,
 //       },
 //       {
 //         title: 'FAQ',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/citizen-faq',
+//         href: '/bug-log/citizen-dashboard/citizen-faq',
 //         icon: <IconHexagonNumber2 size={18} />,
 //       },
 //       {
 //         title: 'Privacy Policy',
 //         label: '',
-//         href: '/grievance/citizen-dashboard/privacy-policy',
+//         href: '/bug-log/citizen-dashboard/privacy-policy',
 //         icon: <IconHexagonNumber3 size={18} />,
 //       },
 
@@ -1040,7 +1040,7 @@ export const stateJskSidelinks: SideLink[] = [
 //   {
 //     title: 'Profile',
 //     label: '',
-//     href: '/grievance/citizen-dashboard/profile',
+//     href: '/bug-log/citizen-dashboard/profile',
 //     icon: <IconChecklist size={18} />,
 //   },
 // ]
@@ -1059,28 +1059,28 @@ export const citizenLinks = () => {
     {
       title: currentLanguage?.DASHBOARD,
       label: '',
-      href: '/grievance/citizen-dashboard/home',
+      href: '/bug-log/citizen-dashboard/home',
       icon: <IconLayoutDashboard size={18} />,
       isHref: false
     },
     {
       title: currentLanguage?.ALL_GR,
       label: '',
-      href: '/grievance/citizen-dashboard/all-complaints',
+      href: '/bug-log/citizen-dashboard/all-complaints',
       icon: <IconChecklist size={18} />,
       isHref: false
     },
     {
       title: currentLanguage?.AF,
       label: '',
-      href: '/grievance/citizen-dashboard/citizen-testimonials',
+      href: '/bug-log/citizen-dashboard/citizen-testimonials',
       icon: <IconChecklist size={18} />,
       isHref: false
     },
     {
       title: currentLanguage?.GYF,
       label: '',
-      href: '/grievance/citizen-dashboard/citizen-review',
+      href: '/bug-log/citizen-dashboard/citizen-review',
       icon: <IconChecklist size={18} />,
       isHref: false
     },
@@ -1093,25 +1093,25 @@ export const citizenLinks = () => {
         {
           title: currentLanguage?.PROPERTY_TOOLS,
           label: '',
-          href: '/grievance/citizen-dashboard/tools?type=property',
+          href: '/bug-log/citizen-dashboard/tools?type=property',
           icon: <IconHexagonNumber1 size={18} />,
         },
         {
           title: currentLanguage?.WATER_TOOLS,
           label: '',
-          href: '/grievance/citizen-dashboard/tools?type=water',
+          href: '/bug-log/citizen-dashboard/tools?type=water',
           icon: <IconHexagonNumber2 size={18} />,
         },
         {
           title: currentLanguage?.TRADE_TOOLS,
           label: '',
-          href: '/grievance/citizen-dashboard/tools?type=trade_License',
+          href: '/bug-log/citizen-dashboard/tools?type=trade_License',
           icon: <IconHexagonNumber3 size={18} />,
         },
         {
           title: currentLanguage?.GENERAL_TOOLS,
           label: '',
-          href: '/grievance/citizen-dashboard/tools?type=general',
+          href: '/bug-log/citizen-dashboard/tools?type=general',
           icon: <IconHexagonNumber4 size={18} />,
         },
       ],
@@ -1126,19 +1126,19 @@ export const citizenLinks = () => {
         // {
         //   title: currentLanguage?.L,
         //   label: '',
-        //   href: '/grievance/citizen-dashboard/zone-ward-list',
+        //   href: '/bug-log/citizen-dashboard/zone-ward-list',
         //   icon: <IconHexagonNumber1 size={18} />,
         // },
         {
           title: currentLanguage?.FAQ_SRT,
           label: '',
-          href: '/grievance/citizen-dashboard/citizen-faq',
+          href: '/bug-log/citizen-dashboard/citizen-faq',
           icon: <IconHexagonNumber1 size={18} />,
         },
         {
           title: currentLanguage?.PRIVACY_POLICY,
           label: '',
-          href: '/grievance/citizen-dashboard/privacy-policy',
+          href: '/bug-log/citizen-dashboard/privacy-policy',
           icon: <IconHexagonNumber2 size={18} />,
         },
       ],
@@ -1168,19 +1168,19 @@ export const telecallerSidelinks: SideLink[] = [
   {
     title: 'Dashboard',
     label: '',
-    href: '/grievance/dashboard/home',
+    href: '/bug-log/dashboard/home',
     icon: <IconLayoutDashboard size={18} />,
   },
   {
     title: 'Complaint Entry',
     label: '',
-    href: '/grievance/dashboard/management-complaint-form',
+    href: '/bug-log/dashboard/management-complaint-form',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Search Grievance',
     label: '',
-    href: '/grievance/dashboard/complaint-reports',
+    href: '/bug-log/dashboard/complaint-reports',
     icon: <IconLayoutDashboard size={18} />,
   },
 
@@ -1193,7 +1193,7 @@ export const telecallerSidelinks: SideLink[] = [
   //     {
   //       title: 'Complaint Workflow',
   //       label: '',
-  //       href: '/grievance/dashboard/complaint-workflow',
+  //       href: '/bug-log/dashboard/complaint-workflow',
   //       icon: <IconHexagonNumber1 size={18} />,
   //     },
   //   ],
@@ -1207,7 +1207,7 @@ export const telecallerSidelinks: SideLink[] = [
   //     {
   //       title: 'Users Master',
   //       label: '',
-  //       href: '/grievance/dashboard/users-master',
+  //       href: '/bug-log/dashboard/users-master',
   //       icon: <Hexagon size={18} />,
   //     },
   //     {
@@ -1221,13 +1221,13 @@ export const telecallerSidelinks: SideLink[] = [
   {
     title: 'Change Password',
     label: '',
-    href: '/grievance/dashboard/change-password',
+    href: '/bug-log/dashboard/change-password',
     icon: <IconChecklist size={18} />,
   },
   {
     title: 'Profile',
     label: '',
-    href: '/grievance/dashboard/profile',
+    href: '/bug-log/dashboard/profile',
     icon: <IconChecklist size={18} />,
   },
 ]
