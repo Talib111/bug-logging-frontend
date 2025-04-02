@@ -409,7 +409,7 @@ export default function EnteranceWorkflowDetails({
                   <div className='font-semibold'>Title : </div>
                   <div>
                     <p className='opacity-90'>
-                      {complaintData?.data?.data?.ulb?.ulbName}
+                      {complaintData?.data?.data?.bugTitle}
                     </p>{' '}
                   </div>
                 </div>
@@ -420,7 +420,7 @@ export default function EnteranceWorkflowDetails({
                   <div className='font-semibold'>Description : </div>
                   <div>
                     <p className='opacity-90'>
-                      {complaintData?.data?.data?.complaintDescription}
+                      {complaintData?.data?.data?.bugDescription}
                     </p>{' '}
                   </div>
                 </div>

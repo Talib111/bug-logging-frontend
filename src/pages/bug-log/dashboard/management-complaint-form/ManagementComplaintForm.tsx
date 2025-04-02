@@ -1,4 +1,3 @@
-; ('')
 import toast from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -30,7 +29,6 @@ export default function CitizenComplaintForm() {
   const query = useQuery()
   const bugId = query.get('bugId')
 
-  console.log(newRole, 'newRole')
 
   const schema = yup.object().shape({
     platformId: yup.string().required('Platform is required'),
@@ -159,7 +157,7 @@ export default function CitizenComplaintForm() {
             <span className='text-red-500'>*</span>Bug Description</Label>
           <RHFTextArea
             className='h-20 w-full rounded-md border bg-background p-4'
-            name='complaintDescription'
+            name='bugDescription'
             placeholder='write Grievance'
           />
         </div>
