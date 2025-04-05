@@ -25,7 +25,7 @@ import {
 import { useDownloadExcel } from 'react-export-table-to-excel'
 import { Separator } from '@/components/ui/separator'
 import PaginationComponent from '@/components/pagination'
-import { useApi,usePutMutation } from '@/hooks/useCustomQuery'
+import { useApi, usePutMutation } from '@/hooks/useCustomQuery'
 import { grievanceAPI } from '@/lib'
 import { Label } from '@/components/ui/label'
 import Spinner from '@/components/loaders/Spinner'
@@ -53,7 +53,7 @@ const schema = yup.object().shape({
   slaStatusSearch: yup.string(),
   toDate: yup.string(),
   complaintRefNo: yup.string(),
-  type:yup.string(),
+  type: yup.string(),
 });
 
 
@@ -81,7 +81,7 @@ export default function ComplaintReport() {
       fDate: '',
       toDate: '',
       complaintRefNo: '',
-      type:'',
+      type: '',
     },
   })
   console.log('methods')
@@ -101,7 +101,7 @@ export default function ComplaintReport() {
     },
   })
 
-  
+
 
   // console.log(data,"=========================>")
 
@@ -247,7 +247,7 @@ export default function ComplaintReport() {
             isHighlighted: true,
           },
         });
-  
+
         if (res.data?.success) {
           // Update the state to reflect that the complaint has been highlighted
           setHighlightedComplaints(prev => new Set(prev).add(Id));
@@ -259,10 +259,10 @@ export default function ComplaintReport() {
         toast.error('This Application is not highlighted');
       }
     };
-  
+
     Confirm('Do you want to highlight this complaint?', 'Please confirm', confirmAction);
   };
- console.log("Bug Fixing- ",getUlbData?.data?.data?.docs)
+  console.log("Bug Fixing- ", getUlbData?.data?.data?.docs)
   return (
     <>
       <FormProviders
@@ -291,14 +291,14 @@ export default function ComplaintReport() {
             <Label htmlFor='toDate'>Upto Date</Label>
             <RHFTextField name='toDate' type='date' className='' />
           </div>
-          
+
           <div>
             <Label htmlFor='ulbId'>ULB</Label>
             <SelectField
               className='cursor-pointer bg-background'
-              name='ulbId' 
-              data={ 
-                              
+              name='ulbId'
+              data={
+
                 getUlbData.data?.data?.docs?.map((item: any) => {
                   return {
                     value: item?._id,
@@ -431,9 +431,12 @@ export default function ComplaintReport() {
         <Card>
           <CardHeader className='px-7'>
             <CardDescription className='flex justify-between'>
-              <h1>
-                Grievance List ({complaintReportData.data?.data?.totalDocs})
-              </h1>
+              <div>
+                Bug & Enhancement Report - <span>From </span> <span>{methods.watch('fDate')
+                  ? moment(methods.watch('fDate')).format('DD-MM-YYYY') : 'N/A'}{' '}</span> 
+                  <span>upto </span> <span>{methods.watch('toDate')
+                    ? moment(methods.watch('toDate')).format('DD-MM-YYYY') : 'N/A'}{' '}</span>
+              </div>
               {/* <h1 className='flex gap-2 '>
                 <button className='w-8 cursor-pointer' onClick={onDownload}><img src={xcl} alt="xcl" /></button>
                 <button className='w-8 ' onClick={() => printTableInPDF(complaintReportData)}><img src={pdf} alt="pdf" /></button>
@@ -449,106 +452,152 @@ export default function ComplaintReport() {
               <div>
                 <Table ref={tableRef}>
                   <TableHeader>
-                    <TableRow>
+                    {/* <TableRow>
                       <TableHead className=''>#</TableHead>
-                      <TableHead className=''>Grievance No.</TableHead>
-                      <TableHead className=''>Department</TableHead>
+                      <TableHead className=''>Platform</TableHead>
+                      <TableHead className=''>Title</TableHead>
+                      <TableHead className='line-clamp-2'>Description</TableHead>
+                      <TableHead>Priority</TableHead>
+                      <TableHead>Tracking No.</TableHead>
                       {methods.watch('fDate') && (
                         <TableHead className=''>From Date</TableHead>
                       )}
                       {methods.watch('toDate') && (
                         <TableHead className=''>Upto Date</TableHead>
                       )}
+                      <TableCell>
+                        Date
+                      </TableCell>
+
                       <TableHead className=''>Ulb Name</TableHead>
-                      {/* <TableHead className=''>Module</TableHead> */}
                       <TableHead className=''>Citizen Name</TableHead>
                       <TableHead className=''>Mobile No.</TableHead>
                       <TableHead className=''>Resolve Status</TableHead>
                       <TableHead className=''>View</TableHead>
-                      {!(user?.role === 'ULB GRO' || user?.role === 'ULB Admin' || user?.role === 'Normal'  || user?.role === 'Telecaller'  || user?.role === 'State Jsk/Ivr/Calling' || user?.role === 'Jsk/ Ivr /Calling') && (
-  <TableHead className="">Action</TableHead>
-)}
+                      {!(user?.role === 'ULB GRO' || user?.role === 'ULB Admin' || user?.role === 'Normal' || user?.role === 'Telecaller' || user?.role === 'State Jsk/Ivr/Calling' || user?.role === 'Jsk/ Ivr /Calling') && (
+                        <TableHead className="">Action</TableHead>
+                      )}
 
+                    </TableRow> */}
+                    <TableRow>
+                      <TableHead className=''>#</TableHead>
+                      <TableHead className=''>Platform</TableHead>
+                      <TableHead className=''>Title</TableHead>
+                      <TableHead className=''>Description</TableHead>
+                      <TableHead className=''>Priority</TableHead>
+                      <TableHead className=''>Tracking No.</TableHead>
+                      <TableHead className=''>Date</TableHead>
+                      <TableHead className=''>Status</TableHead>
+                      <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {complaintReportData?.data?.data?.docs?.map(
                       (items: any, index: any) => (
-                        <TableRow key={items._id}>
-                          <TableCell>
-                            {page * perPage - perPage + index + 1}
-                          </TableCell>
-                          <TableCell>{items.complaintRefNo || 'N/A'}</TableCell>
-                          <TableCell>
-                            {items?.department?.department || 'N/A'}
-                          </TableCell>
-                          {/* <TableCell>{items.complaintTitle || 'N/A'}</TableCell> */}
-                          {methods.watch('fDate') && (
-                            <TableCell>
-                              {methods.watch('fDate')
-                                ? moment(methods.watch('fDate')).format(
-                                  'DD-MM-YYYY'
-                                )
-                                : 'N/A'}{' '}
-                            </TableCell>
-                          )}
-                          {methods.watch('toDate') && (
-                            <TableCell>
-                              {moment(items.createdAt).format('DD-MM-YYYY') ||
-                                'N/A'}
-                            </TableCell>
-                          )}
-                          <TableCell>{items.ulb?.ulbName || 'N/A'}</TableCell>
-                          {/* <TableCell>
-                            {items.module?.moduleName || 'N/A'}
-                          </TableCell> */}
-                          <TableCell>{items.citizenName || 'N/A'}</TableCell>
-                          <TableCell>{items.mobileNo || 'N/A'}</TableCell>
-                          {/* <TableCell>{items.wf_status == 0 ? "Pending" : "Resolved"}</TableCell> */}
+                        // <TableRow key={items._id}>
+                        //   <TableCell>
+                        //     {page * perPage - perPage + index + 1}
+                        //   </TableCell>
+                        //   <TableCell>{items.complaintRefNo || 'N/A'}</TableCell>
+                        //   <TableCell>
+                        //     {items?.department?.department || 'N/A'}
+                        //   </TableCell>
+                        //   {methods.watch('fDate') && (
+                        //     <TableCell>
+                        //       {methods.watch('fDate')
+                        //         ? moment(methods.watch('fDate')).format(
+                        //           'DD-MM-YYYY'
+                        //         )
+                        //         : 'N/A'}{' '}
+                        //     </TableCell>
+                        //   )}
+                        //   {methods.watch('toDate') && (
+                        //     <TableCell>
+                        //       {moment(items.createdAt).format('DD-MM-YYYY') ||
+                        //         'N/A'}
+                        //     </TableCell>
+                        //   )}
+                        //   <TableCell>{items.ulb?.ulbName || 'N/A'}</TableCell>
 
+                        //   <TableCell>{items.citizenName || 'N/A'}</TableCell>
+                        //   <TableCell>{items.mobileNo || 'N/A'}</TableCell>
+
+                        //   <TableCell>
+                        //     {items?.wf_status === 4 && (
+                        //       <Badge variant={'destructive'}>Closed</Badge>
+                        //     )}
+                        //     {items?.wf_status === 3 && (
+                        //       <Badge className='bg-amber-500 text-white'>
+                        //         Pending(Re-Opened)
+                        //       </Badge>
+                        //     )}
+                        //     {items?.wf_status === 2 && (
+                        //       <Badge variant={'destructive'}>Rejected</Badge>
+                        //     )}
+                        //     {items?.wf_status === 1 && (
+                        //       <Badge variant={'success'}>Resolved</Badge>
+                        //     )}
+                        //     {items?.wf_status === 0 && (
+                        //       <Badge variant={'secondary'}>Pending</Badge>
+                        //     )}
+                        //   </TableCell>
+                        //   <TableCell>
+                        //     <Link
+                        //       to={`/bug-log/dashboard/management-complaint-details?complaintRefNo=${items?.complaintRefNo}
+                        //  &complaintId=${items?._id}`}
+                        //     >
+                        //       <Button className='bg-primary' onClick={() => { }}>
+                        //         View
+                        //       </Button>
+                        //     </Link>
+                        //   </TableCell>
+
+                        //   {!(user?.role === 'ULB GRO' || user?.role === 'ULB Admin' || user?.role === 'Normal' || user?.role === 'Telecaller' || user?.role === 'State Jsk/Ivr/Calling' || user?.role === 'Jsk/ Ivr /Calling') && (
+                        //     <TableCell>
+                        //       {highlightedComplaints.has(items?._id) || items?.isHighlighted ? (
+                        //         <Button type="button" className="bg-green-500">
+                        //           Highlighted
+                        //         </Button>
+                        //       ) : (
+                        //         <Button type="button" className="bg-red-500" onClick={() => highlightedBy(items?._id)}>
+                        //           Highlight
+                        //         </Button>
+                        //       )}
+                        //     </TableCell>
+                        //   )}
+                        // </TableRow>
+                        <TableRow key={items._id}>
+                          <TableCell className='relative'>
+                            <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
+                              New
+                            </span>
+                            {index + 1}</TableCell>
+                          <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
+                          <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
+                          <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                          <TableCell>{items?.priority || 'N/A'}</TableCell>
+                          <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                           <TableCell>
-                            {items?.wf_status === 4 && (
-                              <Badge variant={'destructive'}>Closed</Badge>
-                            )}
-                            {items?.wf_status === 3 && (
-                              <Badge className='bg-amber-500 text-white'>
-                                Pending(Re-Opened)
-                              </Badge>
-                            )}
-                            {items?.wf_status === 2 && (
-                              <Badge variant={'destructive'}>Rejected</Badge>
-                            )}
-                            {items?.wf_status === 1 && (
-                              <Badge variant={'success'}>Resolved</Badge>
-                            )}
-                            {items?.wf_status === 0 && (
-                              <Badge variant={'secondary'}>Pending</Badge>
-                            )}
+                            {moment(items?.createdAt).format('DD-MM-YYYY')}
                           </TableCell>
                           <TableCell>
-                            <Link
-                              to={`/bug-log/dashboard/management-complaint-details?complaintRefNo=${items?.complaintRefNo}
-                         &complaintId=${items?._id}`}
-                            >
-                              <Button className='bg-primary' onClick={() => { }}>
+                            {items?.wf_status === 4 && <Badge variant={'destructive'}>Closed</Badge>}
+                            {items?.wf_status === 3 && <Badge className='bg-amber-500 text-white'>Pending(Re-Opened)</Badge>}
+                            {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
+                            {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
+                            {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
+                          </TableCell>
+                          <TableCell>
+                            <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
+                              <Button
+                                className='bg-primary'
+                                onClick={() => { }}
+                              >
                                 View
                               </Button>
                             </Link>
                           </TableCell>
 
-                        {!(user?.role === 'ULB GRO' || user?.role === 'ULB Admin' || user?.role === 'Normal' || user?.role === 'Telecaller' || user?.role === 'State Jsk/Ivr/Calling' || user?.role === 'Jsk/ Ivr /Calling' ) && (
-  <TableCell>
-    {highlightedComplaints.has(items?._id) || items?.isHighlighted ? (
-      <Button type="button" className="bg-green-500">
-        Highlighted
-      </Button>
-    ) : (
-      <Button type="button" className="bg-red-500" onClick={() => highlightedBy(items?._id)}>
-        Highlight
-      </Button>
-    )}
-  </TableCell>
-)}
                         </TableRow>
                       )
                     )}

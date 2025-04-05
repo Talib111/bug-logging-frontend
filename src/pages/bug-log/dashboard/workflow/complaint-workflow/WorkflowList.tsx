@@ -128,7 +128,6 @@ export default function WorkflowList() {
                           <TableHead className=''>Tracking No.</TableHead>
                           <TableHead className=''>Date</TableHead>
                           <TableHead className=''>Status</TableHead>
-                          {/* <TableHead className=''>Pending From</TableHead> */}
                           <TableHead>Action</TableHead>
                         </TableRow>
                       </TableHeader>
@@ -155,9 +154,6 @@ export default function WorkflowList() {
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
                             </TableCell>
-                            {/* <TableCell className='flex justify-center items-center'>
-                             {moment().diff(moment(items?.createdAt), 'days')} days
-                              </TableCell> */}
                             <TableCell>
                               <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
                                 <Button
