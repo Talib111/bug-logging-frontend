@@ -394,6 +394,12 @@ export const superAdminSidelinks: SideLink[] = [
     icon: <IconUserShield size={20} />,
     sub: [
       {
+        title: 'Projects',
+        label: '',
+        href: '/bug-log/dashboard/project-mstrs',
+        icon: <IconHexagonNumber9 size={18} />,
+      },
+      {
         title: 'Role List',
         label: '',
         href: '/bug-log/dashboard/role',
@@ -434,6 +440,46 @@ export const superAdminSidelinks: SideLink[] = [
         icon: <IconLayoutDashboard size={18} />,
       },
     ],
+  },
+
+  {
+    title: 'Change Password',
+    label: '',
+    href: '/bug-log/dashboard/change-password',
+    icon: <IconChecklist size={18} />,
+  },
+  {
+    title: 'Profile',
+    label: '',
+    href: '/bug-log/dashboard/profile',
+    icon: <IconChecklist size={18} />,
+  },
+]
+//2 SUPERADMIN SIDELINKS
+export const projectClientSideLinks: SideLink[] = [
+  {
+    title: 'Dashboard',
+    label: '',
+    href: '/bug-log/dashboard/client-home',
+    icon: <IconLayoutDashboard size={18} />,
+  },
+  {
+    title: 'Bug List',
+    label: '',
+    href: '/bug-log/dashboard/complaint-workflow',
+    icon: <IconHexagonNumber1 size={18} />,
+  },
+  {
+    title: 'Enhacement List',
+    label: '',
+    href: '/bug-log/dashboard/enhancement-list',
+    icon: <IconHexagonNumber1 size={18} />,
+  },
+  {
+    title: 'Bug Entry',
+    label: '',
+    href: '/bug-log/dashboard/management-complaint-form',
+    icon: <IconChecklist size={18} />,
   },
 
   {
@@ -926,134 +972,6 @@ export const stateJskSidelinks: SideLink[] = [
   },
 ]
 
-// 9 CITIZEN LINKS
-// export const citizenLinks: SideLink[] = [
-
-//   {
-//     title: 'Dashboard' ,
-//     label: '',
-//     href: '/bug-log/citizen-dashboard/home',
-//     icon: <IconLayoutDashboard size={18} />,
-//   },
-
-//   {
-//     title: 'All Grievance',
-//     label: '',
-//     href: '/bug-log/citizen-dashboard/all-complaints',
-//     icon: <IconChecklist size={18} />,
-//   },
-//   {
-//     title: 'All Feedbacks',
-//     label: '',
-//     href: '/bug-log/citizen-dashboard/citizen-testimonials',
-//     icon: <IconChecklist size={18} />,
-//   },
-//   {
-//     title: 'Give Your Feedback',
-//     label: '',
-//     href: '/bug-log/citizen-dashboard/citizen-review',
-//     icon: <IconChecklist size={18} />,
-//   },
-//   {
-//     title: 'Quick Tools',
-//     label: '',
-//     href: '',
-//     icon: <IconUserShield size={20} />,
-//     sub: [
-//       {
-//         title: 'Property Tools',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=property',
-//         icon: <IconHexagonNumber1 size={18} />,
-//       },
-//       {
-//         title: 'Water Tools',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=water',
-//         icon: <IconHexagonNumber2 size={18} />,
-//       },
-//       {
-//         title: 'Trade Tools',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=trade_License',
-//         icon: <IconHexagonNumber3 size={18} />,
-//       },
-//       {
-//         title: 'General Tools',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=general',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//       {
-//         title: 'Pet Registration',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=pet_Registration',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//       {
-//         title: 'Septic Tank Cleaning Tools',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=septic_Tank_Cleaning',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//       {
-//         title: 'Water User Charge',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=water_User_Charge',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//       {
-//         title: 'Advertisement Tax',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=advertisement_Tax',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//       {
-//         title: 'Lodge And Banquet',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/tools?type=lodge_And_Banquet_Registration',
-//         icon: <IconHexagonNumber4 size={18} />,
-//       },
-//     ],
-//   },
-//   {
-//     title: 'Support',
-//     label: '',
-//     href: '',
-//     icon: <IconUserShield size={20} />,
-//     sub: [
-//       {
-//         title: 'Zone Wise Ward List',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/zone-ward-list',
-//         icon: <IconHexagonNumber1 size={18} />,
-//       },
-//       {
-//         title: 'FAQ',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/citizen-faq',
-//         icon: <IconHexagonNumber2 size={18} />,
-//       },
-//       {
-//         title: 'Privacy Policy',
-//         label: '',
-//         href: '/bug-log/citizen-dashboard/privacy-policy',
-//         icon: <IconHexagonNumber3 size={18} />,
-//       },
-
-//     ],
-//   },
-//   {
-//     title: 'Profile',
-//     label: '',
-//     href: '/bug-log/citizen-dashboard/profile',
-//     icon: <IconChecklist size={18} />,
-//   },
-// ]
-
-
-
-
 export const citizenLinks = () => {
   const { currentLanguage, languageKey }: any = useAppContext()
 
@@ -1166,8 +1084,6 @@ export const citizenLinks = () => {
 
   return links;
 };
-
-// export default getCitizenLinks;
 
 //10 Telecaller
 export const telecallerSidelinks: SideLink[] = [

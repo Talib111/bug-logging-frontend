@@ -1,4 +1,5 @@
 export const SUPER_ADMIN = '66ed209338cab18a44004928'
+export const PROJECT_CLIENT = '67f15a321a8e8cea5c867489'
 export const STATE_ADMIN = '66b221397f7cbfccf08e3007'
 export const STATE_GRO = '66c2f05090098a7b287de760'
 export const STATE_JSK_IVR_CALLING = '66fa8b4d254df1917a7eede0'

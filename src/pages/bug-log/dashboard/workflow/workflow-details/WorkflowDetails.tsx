@@ -505,13 +505,13 @@ export default function EnteranceWorkflowDetails({
                       {complaintData?.data?.data?.wf_status === 1 && (
                         <CardTitle className='mb-4 flex items-center'>
                           <CircleCheckBig className='mr-2 inline text-green-500' />
-                          Grievance Resolved
+                          Log Resolved
                         </CardTitle>
                       )}
                       {complaintData?.data?.data?.wf_status === 2 && (
                         <CardTitle className='mb-4 flex items-center'>
                           <CircleX className='mr-2 inline text-red-500' />
-                          Grievance Rejected
+                          Log Rejected
                         </CardTitle>
                       )}
 

@@ -4,10 +4,10 @@ import { Layout } from './custom/layout'
 import { Button } from './custom/button'
 import Nav from './nav'
 import { cn } from '@/lib/utils'
-import { sidelinks, jskSidelinks, stateGroSidelinks, superAdminSidelinks, ulbAdminSidelinks, ulbGroSidelinks, stateAdminSidelinks, normalSidelinks, stateJskSidelinks , telecallerSidelinks } from '@/data/sidelinks'
+import { sidelinks, jskSidelinks, stateGroSidelinks, superAdminSidelinks, ulbAdminSidelinks, ulbGroSidelinks, stateAdminSidelinks, normalSidelinks, stateJskSidelinks, telecallerSidelinks, projectClientSideLinks } from '@/data/sidelinks'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '@/context'
-import { JSK_IVR_CALLING, NORMAL, STATE_ADMIN, STATE_GRO, STATE_JSK_IVR_CALLING, SUPER_ADMIN, ULB_ADMIN, ULB_GRO ,TELE_CALLER } from '@/../config/roles.config'
+import { JSK_IVR_CALLING, NORMAL, STATE_ADMIN, STATE_GRO, STATE_JSK_IVR_CALLING, SUPER_ADMIN, ULB_ADMIN, ULB_GRO, TELE_CALLER, PROJECT_CLIENT } from '@/../config/roles.config'
 
 interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   isCollapsed: boolean
@@ -24,7 +24,7 @@ export default function Sidebar({
   const navigate = useNavigate()
   const { user } = useAppContext()
 
-  
+
 
 
   useEffect(() => {
@@ -42,6 +42,10 @@ export default function Sidebar({
     // 2 SUERPERADMIN
     if (user?.roleId === SUPER_ADMIN) {
       setcurrentSideLinks(superAdminSidelinks)
+    }
+    // 2 PROJECT CLIENT
+    if (user?.roleId === PROJECT_CLIENT) {
+      setcurrentSideLinks(projectClientSideLinks)
     }
 
     // 3 JSK/IVR/CALLING

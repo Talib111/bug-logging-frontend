@@ -33,6 +33,7 @@ const CitizenResetPassword = lazyWithRetries(() => import('@/pages/bug-log/auth/
 // // -------------------------------After auth routes--------------------------------
 
 const Home = lazyWithRetries(() => import('@/pages/bug-log/dashboard/home'))
+const ClientHome = lazyWithRetries(() => import('@/pages/bug-log/dashboard/client-dashboard'))
 const Role = lazyWithRetries(
   () => import('@/pages/bug-log/dashboard/masters/role')
 )
@@ -418,6 +419,12 @@ const routes: Route[] = [
         name: 'Home',
         path: 'home',
         element: <Home />,
+      },
+      {
+        id: '1',
+        name: 'Client Home',
+        path: 'client-home',
+        element: <ClientHome />,
       },
       {
         id: '1',

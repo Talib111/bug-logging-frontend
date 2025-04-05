@@ -129,7 +129,7 @@ export default function LoginForm() {
                     className="rounded-lg py-5 px-5 w-full bg-gray-100 border border-gray-300"
                     name="email"
                     inputValidation={['removeSpace']}
-                    placeholder="Enter your Email"
+                    placeholder="Enter your Email !"
                   />
                 </div>
 

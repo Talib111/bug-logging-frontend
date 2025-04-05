@@ -42,7 +42,7 @@ export default function WorkflowList() {
   const [search, setSearch] = useState<string>('')
 
   const inboxListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintInbox}?page=${page}&limit=${perPage}&q=${search}`,
+    api: `${grievanceAPI.getComplaintInbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
     key: 'getComplaintInboxList',
     value: [page, perPage],
     options: {
@@ -50,7 +50,7 @@ export default function WorkflowList() {
     },
   })
   const outboxListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintOutbox}?page=${page}&limit=${perPage}&q=${search}`,
+    api: `${grievanceAPI.getComplaintOutbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
     key: 'getComplaintOutboxList',
     value: [page, perPage],
     options: {
@@ -58,16 +58,8 @@ export default function WorkflowList() {
     },
   })
   const specialListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintSpecial}?page=${page}&limit=${perPage}&q=${search}`,
+    api: `${grievanceAPI.getComplaintSpecial}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
     key: 'getComplaintSpecialList',
-    value: [page, perPage],
-    options: {
-      enabled: true,
-    },
-  })
-  const highlightedListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintHighlight}?page=${page}&limit=${perPage}&q=${search}`,
-    key: 'getComplaintHighlight',
     value: [page, perPage],
     options: {
       enabled: true,
@@ -79,7 +71,7 @@ export default function WorkflowList() {
 
       <Tabs defaultValue="INBOX" className="w-full">
         <div className="flex">
-          <CardTitle className='flex-1 text-2xl font-bold'>Registered Grievance List</CardTitle>
+          <CardTitle className='flex-1 text-2xl font-bold'>Bug List</CardTitle>
           <div className='flex-1 flex justify-end'>
             <TabsList className="grid w-auto grid-cols-4">
 
@@ -107,7 +99,7 @@ export default function WorkflowList() {
             <Card>
               <CardHeader className='px-7'>
                 <CardDescription>
-                  Grievance List Inbox ({inboxListData.data?.data?.totalDocs})
+                  Total : {inboxListData.data?.data?.totalDocs}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -204,7 +196,7 @@ export default function WorkflowList() {
             <Card>
               <CardHeader className='px-7'>
                 <CardDescription>
-                  Grievance List Outbox ({outboxListData.data?.data?.totalDocs})
+                 Total : {outboxListData.data?.data?.totalDocs}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -218,26 +210,29 @@ export default function WorkflowList() {
                       <TableHeader>
                         <TableRow>
                           <TableHead className=''>#</TableHead>
-                          <TableHead className=''>Name</TableHead>
+                          <TableHead className=''>Platform</TableHead>
                           <TableHead className=''>Title</TableHead>
-                          <TableHead className=''>ULB</TableHead>
-                          <TableHead className=''>Grievance No.</TableHead>
-                          <TableHead className=''>Module</TableHead>
+                          <TableHead className=''>Description</TableHead>
+                          <TableHead className=''>Priority</TableHead>
+                          <TableHead className=''>Tracking No.</TableHead>
                           <TableHead className=''>Date</TableHead>
                           <TableHead className=''>Status</TableHead>
-                          <TableHead className=''>Pending From</TableHead>
                           <TableHead>Action</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {outboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>{items?.citizenName}</TableCell>
-                            <TableCell className='font-semibold'>{items?.complaintTitle}</TableCell>
-                            <TableCell>{items?.ulb?.ulbName}</TableCell>
-                            <TableCell>{items?.complaintRefNo}</TableCell>
-                            <TableCell>{items?.module?.moduleName}</TableCell>
+                            <TableCell className='relative'>
+                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
+                                New
+                              </span>
+                              {index + 1}</TableCell>
+                            <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
+                            <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
+                            <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                            <TableCell>{items?.priority || 'N/A'}</TableCell>
+                            <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
@@ -247,9 +242,6 @@ export default function WorkflowList() {
                               {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
-                            </TableCell>
-                            <TableCell className='flex justify-center items-center'>
-                              {moment().diff(moment(items?.createdAt), 'days')} days
                             </TableCell>
                             <TableCell>
                               <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
@@ -301,7 +293,7 @@ export default function WorkflowList() {
             <Card>
               <CardHeader className='px-7'>
                 <CardDescription>
-                  Grievance List Special ({specialListData.data?.data?.totalDocs}) - <span className='text-amber-500'>This list contains special complaints</span>
+                 Total : {specialListData.data?.data?.totalDocs}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -315,26 +307,29 @@ export default function WorkflowList() {
                       <TableHeader>
                         <TableRow>
                           <TableHead className=''>#</TableHead>
-                          <TableHead className=''>Name</TableHead>
+                          <TableHead className=''>Platform</TableHead>
                           <TableHead className=''>Title</TableHead>
-                          <TableHead className=''>ULB</TableHead>
-                          <TableHead className=''>Grievance No.</TableHead>
-                          <TableHead className=''>Module</TableHead>
+                          <TableHead className=''>Description</TableHead>
+                          <TableHead className=''>Priority</TableHead>
+                          <TableHead className=''>Tracking No.</TableHead>
                           <TableHead className=''>Date</TableHead>
                           <TableHead className=''>Status</TableHead>
-                          <TableHead className=''>Pending From</TableHead>
                           <TableHead>Action</TableHead>
                         </TableRow>
                       </TableHeader>
                       <TableBody>
                         {specialListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>{items?.citizenName}</TableCell>
-                            <TableCell className='font-semibold'>{items?.complaintTitle || "N/A"}</TableCell>
-                            <TableCell>{items?.ulb?.ulbName}</TableCell>
-                            <TableCell>{items?.complaintRefNo}</TableCell>
-                            <TableCell>{items?.module?.moduleName}</TableCell>
+                            <TableCell className='relative'>
+                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
+                                New
+                              </span>
+                              {index + 1}</TableCell>
+                            <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
+                            <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
+                            <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                            <TableCell>{items?.priority || 'N/A'}</TableCell>
+                            <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
@@ -344,9 +339,6 @@ export default function WorkflowList() {
                               {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
-                            </TableCell>
-                            <TableCell className='flex justify-center items-center'>
-                              {moment().diff(moment(items?.createdAt), 'days')} days
                             </TableCell>
                             <TableCell>
                               <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
@@ -381,103 +373,7 @@ export default function WorkflowList() {
             </Card>
           </div>
         </TabsContent>
-        <TabsContent value="HIGHLIGHTED">
-          <div className='grid auto-rows-max items-start gap-4 md:gap-2 lg:col-span-2'>
-            <div className='flex w-full justify-between gap-2'>
-              <div>
-                <SearchBox
-                  search={search}
-                  setSearch={setSearch}
-                  refetch={specialListData.refetch}
-                  isFetching={specialListData.isLoading}
-                />
-              </div>
-              <div>
-              </div>
-            </div>
-            <Card>
-              <CardHeader className='px-7'>
-                <CardDescription>
-                  Grievance  Highlighted List({specialListData.data?.data?.totalDocs}) - <span className='text-amber-500'>This list contains Highlighted complaints</span>
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {highlightedListData.isLoading ? (
-                  <div className='flex h-32 items-center justify-center'>
-                    <Spinner />
-                  </div>
-                ) : (
-                  <>
-                    <Table>
-                      <TableHeader>
-                        <TableRow>
-                          <TableHead className=''>#</TableHead>
-                          <TableHead className=''>Name</TableHead>
-                          <TableHead className=''>Title</TableHead>
-                          <TableHead className=''>ULB</TableHead>
-                          <TableHead className=''>Grievance No.</TableHead>
-                          <TableHead className=''>Module</TableHead>
-                          <TableHead className=''>Date</TableHead>
-                          <TableHead className=''>Status</TableHead>
-                          <TableHead className=''>Pending From</TableHead>
-                          <TableHead>Action</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {highlightedListData?.data?.data?.docs?.map((items: any, index: any) => (
-                          <TableRow key={items._id}>
-                            <TableCell>{index + 1}</TableCell>
-                            <TableCell>{items?.citizenName}</TableCell>
-                            <TableCell className='font-semibold'>{items?.complaintTitle}</TableCell>
-                            <TableCell>{items?.ulb?.ulbName}</TableCell>
-                            <TableCell>{items?.complaintRefNo}</TableCell>
-                            <TableCell>{items?.module?.moduleName}</TableCell>
-                            <TableCell>
-                              {moment(items?.createdAt).format('DD-MM-YYYY')}
-                            </TableCell>
-                            <TableCell>
-                              {items?.wf_status === 4 && <Badge variant={'destructive'}>Closed</Badge>}
-                              {items?.wf_status === 3 && <Badge className='bg-amber-500 text-white'>Pending(Re-Opened)</Badge>}
-                              {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
-                              {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
-                              {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
-                            </TableCell>
-                            <TableCell className='flex justify-center items-center'>
-                              {moment().diff(moment(items?.createdAt), 'days')} days
-                            </TableCell>
-                            <TableCell>
-                              <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
-                                <Button
-                                  className='bg-primary'
-                                  onClick={() => { }}
-                                >
-                                  View
-                                </Button>
-                              </Link>
-                            </TableCell>
 
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                    <Separator className='mb-2 mt-4' />
-                    <div className='flex w-full justify-end'>
-                      <PaginationComponent
-                        page={page}
-                        perPage={perPage}
-                        totalPage={highlightedListData?.data?.data?.totalDocs}
-                        hasNextPage={highlightedListData?.data?.data?.hasNextPage}
-                        hasPrevPage={highlightedListData?.data?.data?.hasPrevPage}
-                        setPage={setPage}
-                        setPerPage={setPerPage}
-                      />
-                    </div>
-                  </>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
       </Tabs>
     </main >
   )

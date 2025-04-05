@@ -100,7 +100,7 @@ export default function LoginForm() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               type="text"
-              placeholder="Your email address"
+              placeholder="Your email address!!"
               className="input-field w-full border border-gray-300 rounded-md p-1.5"
             />
             <div>
@@ -148,7 +148,6 @@ export default function LoginForm() {
                             <RHFTextField
                               className=" py-5 px-5 w-full bg-background"
                               name="email"
-                              inputValidation={['removeSpace']}
                               placeholder="Enter your email"
                             />
                           </div>

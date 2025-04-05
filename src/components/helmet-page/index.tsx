@@ -105,15 +105,15 @@ const Page = forwardRef(
                   </DialogTrigger> */}
 
                   {/* RECENT UPDATES */}
-                  <SidePanel trigger={<Clock4 size={25} className="text-black cursor-pointer hover:scale-110" />}>
+                  {/* <SidePanel trigger={<Clock4 size={25} className="text-black cursor-pointer hover:scale-110" />}>
                     <CardTitle className='mb-4 text-[#0D7538] text-lg'>Recent Updates</CardTitle>
                     <Recentpdates notificationSide={0} notificationType={1} />
-                  </SidePanel>
+                  </SidePanel> */}
                   {/* NOTIFICATIONS */}
-                  <SidePanel trigger={<Bell size={25} className="text-black cursor-pointer hover:scale-110" />}>
+                  {/* <SidePanel trigger={<Bell size={25} className="text-black cursor-pointer hover:scale-110" />}>
                     <CardTitle className='mb-4 text-[#0D7538] text-lg '>My Notifications </CardTitle>
                     <Notification notificationSide={0} notificationType={0} />
-                  </SidePanel>
+                  </SidePanel> */}
                   {/* LANGUAGE */}
                   {/* <ThemeSwitch />   */}
 
