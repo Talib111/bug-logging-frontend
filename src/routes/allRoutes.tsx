@@ -107,6 +107,9 @@ const ComplaintType = lazyWithRetries(
 const ComplaintWorkflow = lazyWithRetries(
   () => import('@/pages/bug-log/dashboard/workflow/complaint-workflow')
 )
+const EnhancementWorkflow = lazyWithRetries(
+  () => import('@/pages/bug-log/dashboard/enhancement-workflow/enhacement-list')
+)
 const WorkflowDetails = lazyWithRetries(
   () => import('@/pages/bug-log/dashboard/workflow/workflow-details')
 )
@@ -506,6 +509,12 @@ const routes: Route[] = [
         name: 'Complaint Workflow',
         path: 'complaint-workflow',
         element: <ComplaintWorkflow />,
+      },
+      {
+        id: '12',
+        name: 'Enhacement List',
+        path: 'enhancement-list',
+        element: <EnhancementWorkflow />,
       },
       {
         id: '13',

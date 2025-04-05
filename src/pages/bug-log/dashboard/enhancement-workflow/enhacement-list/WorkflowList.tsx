@@ -77,15 +77,15 @@ export default function WorkflowList() {
   return (
     <main className='grid items-start'>
 
-      <Tabs defaultValue="INBOX" className="w-full">
+      <Tabs defaultValue="INBOX" className="w-full ">
         <div className="flex">
-          <CardTitle className='flex-1 text-2xl font-bold'>Registered Grievance List</CardTitle>
-          <div className='flex-1 flex justify-end'>
+          <CardTitle className='flex-1 text-2xl font-bold'>Enhancement List</CardTitle>
+          <div className='flex-1 flex justify-end '>
             <TabsList className="grid w-auto grid-cols-4">
 
-              {<TabsTrigger value="INBOX">Active Bugs</TabsTrigger>}
-              {< TabsTrigger value="OUTBOX">Resolved Bugs</TabsTrigger>}
-              {< TabsTrigger value="SPECIAL">Rejected Bugs</TabsTrigger>}
+              {<TabsTrigger  value="INBOX">Active</TabsTrigger>}
+              {< TabsTrigger  value="OUTBOX">Resolved</TabsTrigger>}
+              {< TabsTrigger  value="SPECIAL">Rejected</TabsTrigger>}
             </TabsList>
           </div>
         </div>

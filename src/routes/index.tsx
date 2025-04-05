@@ -10,7 +10,6 @@ import { AuthGuard, GuestGuard } from '@/guard'
 import NotFound from '@/pages/errors/not-found-error'
 import routes from './allRoutes'
 import { useAppContext } from '@/context'
-import ChatBox from '../components/chatbox/index.tsx'
 import { useEffect, useState } from 'react'
 import LoaderLine from '@/components/loaders/SuspenseLoader'
 
@@ -37,7 +36,7 @@ export default function AllRoutes() {
     <Routes>
       <Route
         path='/bug-log'
-        element={<Navigate to='/bug-log/main' />}
+        element={<Navigate to='/bug-log/auth/login' />}
         index={true}
       />
       {/* <Route

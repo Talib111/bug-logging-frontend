@@ -13,17 +13,19 @@ import {
 import { useApi, usePostMutation } from '@/hooks/useCustomQuery'
 import { grievanceAPI } from '@/lib'
 import { Label } from '@/components/ui/label'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Separator } from '@/components/ui/separator'
 import { useEffect, useState } from 'react'
 import { Image } from '@/components/image'
 import { useAppContext } from '@/context'
-import {  ServerCrash } from 'lucide-react'
+import { ServerCrash } from 'lucide-react'
+import { SUPER_ADMIN } from '@/../config/roles.config'
 
 export default function CitizenComplaintForm() {
   const [newRole, setNewRole] = useState<any>('')
   const { user } = useAppContext()
   const postMutation = usePostMutation({})
+  const navigate = useNavigate()
 
   const useQuery = () => new URLSearchParams(useLocation().search)
   const query = useQuery()
@@ -31,19 +33,39 @@ export default function CitizenComplaintForm() {
 
 
   const schema = yup.object().shape({
+    logType: yup.string().required('Type is required'),
+    priority: yup.string(),
+    tat: yup.string(),
     platformId: yup.string().required('Platform is required'),
     bugTitle: yup.string().required('Bug title is required'),
     bugDescription: yup.string().required('Bug description is required'),
     bugDocument: yup.mixed().nullable(),
   })
 
-  const { data, refetch } = useApi<any>({
+  const { data } = useApi<any>({
     api: `${grievanceAPI?.getComplaintDetailsById}/${bugId}`,
     key: 'getApplicationDetails',
     options: {
       enabled: !!bugId,
     },
   })
+
+  const getPlatformData = useApi<any>({
+    api: `${grievanceAPI?.getAllComplaintSource}?page=1&limit=10000`,
+    key: 'getAllPlatformData',
+    options: {
+      enabled: true,
+    },
+  })
+
+  const getPriorityData = useApi<any>({
+    api: `${grievanceAPI?.getAllPriority}?page=1&limit=10000`,
+    key: 'getAllPriority',
+    options: {
+      enabled: true,
+    },
+  })
+
 
   const methods = useForm<any>({
     resolver: yupResolver(schema),
@@ -58,6 +80,11 @@ export default function CitizenComplaintForm() {
 
     try {
       const formData = new FormData()
+      formData.append('logType', data?.logType || '')
+      if (data.priority) {
+        formData.append('priority', data?.priority || '')
+      }
+      formData.append('tat', data?.tat || '')
       formData.append('platformId', data?.platformId || '')
       formData.append('bugTitle', data?.bugTitle || '')
       formData.append('bugDescription', data?.bugDescription || '')
@@ -74,10 +101,11 @@ export default function CitizenComplaintForm() {
       })
       if (res.data?.success) {
         toast.success(res?.data?.message)
+        navigate('/bug-log/dashboard/complaint-workflow')
       } else {
         toast.error('Grievance not created successfully')
       }
-     
+
     } catch (error) {
       console.log(error)
     }
@@ -86,24 +114,24 @@ export default function CitizenComplaintForm() {
   useEffect(() => {
     if (bugId && data) {
       methods.reset({
+        logType: data?.data?.logType || '',
+        priority: data?.data?.priority || '',
+        tat: data?.data?.tat || '',
         platformId: data?.data?.platformId || '',
         bugTitle: data?.data?.bugTitle || '',
         bugDescription: data?.data?.bugDescription || '',
       })
     } else {
+      methods.reset({ logType: '' })
+      methods.reset({ priority: '' })
+      methods.reset({ tat: '' })
       methods.reset({ platformId: '' })
       methods.reset({ bugTitle: '' })
       methods.reset({ bugDescription: '' })
     }
   }, [bugId, data])
 
-  const getPlatformData = useApi<any>({
-    api: `${grievanceAPI?.getAllComplaintSource}?page=1&limit=10000`,
-    key: 'getAllPlatformData',
-    options: {
-      enabled: true,
-    },
-  })
+
 
 
   useEffect(() => {
@@ -114,12 +142,26 @@ export default function CitizenComplaintForm() {
     <FormProviders methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
       <div className='grid grid-cols-4 gap-x-2 gap-y-4 bg-background p-10'>
         <h1 className='text-xl font-bold uppercase text-blue-800 flex items-center gap-2'>
-        <ServerCrash /> Bug Entry
+          <ServerCrash /> Bug Entry
         </h1>
         <Separator className='col-span-4' />
 
 
         <div className='col-span-4'></div>
+
+        <div>
+          <Label>Type</Label>
+          <SelectField
+            selectedText='problem'
+            className='cursor-pointer bg-background'
+            name='logType'
+            data={[
+              { value: 'BUG', label: 'Bug' },
+              { value: 'ENHANCEMENT', label: 'Enahancement' },
+            ]
+            }
+          />
+        </div>
 
         <div>
           <Label>Platform</Label>
@@ -138,9 +180,39 @@ export default function CitizenComplaintForm() {
           />
         </div>
 
+        {user?.roleId === SUPER_ADMIN && <div>
+          <Label>Priority</Label>
+          <SelectField
+            selectedText='problem'
+            className='cursor-pointer bg-background'
+            name='priority'
+            data={
+              getPriorityData?.data?.data?.docs?.map((item: any) => {
+                return {
+                  value: item?._id,
+                  label: item?.priorityName,
+                }
+              }) ?? []
+            }
+          />
+        </div>}
+
+        {user?.roleId === SUPER_ADMIN && <div>
+          <Label>TAT</Label>
+          <RHFTextField
+            name='tat'
+            inputValidation={[
+              'number',
+            ]}
+            placeholder=''
+          />
+        </div>}
+
+        <div className="col-span-4"></div>
         <div>
           <Label>Bug Title</Label>
           <RHFTextField
+            maxLength={300}
             name='bugTitle'
             inputValidation={[
               'CapitalFirstLetter',
@@ -151,11 +223,12 @@ export default function CitizenComplaintForm() {
           />
         </div>
 
-
+        <div className="col-span-4"></div>
         <div className='col-span-3'>
           <Label htmlFor='bugDescription'>
             <span className='text-red-500'>*</span>Bug Description</Label>
           <RHFTextArea
+            maxLength={2000}
             className='h-20 w-full rounded-md border bg-background p-4'
             name='bugDescription'
             placeholder='write Grievance'

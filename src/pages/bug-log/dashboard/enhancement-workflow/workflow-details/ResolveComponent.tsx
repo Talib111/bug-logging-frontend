@@ -64,7 +64,7 @@ export default function ResolveComponent({
     const formData = new FormData()
     formData.append('complaintId', complaintData?.data?.data?._id)
     formData.append('comment', data.comment)
-    formData.append('imageUrl', data.resolveDocs)
+    formData.append('resolveDocs', data.resolveDocs)
 
     
 

@@ -38,6 +38,7 @@ import Lottie from 'lottie-react'
 import { useState, useEffect } from 'react'
 import TransferToUlb from './TransferToUlb'
 import { Confirm } from '@/components/confirm-box'
+import profile from '/images/profile.png'
 import {
   MODULE_PROPERTY,
   MODULE_WATER,
@@ -72,8 +73,6 @@ import {
   MODULE_PARKING_MANAGEMENT_LINK,
   MODULE_RIG_MACHINE_LINK,
 } from '@/../config/moduleLinks.config'
-import { useAppContext } from '@/context'
-import { SUPER_ADMIN } from '@/../config/roles.config'
 
 const schema = yup.object().shape({
   comment: yup.string().required('Comment is required'),
@@ -89,7 +88,6 @@ export default function EnteranceWorkflowDetails({
   const [actionComponentStatus, setActionComponentStatus] = useState(0)
   const [isDialogOpen, setisDialogOpen] = useState<boolean>(false)
   const mutate = usePutMutation({})
-  const { user } = useAppContext()
 
   const useQuery = () => new URLSearchParams(useLocation().search)
   const query = useQuery()
@@ -103,6 +101,8 @@ export default function EnteranceWorkflowDetails({
     },
   })
 
+  // console.log("data api =============> ",complaintData)
+  // console.log(complaintData?.data?.data?.reminder)
 
   const actionPermissions = useApi<any>({
     api: `${grievanceAPI.checkWfActions}/${complaintId}`,
@@ -199,6 +199,32 @@ export default function EnteranceWorkflowDetails({
     )
   }
 
+  const escalateAction = async (e: any) => {
+    Confirm(
+      'Are you sure?',
+      `Do you want to ${e.target.checked ? 'Escalate' : 'De-Escalate'} this complaint`,
+      async () => {
+        let requestBody = {
+          complaintId: complaintData?.data?.data?._id,
+        }
+
+        try {
+          const result = await mutate.mutateAsync({
+            api: grievanceAPI.escalateAction,
+            data: requestBody,
+          })
+          if (result.data.success) {
+            setloggedOutAnimation(true)
+            complaintData.refetch()
+          } else {
+            toast.error(result.data.message)
+          }
+        } catch (error) {
+          toast.error(getErrorMessage(error))
+        }
+      }
+    )
+  }
 
   //══════════║THIS FUNCTION DYNAMICALLY SETS THE LINK AND LABEL TEXT TO SEARCH MODULE DETAILS ║═════════════
   const createModuleSearchLink = () => {
@@ -515,7 +541,24 @@ export default function EnteranceWorkflowDetails({
                         </CardTitle>
                       )}
 
-                     
+                      {(complaintData?.data?.data?.wf_status === 0 ||
+                        complaintData?.data?.data?.wf_status === 3) && (
+                          <div className='mb-4 flex items-center space-x-2'>
+                            <RHFTextField
+                              checked={complaintData?.data?.data?.isEscalated}
+                              onChange={(e) => escalateAction(e)}
+                              className='h-5 w-5 cursor-pointer'
+                              type='checkbox'
+                              name='isTransactionIssue'
+                              placeholder=''
+                            />
+                            <Label className='text-amber-700 opacity-80'>
+                              {complaintData?.data?.data?.isEscalated
+                                ? 'De-Escalate'
+                                : 'Escalate'}
+                            </Label>
+                          </div>
+                        )}
                     </div>
 
                     <div className='flex justify-end'>
@@ -557,7 +600,7 @@ export default function EnteranceWorkflowDetails({
                                   </DialogTrigger>
                                 </div>
                               )}
-                            {user?.roleId === SUPER_ADMIN && (
+                            {actionPermissions?.data?.permission?.canResolve && (
                               <div className='col-span-4'>
                                 <DialogTrigger
                                   onClick={() => {
@@ -567,7 +610,7 @@ export default function EnteranceWorkflowDetails({
                                   asChild
                                 >
                                   <Button
-                                    variant={'default'}
+                                    variant={'secondary'}
                                     name='bts'
                                     className='mr-4'
                                     disabled={mutate.isPending}
@@ -577,8 +620,7 @@ export default function EnteranceWorkflowDetails({
                                 </DialogTrigger>
                               </div>
                             )}
-
-                            {user?.roleId === SUPER_ADMIN && (
+                            {actionPermissions?.data?.permission?.canReject && (
                               <div className='col-span-4'>
                                 <DialogTrigger
                                   onClick={() => {
@@ -588,7 +630,7 @@ export default function EnteranceWorkflowDetails({
                                   asChild
                                 >
                                   <Button
-                                    variant={'destructive'}
+                                    variant={'secondary'}
                                     name='reject'
                                     className='mr-4'
                                     disabled={mutate.isPending}
