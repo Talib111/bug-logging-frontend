@@ -17,7 +17,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { useAppContext } from '@/context'
-import MyLanguage from "@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language"
+// import MyLanguage from "@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language"
 
 type PageProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -49,8 +49,8 @@ const Page = forwardRef(
     }, [title])
     const handleChange = (event: { target: { value: any } }) => {
       const selectedLanguage = event.target.value;
-      setcurrentLanguage(MyLanguage(selectedLanguage));
-      setlanguageKey(selectedLanguage);
+      // setcurrentLanguage(MyLanguage(selectedLanguage));
+      // setlanguageKey(selectedLanguage);
     };
 
     return (

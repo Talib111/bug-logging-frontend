@@ -14,6 +14,7 @@ import { useAppContext } from '@/context';
 import { usePostMutation } from '@/hooks/useCustomQuery';
 import { authApi, getErrorMessage, grievanceAPI } from '@/lib';
 import { useState } from 'react';
+import { Label } from '@/components/ui/label';
 const schema = yup.object({
   email: yup.string().required(),
   password: yup.string().min(3)
@@ -49,10 +50,10 @@ export default function LoginForm() {
       });
       // console.log("response",response?.data)
       // if (response?.data?.status) {
-        if (response?.data?.success) {
+      if (response?.data?.success) {
         // localStorage.setItem('token',response?.data?.data?.token)
         await login(response);
-       
+
         toast.success(response?.data?.message);
       } else {
         toast.error(response?.data?.message);
@@ -119,12 +120,13 @@ export default function LoginForm() {
       </EditDialogBox>
       <header className=" h-[7vh] w-full border-b border-gray-200 bg-white darks:bg-gray-800 darks:border-gray-800">
         <div className="container mx-auto xl:max-w-6xl ">
-          <nav className=" " id="desktop-menu">
-            <a className="" href="">
-              <div className='mt-6'> <span className="font-bold text-xl uppercase">
-                Login - Grievance Management System
-              </span></div>
-            </a>
+          <nav className="flex justify-between items-center" id="desktop-menu">
+            <div className=''> <span className="font-bold text-xl">
+              Welcome to Bug Hero
+            </span></div>
+            <div className=''> <span className="font-semibold text-xl">
+              Login Page
+            </span></div>
           </nav>
         </div>
       </header>
@@ -145,13 +147,15 @@ export default function LoginForm() {
                       <FormProviders methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
                         <div className="space-y-4">
                           <div className="space-y-2">
+                            <Label>Email or Username</Label>
                             <RHFTextField
                               className=" py-5 px-5 w-full bg-background"
                               name="email"
-                              placeholder="Enter your email"
+                              placeholder="eg: abc@gmail.com"
                             />
                           </div>
                           <div className="space-y-2">
+                          <Label>Password</Label>
                             <RHFPasswordField
                               className="py-5 px-5 w-full bg-background"
                               name="password"
@@ -177,7 +181,7 @@ export default function LoginForm() {
                             <hr className="flex-1" />
                           </div>
                           <div className="text-center">
-                            <button className="text-sm text-primary" type='button' onClick={() => setOpen(true)}>Forgot password?</button>
+                            <div className="text-sm text-primary">Forgot password? Contact Admin</div>
                           </div>
                         </div>
                       </FormProviders>
@@ -188,10 +192,10 @@ export default function LoginForm() {
               <div className="flex-shrink max-w-full px-4 w-full lg:w-1/2">
                 <div className="text-center mt-6 lg:mt-0">
                   {/* <img src={sideLogo} alt="welcome" className="h-68 " /> */}
-                  <img src='/images/mob.png' alt="welcome" className="h-68 rounded-lg" />
+                  <img src='/images/bug-banner.png' alt="welcome" className="h-68 rounded-lg" />
                   <div className="px-4 mt-4">
-                    <h1 className="font-semibold text-2xl">Manage Grievance with Ease of Access</h1>
-                    <p className="text-base mb-4 text-gray-500">Easily manage greivance applications with simplified workflows.</p>
+                    <h1 className="font-semibold text-2xl">The Bug & Enahacement Logging Tool</h1>
+                    <p className="text-base mb-4 text-gray-500">Easily log and track your bugs and enahancements.</p>
                   </div>
                 </div>
               </div>
@@ -203,27 +207,9 @@ export default function LoginForm() {
         <div className="container mx-auto px-4 xl:max-w-6xl w-full">
           <div className="mx-auto px-4">
             <div className="flex flex-wrap flex-row -mx-4">
-              <div className="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-left md:rtl:text-right">
-                <ul className="ltr:pl-0 rtl:pr-0 space-x-4">
-                  <li className="inline-block ltr:mr-3 rtl:ml-3">
-                    <a className="hover:text-indigo-500" href="#">Support |</a>
-                  </li>
-                  <li className="inline-block ltr:mr-3 rtl:ml-3">
-                    <a className="hover:text-indigo-500" href="#">Help Center |</a>
-                  </li>
-                  <li className="inline-block ltr:mr-3 rtl:ml-3">
-                    <a className="hover:text-indigo-500" href="#">Privacy |</a>
-                  </li>
-                  <li className="inline-block ltr:mr-3 rtl:ml-3">
-                    <a className="hover:text-indigo-500" href="#">Terms of Service</a>
-                  </li>
-                </ul>
-              </div>
               <div className="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-right md:rtl:text-left">
                 <p className="mb-0 mt-3 md:mt-0">
-                  <a href="#" className="hover:text-indigo-500">
-                    Bug-Tracking
-                  </a> | All right reserved
+                  © 2025 BugHero — A powerful bug tracking solution by Executehub.
                 </p>
               </div>
             </div>

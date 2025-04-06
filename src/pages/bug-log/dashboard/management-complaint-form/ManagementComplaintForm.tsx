@@ -186,7 +186,7 @@ export default function CitizenComplaintForm() {
 
         <div className='col-span-4'></div>
         <div>
-          <Label>Type</Label>
+          <Label><span className='text-red-500'>*</span> Type</Label>
           <SelectField
             selectedText='problem'
             className='cursor-pointer bg-background'
@@ -200,7 +200,7 @@ export default function CitizenComplaintForm() {
         </div>
 
         <div>
-          <Label>Platform</Label>
+          <Label><span className='text-red-500'>*</span> Platform</Label>
           <SelectField
             selectedText='problem'
             className='cursor-pointer bg-background'
@@ -246,7 +246,7 @@ export default function CitizenComplaintForm() {
 
         <div className="col-span-4"></div>
         <div>
-          <Label>Bug Title</Label>
+          <Label><span className='text-red-500'>*</span> Bug Title</Label>
           <RHFTextField
             maxLength={300}
             name='bugTitle'
@@ -262,7 +262,7 @@ export default function CitizenComplaintForm() {
         <div className="col-span-4"></div>
         <div className='col-span-3'>
           <Label htmlFor='bugDescription'>
-            <span className='text-red-500'>*</span>Bug Description</Label>
+            <span className='text-red-500'>*</span> Bug Description</Label>
           <RHFTextArea
             maxLength={2000}
             className='h-20 w-full rounded-md border bg-background p-4'

@@ -25,11 +25,6 @@ export default function citizenSidebar({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [currentSideLinks,setCurrentSideLinks] = useState<any>()
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const navigate = useNavigate()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { user,languageKey } = useAppContext()
-
-  // console.log('the user is...', user)
 
   const isNativeColor = ()=>{
     // @ts-ignore
@@ -51,10 +46,7 @@ export default function citizenSidebar({
   }, [navOpened])
 
   
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    setCurrentSideLinks(citizenLinks)
-  }, [languageKey])
+
 
   return (
     <aside
@@ -77,7 +69,7 @@ export default function citizenSidebar({
         >
           <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`} >
             <div>
-              <img src="https://i.ibb.co/vz5hT4c/jharkhand-Logo-uf1gjn.png" alt="" className='w-11' />
+              <img src="https://img.freepik.com/premium-vector/computer-virus-detection-searching-bugs-data-protection-magnifier-glass_123447-5628.jpg?ga=GA1.1.871112965.1726233039&semt=ais_hybrid&w=740" alt="" className='w-11' />
             </div>
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}

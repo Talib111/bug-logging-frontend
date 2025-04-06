@@ -17,7 +17,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/custom/button'
-import CitizenComplaintForm from '@/pages/bug-log/citizen/citizen-complaint-form/CitizenComplaintForm'
 import { Image } from '@/components/image'
 import {
   Tooltip,
@@ -27,7 +26,6 @@ import {
 } from '@/components/ui/tooltip'
 import { useAppContext } from '@/context'
 import { Confirm } from '@/components/confirm-box'
-import MyLanguage from '@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language'
 import { getRedirect } from '@/lib'
 import CitizenSidebar from '@/components/citizenSidebar'
 import useIsCollapsed from '@/hooks/use-is-collapsed'
@@ -219,8 +217,8 @@ export default function TopBar({ setloggedOutAnimation }: any) {
   ]
   const handleChange = (event: any) => {
     const selectedLanguage = event.target.value
-    setcurrentLanguage(MyLanguage(selectedLanguage))
-    setlanguageKey(selectedLanguage)
+    // setcurrentLanguage(MyLanguage(selectedLanguage))
+    // setlanguageKey(selectedLanguage)
   }
   console.log(currentLanguage?.KY_WD)
   console.log(currentLanguage?.LANGUAGE)
@@ -586,16 +584,6 @@ export default function TopBar({ setloggedOutAnimation }: any) {
           </Link>
           <div className='flex-initial border-l border-l-white'></div>
 
-          <CitizenComplaintForm>
-            <Link
-              className='link-underline link-underline-black flex items-center'
-              to={'#'}
-            >
-              <span className='cursor-pointer  px-2 '>
-                {currentLanguage?.Grievance_Registration}
-              </span>
-            </Link>
-          </CitizenComplaintForm>
           <div className='flex-initial border-l border-l-white'></div>
 
           <Link

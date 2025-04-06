@@ -23,6 +23,8 @@ import {
 import { cn } from '@/lib/utils'
 import useCheckActiveNav from '@/hooks/use-check-active-nav'
 import { SideLink } from '@/data/sidelinks'
+import { LogOut } from 'lucide-react'
+import { useAppContext } from '@/context'
 
 interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
   isCollapsed: boolean
@@ -58,6 +60,9 @@ export default function Nav({
 
     return <NavLink {...rest} key={key} closeNav={closeNav} />
   }
+
+  const { logout } = useAppContext()
+
   return (
     <div
       data-collapsed={isCollapsed}
@@ -69,6 +74,7 @@ export default function Nav({
       <TooltipProvider delayDuration={0}>
         <nav className='grid gap-1 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2'>
           {links?.map(renderLink)}
+          <div className='w-full px-4 mt-20'><Button onClick={logout} className='w-full flex gap-2 justify-center items-center' variant={'destructiveBorder'}><span>Logout</span><LogOut size={16} /></Button></div>
         </nav>
       </TooltipProvider>
     </div>
@@ -88,57 +94,57 @@ function NavLink({
   href,
   closeNav,
   subLink = false,
-  isHref ,
+  isHref,
 }: Readonly<NavLinkProps>) {
   const { checkActiveNav } = useCheckActiveNav()
   return (
     <>
-    {
-      isHref?(<>
-        <a
-      href={href}
-      onClick={closeNav}
-      className={cn(
-        buttonVariants({
-          variant: checkActiveNav(href) ? 'secondary' : 'ghost',
-        }),
-        'h-12 justify-start text-wrap rounded-none px-6',
-        subLink && 'h-10 w-full border-l border-l-slate-500 px-2'
-      )}
-      aria-current={checkActiveNav(href) ? 'page' : undefined}
-    >
-      <div className='mr-2'>{icon}</div>
-      {title}
-      {label && (
-        <div className='ml-2 rounded-lg bg-primary px-1 text-[0.625rem] text-primary-foreground'>
-          {label}
-        </div>
-      )}
-    </a>
-        </>):(<>
+      {
+        isHref ? (<>
+          <a
+            href={href}
+            onClick={closeNav}
+            className={cn(
+              buttonVariants({
+                variant: checkActiveNav(href) ? 'secondary' : 'ghost',
+              }),
+              'h-12 justify-start text-wrap rounded-none px-6',
+              subLink && 'h-10 w-full border-l border-l-slate-500 px-2'
+            )}
+            aria-current={checkActiveNav(href) ? 'page' : undefined}
+          >
+            <div className='mr-2'>{icon}</div>
+            {title}
+            {label && (
+              <div className='ml-2 rounded-lg bg-primary px-1 text-[0.625rem] text-primary-foreground'>
+                {label}
+              </div>
+            )}
+          </a>
+        </>) : (<>
           <Link
-      to={href}
-      onClick={closeNav}
-      className={cn(
-        buttonVariants({
-          variant: checkActiveNav(href) ? 'secondary' : 'ghost',
-        }),
-        'h-12 justify-start text-wrap rounded-none px-6',
-        subLink && 'h-10 w-full border-l border-l-slate-500 px-2'
-      )}
-      aria-current={checkActiveNav(href) ? 'page' : undefined}
-    >
-      <div className='mr-2'>{icon}</div>
-      {title}
-      {label && (
-        <div className='ml-2 rounded-lg bg-primary px-1 text-[0.625rem] text-primary-foreground'>
-          {label}
-        </div>
-      )}
-    </Link>
+            to={href}
+            onClick={closeNav}
+            className={cn(
+              buttonVariants({
+                variant: checkActiveNav(href) ? 'secondary' : 'ghost',
+              }),
+              'h-12 justify-start text-wrap rounded-none px-6',
+              subLink && 'h-10 w-full border-l border-l-slate-500 px-2'
+            )}
+            aria-current={checkActiveNav(href) ? 'page' : undefined}
+          >
+            <div className='mr-2'>{icon}</div>
+            {title}
+            {label && (
+              <div className='ml-2 rounded-lg bg-primary px-1 text-[0.625rem] text-primary-foreground'>
+                {label}
+              </div>
+            )}
+          </Link>
         </>)
-    }
-  </>
+      }
+    </>
   )
 }
 
@@ -205,7 +211,7 @@ function NavLinkIcon({ title, icon, label, href }: Readonly<NavLinkProps>) {
         </Link>
       </TooltipTrigger>
       <TooltipContent side='right' className='flex items-center gap-4'>
-        
+
         {title}
         {label && (
           <span className='ml-auto text-muted-foreground'>{label}</span>

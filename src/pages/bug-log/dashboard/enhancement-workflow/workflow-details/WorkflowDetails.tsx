@@ -39,41 +39,6 @@ import { useState, useEffect } from 'react'
 import TransferToUlb from './TransferToUlb'
 import { Confirm } from '@/components/confirm-box'
 import profile from '/images/profile.png'
-import {
-  MODULE_PROPERTY,
-  MODULE_WATER,
-  MODULE_TRADE,
-  MODULE_PET_REGISTRATION,
-  MODULE_OTHERS,
-  MODULE_GRIEVANCE,
-  MODULE_SWM,
-  MODULE_WATER_TANKER,
-  MODULE_ADVERTISEMENT,
-  MODULE_SEPTIC_TANK,
-  MODULE_LODGE_BANQUET,
-  MODULE_MARRIAGE_REGISTRATION,
-  MODULE_PUBLIC_TRANSPORT,
-  MODULE_PARKING_MANAGEMENT,
-  MODULE_RIG_MACHINE,
-} from '@/../config/module.config'
-import {
-  MODULE_PROPERTY_LINK,
-  MODULE_WATER_LINK,
-  MODULE_TRADE_LINK,
-  MODULE_PET_REGISTRATION_LINK,
-  MODULE_OTHERS_LINK,
-  MODULE_GRIEVANCE_LINK,
-  MODULE_SWM_LINK,
-  MODULE_WATER_TANKER_LINK,
-  MODULE_ADVERTISEMENT_LINK,
-  MODULE_SEPTIC_TANK_LINK,
-  MODULE_LODGE_BANQUET_LINK,
-  MODULE_MARRIAGE_REGISTRATION_LINK,
-  MODULE_PUBLIC_TRANSPORT_LINK,
-  MODULE_PARKING_MANAGEMENT_LINK,
-  MODULE_RIG_MACHINE_LINK,
-} from '@/../config/moduleLinks.config'
-
 const schema = yup.object().shape({
   comment: yup.string().required('Comment is required'),
 })
@@ -226,88 +191,8 @@ export default function EnteranceWorkflowDetails({
     )
   }
 
-  //══════════║THIS FUNCTION DYNAMICALLY SETS THE LINK AND LABEL TEXT TO SEARCH MODULE DETAILS ║═════════════
-  const createModuleSearchLink = () => {
-    //1 PROPERTY
-    if (complaintData?.data?.data?.moduleId === MODULE_PROPERTY) {
-      setsearchLink(MODULE_PROPERTY_LINK)
-      setsearchLabel('Search Property Details')
-    }
-    //2 WATER
-    if (complaintData?.data?.data?.moduleId === MODULE_WATER) {
-      setsearchLink(MODULE_WATER_LINK)
-      setsearchLabel('Search Water Details')
-    }
-    //3 TRADE
-    if (complaintData?.data?.data?.moduleId === MODULE_TRADE) {
-      setsearchLink(MODULE_TRADE_LINK)
-      setsearchLabel('Search Trade Details')
-    }
-    //4 PET REGISTRATION
-    if (complaintData?.data?.data?.moduleId === MODULE_PET_REGISTRATION) {
-      setsearchLink(MODULE_PET_REGISTRATION_LINK)
-      setsearchLabel('Search Pet Registration Details')
-    }
-    //5 OTHERS
-    if (complaintData?.data?.data?.moduleId === MODULE_OTHERS) {
-      setsearchLink(MODULE_OTHERS_LINK)
-      setsearchLabel('Search Other Details')
-    }
-    //6 GREIVANCE
-    if (complaintData?.data?.data?.moduleId === MODULE_GRIEVANCE) {
-      setsearchLink(MODULE_GRIEVANCE_LINK)
-      setsearchLabel('Search Grievance Details')
-    }
-    //7 SWM
-    if (complaintData?.data?.data?.moduleId === MODULE_SWM) {
-      setsearchLink(MODULE_SWM_LINK)
-      setsearchLabel('Search SWM Details')
-    }
-    //8 WATER TANKER
-    if (complaintData?.data?.data?.moduleId === MODULE_WATER_TANKER) {
-      setsearchLink(MODULE_WATER_TANKER_LINK)
-      setsearchLabel('Search Water Tanker Details')
-    }
-    //9 ADVERTISEMENT
-    if (complaintData?.data?.data?.moduleId === MODULE_ADVERTISEMENT) {
-      setsearchLink(MODULE_ADVERTISEMENT_LINK)
-      setsearchLabel('Search Advertisement Details')
-    }
-    //10 SEPTIC TANK
-    if (complaintData?.data?.data?.moduleId === MODULE_SEPTIC_TANK) {
-      setsearchLink(MODULE_SEPTIC_TANK_LINK)
-      setsearchLabel('Search Septic Tank Details')
-    }
-    //11 LODGE BANQUET
-    if (complaintData?.data?.data?.moduleId === MODULE_LODGE_BANQUET) {
-      setsearchLink(MODULE_LODGE_BANQUET_LINK)
-      setsearchLabel('Search Lodge/Banquet Details')
-    }
-    //12 MARRAIGE REGISTRATION
-    if (complaintData?.data?.data?.moduleId === MODULE_MARRIAGE_REGISTRATION) {
-      setsearchLink(MODULE_MARRIAGE_REGISTRATION_LINK)
-      setsearchLabel('Search Marriage Details')
-    }
-    //13 PUBLIC TRANSPORT
-    if (complaintData?.data?.data?.moduleId === MODULE_PUBLIC_TRANSPORT) {
-      setsearchLink(MODULE_PUBLIC_TRANSPORT_LINK)
-      setsearchLabel('Search Public Transport Details')
-    }
-    //14 PARKING MANAGEMENT
-    if (complaintData?.data?.data?.moduleId === MODULE_PARKING_MANAGEMENT) {
-      setsearchLink(MODULE_PARKING_MANAGEMENT_LINK)
-      setsearchLabel('Search Parking Details')
-    }
-    //15 RIG MACHINE
-    if (complaintData?.data?.data?.moduleId === MODULE_RIG_MACHINE) {
-      setsearchLink(MODULE_RIG_MACHINE_LINK)
-      setsearchLabel('Search Rig Details')
-    }
-  }
 
-  useEffect(() => {
-    createModuleSearchLink()
-  }, [complaintData?.data])
+
 
   useEffect(() => {
     setTimeout(() => {

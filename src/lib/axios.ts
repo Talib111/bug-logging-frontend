@@ -2,26 +2,8 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 // ----------------------------------------------------------------------
 const backendUrl = () => {
-    // return 'https://aadrikainfomedia.com/grievance-api/v1'
-    // return 'https://aadrikainfomedia.com/auth/api/login'
     return 'http://localhost:8008/grievance-api/v1'
-  switch (window.location.hostname) {
-    case 'aadrikainfomedia.com':
-      return 'https://aadrikainfomedia.com/grievance-api/v1'
-    case 'jharkhandegovernance.com':
-      // return 'https://jharkhandegovernance.com/grievance-api/v1' 
-      return 'https://aadrikainfomedia.com/grievance-api/v1'
-    case 'egov.rsccl.in':
-      return 'http://egov.rsccl.in/grievance-api/v1'
-    case 'localhost':
-      // return 'http://localhost:8008/grievance-api/v1'
-    return 'https://aadrikainfomedia.com/grievance-api/v1'
-    default:
-      return 'https://aadrikainfomedia.com/grievance-api/v1'
-    // return 'http://localhost:8008/grievance-api/v1'
-  }
 }
-// console.log("Grievance API====>", window.location.hostname);
 
 export type { AxiosRequestConfig, AxiosResponse }
 

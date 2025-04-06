@@ -1,10 +1,9 @@
 import { useContext, createContext, useMemo } from 'react';
 import TitleContext from './titleContext';
 import AuthContext from './AuthContext';
-import LanguageContext from './LanguageContext';
 
 type CONTEXT_TYPE = ReturnType<typeof TitleContext> &
-  ReturnType<typeof AuthContext> & ReturnType<typeof LanguageContext>;
+  ReturnType<typeof AuthContext> ;
 
 export const AppContext = createContext({} as CONTEXT_TYPE);
 export function useAppContext() {
@@ -18,9 +17,8 @@ export default function AppProvider({
 }>) {
   const titleContext = TitleContext();
   const authContext = AuthContext();
-  const languageContext = LanguageContext();
   const contextValue = useMemo(
-    () => ({ ...titleContext, ...authContext, ...languageContext }),
+    () => ({ ...titleContext, ...authContext }),
     [titleContext, authContext]
   );
   return (

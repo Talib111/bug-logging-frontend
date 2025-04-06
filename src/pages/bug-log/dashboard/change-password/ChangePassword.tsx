@@ -58,18 +58,16 @@ export default function ChangePassword() {
 
   return (
     <Page>
-      <section className="relative flex w-full justify-center items-center   dark:bg-gray-900">
-        <div className="w-full max-w-md px-4 py-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-          <h1 className="text-2xl text-center font-semibold text-gray-800 capitalize dark:text-white mb-2">
-            <span className="text-[#0D7538] ">Change Password</span>
+      <section className="relative flex w-full justify-center items-center bg-white  dark:bg-gray-900">
+        <div className="w-full max-w-md px-4 py-8 dark:bg-gray-800">
+          <h1 className="text-2xl text-left font-semibold text-gray-800 capitalize dark:text-white mb-2">
+            <span className="text-primary text-left">Change Password</span>
           </h1>
-          <CardDescription className="px-2 text-center text-sm text-gray-500 dark:text-gray-400">
-            Easily change your password
-          </CardDescription>
+        
           <FormProviders methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
             <div className="space-y-6 mt-6">
               <div>
-                <Label htmlFor="currentPassword">Old Password</Label>
+                <Label htmlFor="currentPassword"><span className='text-red-500'>*</span> Old Password</Label>
                 <RHFTextField
                   className="bg-gray-100 dark:bg-gray-700 mt-1 w-full rounded-md shadow-sm"
                   name="currentPassword"
@@ -78,7 +76,7 @@ export default function ChangePassword() {
                 />
               </div>
               <div>
-                <Label htmlFor="newPassword">New Password</Label>
+                <Label htmlFor="newPassword"><span className='text-red-500'>*</span> New Password</Label>
                 <RHFTextField
                   className="bg-gray-100 dark:bg-gray-700 mt-1 w-full rounded-md shadow-sm"
                   name="newPassword"
@@ -87,7 +85,7 @@ export default function ChangePassword() {
                 />
               </div>
               <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword"><span className='text-red-500'>*</span> Confirm Password</Label>
                 <RHFTextField
                   className="bg-gray-100 dark:bg-gray-700 mt-1 w-full rounded-md shadow-sm"
                   name="confirmPassword"
@@ -100,7 +98,7 @@ export default function ChangePassword() {
                 <ButtonLoading
                   isLoading={methods.formState.isSubmitting}
                   type="submit"
-                  className="w-full bg-[#0D7538] text-white py-2 rounded-md hover:bg-green-700"
+                  className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary/90"
                 >
                   Submit
                 </ButtonLoading>
