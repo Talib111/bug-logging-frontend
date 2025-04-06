@@ -245,16 +245,6 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                 <div className='flex'>
                   <div className='h-screen w-64 '>
                     <nav className='space-y-2'>
-                      {(window as any).ReactNativeWebView &&
-                      pathName == '/bug-log/main' ? (
-                        <div className=' p-1 text-left '>
-                          {' '}
-                          <a href={`${window.location.origin}/citizen`}>
-                            {' '}
-                            <h1>Home</h1>{' '}
-                          </a>
-                        </div>
-                      ) : (
                         <button
                           className='w-full bg-gray-50 p-2 text-left'
                           onClick={() => navigate('/')}
@@ -262,7 +252,6 @@ export default function TopBar({ setloggedOutAnimation }: any) {
                           {' '}
                           Home
                         </button>
-                      )}
                       {sideBarData.map((button, index) => (
                         <SheetClose asChild key={button?.id}>
                           <button
@@ -553,7 +542,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
       <div className='hidden h-auto w-full space-x-4 bg-[#99B37C] px-6 py-2 text-sm text-white sm:block md:flex'>
         <div>
           <Link
-            to={'/bug-log/main'}
+            to={'/bug-log/auth/login'}
             className='flex h-full flex-initial items-center '
           >
             {currentLanguage?.GOVT_JH}
@@ -580,7 +569,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
         </div>
         <div>
           <Link
-            to={'/bug-log/main'}
+            to={'/bug-log/auth/login'}
             className='flex h-full flex-initial items-center '
           >
             {currentLanguage?.HELPLINE_NO}

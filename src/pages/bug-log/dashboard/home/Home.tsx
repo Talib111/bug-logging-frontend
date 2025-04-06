@@ -68,10 +68,10 @@ export default function Home() {
                         <Image src={item?.imageUrl || "/images/mailT.webp"} alt={item?.projectName || ""} className="w-auto h-32" />
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Active Bugs : {item?.activeBugs || 0}
+                        Active Bugs : <span className='text-black font-semibold'>{item?.activeBugs || 0}</span>
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Active Enhancements : {item?.activeEnhancements || 0}
+                        Active Enhancements :  <span className='text-black font-semibold'>{item?.activeEnhancement || 0}</span>
                       </div>
                     </CardContent>
                     <CardFooter className="pt-2 flex flex-col gap-2">

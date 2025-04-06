@@ -87,14 +87,9 @@ const Page = forwardRef(
               >
                 {/* <Search /> */}
                 <div className='flex gap-3'>
-                {user?.ulbName && 
-                <h1
-                className='text-gray-700 font-bold text-lg  hidden sm:block'
-              >
-                 ULB :- {user?.ulbName}</h1>}  
                   <h1
                     className='text-gray-700 font-bold text-lg  hidden sm:block'
-                  >ROLE :- {user?.role == "Normal" ? "Workflow Member" : user?.role  }</h1>
+                  >Project :- </h1>
                 </div>
                 <div className='ml-auto flex items-center space-x-4 '>
 

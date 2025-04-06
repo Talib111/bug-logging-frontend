@@ -33,7 +33,7 @@ export default function AuthGuard({
     if (pathname !== requestedLocation) {
       setRequestedLocation(pathname)
     }
-    return <Navigate to='/bug-log/main' />
+    return <Navigate to='/bug-log/auth/login' />
   }
 
   // if (isAuthenticated && !isAccessRoute()) {

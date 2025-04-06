@@ -82,7 +82,7 @@ export default function TopBar() {
         <div className="bg-[#111827] text-center text-xs font-semibold py-2">
             <span className="text-white">Terms & Conditions</span><span className="border-l border-l-white mx-2"></span>
             <span className="text-white">Privacy Policy</span><span className="border-l border-l-white mx-2"></span>
-            <span className="text-white">© 2024-UD&HD, GOJ version 1.0.0 </span>
+            <span className="text-white">© 2024-Bug-Tracking, GOJ version 1.0.0 </span>
         </div>
     </footer>
     )

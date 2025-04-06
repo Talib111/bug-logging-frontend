@@ -8,7 +8,7 @@ export type I_ROLE_TYPE = {
   createdAt: string
   updatedAt: string
   activeBugs: number
-  activeEnhancements: number
+  activeEnhancement: number
 }
 
 export type I_ROLE_TYPE_VIEW = {

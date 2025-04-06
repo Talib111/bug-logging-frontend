@@ -462,10 +462,10 @@ SWM_STATUS: "ठोस अपशिष्ट प्रबंधन आवेद�
       CM: "मुख्यमंत्री",
       SHS: "श्री हेमंत सोरेन",
 
-      MUDHD: "मंत्री (UD&HD)",
+      MUDHD: "मंत्री (Bug-Tracking)",
       SSK: "श्री सुधिव्य कुमार",
 
-      SUDHD: "सचिव (UD&HD)",
+      SUDHD: "सचिव (Bug-Tracking)",
       SS_KIAS: "श्री सुनील कुमार, IAS",
 
       EX: "अन्वेषण करें",
@@ -1065,10 +1065,10 @@ SWM_STATUS: "ठोस अपशिष्ट प्रबंधन आवेद�
       CM: "Chief Minister",
       SHS: "Shri Hemant Soren",
 
-      MUDHD: "Minister (UD&HD)",
+      MUDHD: "Minister (Bug-Tracking)",
       SSK: "Shri Sudivya Kumar",
 
-      SUDHD: "Secretary (UD&HD)",
+      SUDHD: "Secretary (Bug-Tracking)",
       SS_KIAS: "Shri Sunil Kumar, IAS",
 
       EX: "Explore",

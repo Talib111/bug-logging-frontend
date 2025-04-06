@@ -107,45 +107,15 @@ export default function Sidebar({
           sticky
           className='z-50 flex justify-between px-4 py-3 shadow-sm md:px-4'
         >
-          <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`} onClick={() => navigate('/bug-log/main')} >
+          <div className={`flex items-center ${!isCollapsed ? 'gap-2' : ''}`} >
             <div>
-              <img src="https://i.ibb.co/vz5hT4c/jharkhand-Logo-uf1gjn.png" alt="" className='w-11' />
+              <img src="https://img.freepik.com/premium-vector/computer-virus-detection-searching-bugs-data-protection-magnifier-glass_123447-5628.jpg?ga=GA1.1.871112965.1726233039&semt=ais_hybrid&w=740" alt="" className='w-11' />
             </div>
-            {/* <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 256 256'
-              className={`transition-all ${isCollapsed ? 'h-6 w-6' : 'h-8 w-8'}`}
-            >
-              <rect width='256' height='256' fill='none'></rect>
-              <line
-                x1='208'
-                y1='128'
-                x2='128'
-                y2='208'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></line>
-              <line
-                x1='192'
-                y1='40'
-                x2='40'
-                y2='192'
-                fill='none'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-                strokeWidth='16'
-              ></line>
-              <span className='sr-only'>Website Name</span>
-            </svg> */}
             <div
               className={`flex flex-col justify-end truncate ${isCollapsed ? 'invisible w-0' : 'visible w-auto'}`}
             >
-              <span className='font-medium cursor-pointer'>UD&HD</span>
-              <span className='text-xs'>Grievance Management Module</span>
+              <span className='font-medium cursor-pointer'>Bug-Tracking</span>
+              <span className='text-xs'>Bug & Enhacement Logging</span>
             </div>
           </div>
 

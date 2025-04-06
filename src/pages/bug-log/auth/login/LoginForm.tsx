@@ -222,7 +222,7 @@ export default function LoginForm() {
               <div className="flex-shrink max-w-full px-4 w-full md:w-1/2 text-center md:ltr:text-right md:rtl:text-left">
                 <p className="mb-0 mt-3 md:mt-0">
                   <a href="#" className="hover:text-indigo-500">
-                    UD&HD
+                    Bug-Tracking
                   </a> | All right reserved
                 </p>
               </div>

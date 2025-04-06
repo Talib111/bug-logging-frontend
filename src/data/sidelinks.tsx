@@ -369,18 +369,6 @@ export const superAdminSidelinks: SideLink[] = [
     icon: <IconLayoutDashboard size={18} />,
   },
   {
-    title: 'Bug List',
-    label: '',
-    href: '/bug-log/dashboard/complaint-workflow',
-    icon: <IconHexagonNumber1 size={18} />,
-  },
-  {
-    title: 'Enhacement List',
-    label: '',
-    href: '/bug-log/dashboard/enhancement-list',
-    icon: <IconHexagonNumber1 size={18} />,
-  },
-  {
     title: 'Bug Entry',
     label: '',
     href: '/bug-log/dashboard/management-complaint-form',

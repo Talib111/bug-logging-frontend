@@ -141,13 +141,6 @@ const CitizenFeedback = lazyWithRetries(
 )
 
 
-// -------------------------------End After routes--------------------------------
-
-// -------------------------------Main Routes--------------------------------
-const LandingPage = lazyWithRetries(
-  () => import('@/pages/bug-log/main/landing-page')
-)
-
 // -------------------------------Citizen Routes--------------------------------
 const CitizenComplaintForm = lazyWithRetries(
   () => import('@/pages/bug-log/citizen/citizen-complaint-form')
@@ -246,138 +239,6 @@ const routes: Route[] = [
   {
     layout: 'main', // before Auth
     pages: [
-      {
-        id: '1',
-        name: 'Landing Page',
-        path: '',
-        element: <LandingPage />,
-      },
-    ],
-  },
-  {
-    layout: 'citizen',
-    pages: [
-      {
-        id: '1',
-        name: 'Citizen Complaint Form',
-        path: 'citizen-complaint-form',
-        element: <CitizenComplaintForm />,
-      },
-      {
-        id: '2',
-        name: 'Citizen Complaint Form',
-        path: 'citizen-complaint-search',
-        element: <CitizenComplaintSearch />,
-      },
-      {
-        id: '3',
-        name: 'Citizen Review Form',
-        path: 'citizen-review',
-        element: <CitizenReview />,
-      },
-      {
-        id: '4',
-        name: 'Citizen Testimonials',
-        path: 'citizen-testimonials',
-        element: <ClientTestimonials />,
-      },
-      {
-        id: '5',
-        name: 'Citizen FAQ',
-        path: 'citizen-faq',
-        element: <CitizenFaq />,
-      },
-      {
-        id: '6',
-        name: 'Citizen Track Complaint',
-        path: 'citizen-track-complaint',
-        element: <CitizenTrackComplaint />,
-      },
-      {
-        id: '7',
-        name: 'Citizen Track Reminder',
-        path: 'citizen-reminder',
-        element: <TrackReminder />,
-      },
-      {
-        id: '8',
-        name: 'Complaint Success',
-        path: 'complaint-success',
-        element: <ComplaintSuccess />,
-      },
-      {
-        id: '9',
-        name: 'Complaint Details',
-        path: 'complaint-details',
-        element: <ComplaintDetails />,
-      },
-      {
-        id: '10',
-        name: 'Tools',
-        path: 'tools',
-        element: <Tools />,
-      },
-      {
-        id: '11',
-        name: 'Citizen Change Password',
-        path: 'citizen-change-password',
-        element: <CitizenChangePassword />,
-      },
-      {
-        id: '12',
-        name: 'Privacy Policy',
-        path: 'privacy-policy',
-        element: <PrivacyPolicy />,
-      },
-      {
-        id: '13',
-        name: 'Complaint Registration Information',
-        path: 'complaint-registration-info',
-        element: <ComplaintRegistrationInfo />
-      },
-      {
-        id: '14',
-        name: 'Zone Wise Ward List',
-        path: 'zone-ward-list',
-        element: <ZoneWardList />,
-      },
-      {
-        id: '15',
-        name: 'Find New Holding Number',
-        path: 'find-new-holding-no',
-        element: <CitizenFindNewHolding />,
-      },
-      {
-        id: '16',
-        name: 'CItizen Grievance via Phone',
-        path: 'citizen-grievance-via-phone',
-        element: <CitizenGrievanceViaPhone />,
-      },
-      {
-        id: '17',
-        name: 'CItizen Grievance via Email',
-        path: 'citizen-grievance-via-email',
-        element: <CitizenGrievanceViaEmail />,
-      },
-      {
-        id: '18',
-        name: 'CItizen Grievance via Email',
-        path: 'citizen-grievance-via-whatsapp',
-        element: <CitizenGrievanceViaWhatsApp />,
-      },
-
-      {
-        id: '19',
-        name: 'MOdule Track',
-        path: 'track-status',
-        element: <ModuleTrack />,
-      },
-      {
-        id: '20',
-        name: 'send remndier',
-        path: 'citizen-send-reminder',
-        element: <SendReminder />,
-      },
     ],
   },
   // auth routes
@@ -389,24 +250,6 @@ const routes: Route[] = [
         name: 'Login',
         path: 'login',
         element: <Login />,
-      },
-      {
-        id: '2',
-        name: 'Citizen SingUp',
-        path: 'citizen-sign-up',
-        element: <CitizenSingUp />,
-      },
-      {
-        id: '3',
-        name: 'Citizen Login',
-        path: 'citizen-login',
-        element: <CitizenLogin />,
-      },
-      {
-        id: '4',
-        name: 'Citizen Reset Password',
-        path: 'citizen-reset-password',
-        element: <CitizenResetPassword />,
       },
     ],
   },
@@ -427,18 +270,6 @@ const routes: Route[] = [
         element: <ClientHome />,
       },
       {
-        id: '1',
-        name: 'Sharing',
-        path: 'sharing',
-        element: <Sharing />,
-      },
-      {
-        id: '1',
-        name: 'Sharing Receipt',
-        path: 'sharing-receipt',
-        element: <SharingReceipt />,
-      },
-      {
         id: '2',
         name: 'Role',
         path: 'role',
@@ -449,25 +280,6 @@ const routes: Route[] = [
         name: 'Complaint',
         path: 'complaint',
         element: <Complaint />,
-      },
-      {
-        id: '4',
-        name: 'Modules',
-        path: 'module-id',
-        element: <ModuleMaster />,
-      },
-
-      {
-        id: '5',
-        name: 'Ulb List',
-        path: 'ulb-list',
-        element: <UlbList />,
-      },
-      {
-        id: '5',
-        name: 'Work Flow Roles',
-        path: 'workflow-roles',
-        element: <WorkFlowRole />,
       },
       {
         id: '6',
@@ -482,18 +294,6 @@ const routes: Route[] = [
         element: <Target />,
       },
       {
-        id: '8',
-        name: 'Workflow Master',
-        path: 'workflow-master',
-        element: <WorkFlowMaster />,
-      },
-      {
-        id: '9',
-        name: 'Table Form',
-        path: 'table-form',
-        element: <TableForm />,
-      },
-      {
         id: '10',
         name: 'Users List',
         path: 'users-master',
@@ -504,12 +304,6 @@ const routes: Route[] = [
         name: 'Complaint Source',
         path: 'complaint-source',
         element: <ComplaintSource />,
-      },
-      {
-        id: '11',
-        name: 'Complaint Type',
-        path: 'complaint-type',
-        element: <ComplaintType />,
       },
       {
         id: '12',
@@ -531,21 +325,9 @@ const routes: Route[] = [
       },
       {
         id: '14',
-        name: 'Members Details',
-        path: 'members-details',
-        element: <WorkFlowMemberList />,
-      },
-      {
-        id: '14',
         name: 'Management Complaint',
         path: 'management-complaint-form',
         element: <ManagementComplaintForm />,
-      },
-      {
-        id: '14',
-        name: 'Management Complaint success',
-        path: 'management-complaint-success',
-        element: <ManagementComplaintSuccess />,
       },
       {
         id: '14',
@@ -566,18 +348,6 @@ const routes: Route[] = [
         element: <ManagementChangePassword />,
       },
       {
-        id: '14',
-        name: 'Transfer Complaint',
-        path: 'transfer-complaint',
-        element: <TransferComplaint />,
-      },
-      {
-        id: '15',
-        name: 'Location',
-        path: 'location',
-        element: <Location />,
-      },
-      {
         id: '15',
         name: 'Project Master',
         path: 'project-mstrs',
@@ -596,127 +366,12 @@ const routes: Route[] = [
         element: <Profile />,
       },
       {
-        id: '18',
-        name: 'Analytical Dashboard',
-        path: 'analytics-dashboard',
-        element: <AnalyticalDashboard />,
-      },
-      {
         id: '19',
         name: 'Complaint Report',
         path: 'complaint-reports',
         element: <ComplaintReports />,
       },
-      {
-        id: '19',
-        name: 'Grievance Sla Report',
-        path: 'grievance-sla-reports',
-        element: <ComplaintSlaReports />,
-      },
-      {
-        id: '20',
-        name: 'Workflow Wise Report',
-        path: 'wf-wise-reports',
-        element: <WorkflowWiseReports />,
-      },
-      {
-        id: '21',
-        name: 'Workflow Wise Report',
-        path: 'workflow-byId-Report',
-        element: <WorkflowByIdReport />,
-      },
-      {
-        id: '22',
-        name: 'Resolution Days Report',
-        path: 'resolution-days-reports',
-        element: <ResolutionDaysReports />,
-      },
-      {
-        id: '23',
-        name: 'Citizen Feedback',
-        path: 'citizen-feedback',
-        element: <CitizenFeedback />,
-      },
-      {
-        id: '24',
-        name: 'Gr Problems',
-        path: 'gr-problems',
-        element: <GrProblemList />,
-      },
-      {
-        id: '24',
-        name: 'Gr Department ',
-        path: 'gr-department',
-        element: <GrDepartment />,
-      },
     ],
-  },
-
-  // citizen Dashboard
-  {
-    layout: 'citizenDashboard', // after Auth
-    pages: [
-      {
-        id: '1',
-        name: 'Citizen Dashboard',
-        path: 'home',
-        element: <CitizenDashboard />,
-      },
-      {
-        id: '2',
-        name: 'Citizen Profile',
-        path: 'profile',
-        element: <Profile />,
-      },
-      {
-        id: '3',
-        name: 'Citizen Testimonials',
-        path: 'citizen-testimonials',
-        element: <ClientTestimonials />,
-      },
-      {
-        id: '4',
-        name: 'Tools',
-        path: 'tools',
-        element: <Tools />,
-      },
-      {
-        id: '5',
-        name: 'Zone Wise Ward List',
-        path: 'zone-ward-list',
-        element: <ZoneWardList />,
-      },
-      {
-        id: '6',
-        name: 'Citizen FAQ',
-        path: 'citizen-faq',
-        element: <CitizenFaq />,
-      },
-      {
-        id: '7',
-        name: 'Privacy Policy',
-        path: 'privacy-policy',
-        element: <PrivacyPolicy />,
-      },
-      {
-        id: '8',
-        name: 'All Complaints',
-        path: 'all-complaints',
-        element: <CitizenAllComplaints />,
-      },
-      {
-        id: '9',
-        name: 'Citizen Review Form',
-        path: 'citizen-review',
-        element: <CitizenReview />,
-      },
-      {
-        id: '10',
-        name: 'Citizen Complaint Details',
-        path: 'citizen-complaint-details',
-        element: <ComplaintDetails />,
-      },
-    ]
   },
 ]
 
