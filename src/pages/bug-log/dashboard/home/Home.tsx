@@ -63,8 +63,7 @@ export default function Home() {
                       </div>
                     </CardHeader>
                     <CardContent className="pb-2">
-                      <div className="flex items-center justify-center bg-gray-100 rounded-md  mb-2 overflow-hidden">
-                        {/* Template preview thumbnail or placeholder */}
+                      <div className="flex items-center justify-center bg-white rounded-md  mb-2 overflow-hidden">
                         <Image src={item?.imageUrl || "/images/mailT.webp"} alt={item?.projectName || ""} className="w-auto h-32" />
                       </div>
                       <div className="text-sm text-muted-foreground">

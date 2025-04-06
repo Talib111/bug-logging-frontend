@@ -201,7 +201,7 @@ export default function ProjectList() {
                           </div>
                         </CardHeader>
                         <CardContent className="pb-2">
-                          <div className="flex items-center justify-center bg-gray-100 rounded-md  mb-2 overflow-hidden">
+                          <div className="flex items-center justify-center bg-white rounded-md  mb-2 overflow-hidden">
                             {/* Template preview thumbnail or placeholder */}
                             <Image src={role?.imageUrl || "/images/mailT.webp"} alt={role?.projectName || ""} className="w-auto h-32" />
                           </div>
