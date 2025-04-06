@@ -33,8 +33,6 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { io } from 'socket.io-client';
-const socket = io('http://localhost:8008');
 
 export default function WorkflowList() {
   const [page, setPage] = useState<number>(1)
@@ -237,9 +235,6 @@ export default function WorkflowList() {
                         {outboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
-                                New
-                              </span>
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
@@ -338,9 +333,6 @@ export default function WorkflowList() {
                         {specialListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
-                                New
-                              </span>
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>

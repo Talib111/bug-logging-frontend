@@ -13,7 +13,6 @@ import { littleMachineStore } from '@/lib/littleMachine.tsx'
 import CustomErrorBoundary from './components/error-boundary/CustomErrorBoundary.tsx'
 import App from './App.tsx'
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { SocketProvider } from './SocketContext.tsx'
 const queryClient = new QueryClient()
 const clientId = '791509906316-a7r7f18q5f0vvjtvm8o2qbdpdvtv7s1a.apps.googleusercontent.com';
 

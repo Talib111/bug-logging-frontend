@@ -17,8 +17,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import { useApi } from '@/hooks/useCustomQuery'
-import { grievanceAPI } from '@/lib'
+import { useApi, usePutMutation } from '@/hooks/useCustomQuery'
+import { getErrorMessage, grievanceAPI } from '@/lib'
 import PaginationComponent from '@/components/pagination'
 import { Separator } from '@/components/ui/separator'
 import SearchBox from '@/components/search-box'
@@ -33,13 +33,12 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-import { io } from 'socket.io-client';
-const socket = io('http://localhost:8008');
 
 export default function WorkflowList() {
   const [page, setPage] = useState<number>(1)
   const [perPage, setPerPage] = useState<number>(10)
   const [search, setSearch] = useState<string>('')
+  const mutate = usePutMutation({});
 
   const inboxListData = useApi<any>({
     api: `${grievanceAPI.getComplaintInbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
@@ -65,6 +64,27 @@ export default function WorkflowList() {
       enabled: true,
     },
   })
+
+  //___________________ THIS FUNCTION UPDATES THE NEW TAG ON APPLICATION ___________
+  const updateNewTag = async (_id: any) => {
+    let requestBody = {
+      _id
+    };
+
+    try {
+      const result = await mutate.mutateAsync({
+        api: grievanceAPI.updateNewTag,
+        data: requestBody
+      });
+      if (result.data.success) {
+        inboxListData?.refetch();
+      } else {
+        console.log('error is updating new tag')
+      }
+    } catch (error) {
+      console.log('the error is..', getErrorMessage(error))
+    }
+  };
 
   return (
     <main className='grid items-start'>
@@ -127,9 +147,9 @@ export default function WorkflowList() {
                         {inboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
+                              {items?.isFresh && <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
                                 New
-                              </span>
+                              </span>}
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
@@ -150,7 +170,7 @@ export default function WorkflowList() {
                               <Link to={`/bug-log/dashboard/workflow-details?complaintRefNo=${items?.complaintRefNo}&complaintId=${items?._id}`}>
                                 <Button
                                   className='bg-primary'
-                                  onClick={() => { }}
+                                  onClick={() => { updateNewTag(items?._id) }}
                                 >
                                   View
                                 </Button>
@@ -196,7 +216,7 @@ export default function WorkflowList() {
             <Card>
               <CardHeader className='px-7'>
                 <CardDescription>
-                 Total : {outboxListData.data?.data?.totalDocs}
+                  Total : {outboxListData.data?.data?.totalDocs}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -224,9 +244,6 @@ export default function WorkflowList() {
                         {outboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
-                                New
-                              </span>
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
@@ -293,7 +310,7 @@ export default function WorkflowList() {
             <Card>
               <CardHeader className='px-7'>
                 <CardDescription>
-                 Total : {specialListData.data?.data?.totalDocs}
+                  Total : {specialListData.data?.data?.totalDocs}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -321,9 +338,6 @@ export default function WorkflowList() {
                         {specialListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
-                                New
-                              </span>
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>

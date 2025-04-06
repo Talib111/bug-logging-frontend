@@ -23,7 +23,7 @@ export default function Home() {
   const [perPage, setPerPage] = useState<number>(10)
   const [search, setSearch] = useState<string>('')
 
-  const roleData = useApi<I_ROLE_TYPE_LIST>({
+  const projectData = useApi<I_ROLE_TYPE_LIST>({
     api: `${grievanceAPI.getAllProject}?page=${page}&limit=${perPage}&q=${search}`,
     key: 'getAllProjects',
     value: [page, perPage],
@@ -36,28 +36,28 @@ export default function Home() {
     <main className='grid items-start'>
       <div className='grid auto-rows-max items-start gap-4 md:gap-2 lg:col-span-2'>
         <div className='flex w-full justify-between gap-2'>
-          <div className='font-bold text-2xl'>Projects({roleData.data?.data?.totalDocs})</div>
+          <div className='font-bold text-2xl'>Projects({projectData?.data?.data?.totalDocs})</div>
         </div>
         <Card className='bg-transparent shadow-none border-none'>
           <CardHeader className="px-7">
           </CardHeader>
           <CardContent>
-            {roleData.isLoading ? (
+            {projectData?.isLoading ? (
               <div className="flex h-32 items-center justify-center">
                 <Spinner />
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {roleData?.data?.data?.docs?.map((role, index) => (
-                  <Card key={role?._id} className="overflow-hidden">
+                {projectData?.data?.data?.docs?.map((item, index) => (
+                  <Card key={item?._id} className="overflow-hidden">
                     <CardHeader className="pb-2">
                       <div className="flex justify-between items-start">
-                        <div>
-                          <CardTitle className="text-lg">{role?.projectName}</CardTitle>
-                        </div>
                         <div className="flex items-center">
-                          <Badge variant={role?.status == 1 ? "success" : "secondary"}>
-                            {role?.status == 1 ? "Active" : "Inactive"}
+                          <CardTitle className="text-lg">{item?.projectName}</CardTitle>
+                        </div>
+                        <div>
+                          <Badge className='w-full' variant={item?.status == 1 ? "success" : "secondary"}>
+                            {item?.status == 1 ? "Active" : "Inactive"}
                           </Badge>
                         </div>
                       </div>
@@ -65,14 +65,14 @@ export default function Home() {
                     <CardContent className="pb-2">
                       <div className="flex items-center justify-center bg-gray-100 rounded-md  mb-2 overflow-hidden">
                         {/* Template preview thumbnail or placeholder */}
-                        <Image src={role?.imageUrl || "/images/mailT.webp"} alt={role?.projectName || ""} className="w-auto h-32" />
+                        <Image src={item?.imageUrl || "/images/mailT.webp"} alt={item?.projectName || ""} className="w-auto h-32" />
                       </div>
                       <div className="text-sm text-muted-foreground">
-                            Active Bugs : 5
-                          </div>
+                        Active Bugs : {item?.activeBugs || 0}
+                      </div>
                     </CardContent>
                     <CardFooter className="pt-2">
-                      <Link className='w-full' to={`/bug-log/dashboard/complaint-workflow?projectId=${role?._id}&projectName=${role?.projectName}`}>
+                      <Link className='w-full' to={`/bug-log/dashboard/complaint-workflow?projectId=${item?._id}&projectName=${item?.projectName}`}>
                         <Button
                           variant="outline"
                           size="sm"

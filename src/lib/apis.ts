@@ -17,7 +17,7 @@ export const grievanceAPI = {
   deleteUser: '/user/delete-user',
   getUserById: '/user/edit',
   updateUserStatus: '/user/update-user-status',
-  
+
 
 
 
@@ -30,14 +30,14 @@ export const grievanceAPI = {
   getRoleById: '/role/get-role-by-id',
   updateRoleStatus: '/role/update-role-status',
 
-   // ════════════════════════════║  API OF PROJECT MASTER ║═════════════════════════════════
-   createProject: '/project/create-project',
-   getAllProject: '/project/get-all-project',
-   updateProject: '/project/update-project',
-   deleteProject: '/project/delete-project',
-   getProjectById: '/project/get-project-by-id',
-   updateProjectStatus: '/project/update-project-status',
-   
+  // ════════════════════════════║  API OF PROJECT MASTER ║═════════════════════════════════
+  createProject: '/project/create-project',
+  getAllProject: '/project/get-all-project',
+  updateProject: '/project/update-project',
+  deleteProject: '/project/delete-project',
+  getProjectById: '/project/get-project-by-id',
+  updateProjectStatus: '/project/update-project-status',
+
   // ════════════════════════════║  API OF PROBLEM MASTER ║═════════════════════════════════
   createProblem: '/problem/create-problem',
   getAllProblem: '/problem/get-all-problem',
@@ -243,6 +243,8 @@ export const grievanceAPI = {
 
   // ════════════════════════════║  API OF CITIZEN Tools Api  ║═════════════════════════════════
   citizenFindNewHolding: '/property/reports/oldHolding',
+  // ════════════════════════════║  API OF CITIZEN Tools Api  ║═════════════════════════════════
+  updateNewTag: '/complaint-application/update-new-tag',
   // ════════════════════════════║  API OF CITIZEN Tools Api  ║═════════════════════════════════
 
 
