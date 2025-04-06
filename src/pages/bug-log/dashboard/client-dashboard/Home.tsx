@@ -1,5 +1,3 @@
-''
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -16,17 +14,15 @@ import { Eye } from "lucide-react"
 import { Image } from '@/components/image'
 import { Badge } from '@/components/ui/badge'
 import { Link } from 'react-router-dom'
-import { I_ROLE_TYPE_LIST } from './type'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+
 
 export default function Home() {
-  const [page, setPage] = useState<number>(1)
-  const [perPage, setPerPage] = useState<number>(10)
-  const [search, setSearch] = useState<string>('')
 
-  const roleData = useApi<I_ROLE_TYPE_LIST>({
-    api: `${grievanceAPI.getAllProject}?page=${page}&limit=${perPage}&q=${search}`,
-    key: 'getAllProjects',
-    value: [page, perPage],
+  const myProjectData = useApi<any>({
+    api: `${grievanceAPI.getMyProjectDetails}`,
+    key: 'getMyProjects',
+    value: [],
     options: {
       enabled: true,
     },
@@ -35,14 +31,20 @@ export default function Home() {
   return (
     <main className='grid items-start'>
       <div className='grid auto-rows-max items-start gap-4 md:gap-2 lg:col-span-2'>
-        <div className='flex w-full justify-between gap-2'>
-          <div className='font-bold text-2xl'>Activity Dashboard</div>
+        <div className='flex w-full gap-2 items-center'>
+          <Avatar className='h-12 w-12 border p-2'>
+            <AvatarImage className='rounded-full' src={myProjectData?.data?.data?.imageUrl || '/images/dummy-user.png'} alt='profile' />
+            <AvatarFallback>SN</AvatarFallback>
+          </Avatar>
+          <div>
+            <div className='font-bold text-2xl'>{myProjectData?.data?.data?.projectName}</div>
+          </div>
         </div>
         <Card className='bg-transparent shadow-none border-none'>
           <CardHeader className="px-7">
           </CardHeader>
           <CardContent>
-            {roleData.isLoading ? (
+            {myProjectData.isLoading ? (
               <div className="flex h-32 items-center justify-center">
                 <Spinner />
               </div>
@@ -55,7 +57,7 @@ export default function Home() {
                         <CardTitle className="text-lg">Bug Record</CardTitle>
                       </div>
                       <div className="flex items-center">
-                        <Badge variant={1 == 1 ? "success" : "secondary"}>
+                        <Badge className='text-xs' variant={1 == 1 ? "success" : "secondary"}>
                           {1 == 1 ? "Active" : "Inactive"}
                         </Badge>
                       </div>
@@ -67,7 +69,7 @@ export default function Home() {
                       <Image src={"https://img.freepik.com/premium-vector/person-stands-laptop-showing-error-sign-surrounded-by-notifications-gears-man-standing-laptop-with-error-sign-flat-illustration_585735-40821.jpg?ga=GA1.1.871112965.1726233039&semt=ais_hybrid&w=740"} alt={""} className="w-auto h-32" />
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      Active Bugs : 5
+                      Active Bugs : <span className='text-black font-semibold'>{myProjectData?.data?.data?.activeBugs || 0}</span>
                     </div>
                   </CardContent>
                   <CardFooter className="pt-2">
@@ -91,7 +93,7 @@ export default function Home() {
                         <CardTitle className="text-lg">Enhancement Record</CardTitle>
                       </div>
                       <div className="flex items-center">
-                        <Badge variant={1 == 1 ? "success" : "secondary"}>
+                        <Badge className='text-xs' variant={1 == 1 ? "success" : "secondary"}>
                           {1 == 1 ? "Active" : "Inactive"}
                         </Badge>
                       </div>
@@ -103,7 +105,7 @@ export default function Home() {
                       <Image src={"https://img.freepik.com/free-photo/top-view-list-written-yellow-sticky-note-colorful-sticky-notes-lupa-pen-cinnamon-sticks-ruler-cup-tea_140725-145693.jpg?ga=GA1.1.871112965.1726233039&semt=ais_hybrid&w=740"} alt={""} className="w-auto h-32" />
                     </div>
                     <div className="text-sm text-muted-foreground">
-                      Active Enhancement : 5
+                      Active Enhancement : <span className='text-black font-semibold'>{myProjectData?.data?.data?.activeEnhancement || 0}</span>
                     </div>
                   </CardContent>
                   <CardFooter className="pt-2">

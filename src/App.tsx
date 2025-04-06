@@ -1,50 +1,23 @@
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from 'react-hot-toast'
 import AllRoutes from './routes'
-
-// Extend window object to include google and googleTranslateElementInit
-// declare global {
-//   interface Window {
-//     google: any;
-//     googleTranslateElementInit: () => void;
-//   }
-// }
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function App() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  console.log('the location is.', location)
 
-  // // Function to initialize Google Translate element
-  // const googleTranslateElementInit = () => {
-  //   if (window.google && window.google.translate) {
-  //     new window.google.translate.TranslateElement(
-  //       {
-  //         pageLanguage: "en",
-  //         autoDisplay: false, // Disable automatic popup
-  //       },
-  //       "google_translate_element" // The ID of the div where the widget will be rendered
-  //     );
-  //   }
-  // };
-
-  // // Load Google Translate script
-  // useEffect(() => {
-  //   const addScript = document.createElement("script");
-  //   addScript.src =
-  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-  //   document.body.appendChild(addScript);
-
-  //   // Make sure the function is globally available
-  //   window.googleTranslateElementInit = googleTranslateElementInit;
-
-  //   // Clean up when component unmounts
-  //   return () => {
-  //     document.body.removeChild(addScript);
-  //   };
-  // }, []);
   return (
     <TooltipProvider>
-        {/* <div id="google_translate_element" className=" absolute top-14 right-4 bg-purple-50 p-2 rounded"  style={{ zIndex: 1000 }} ></div> */}
       <Toaster position='top-center' reverseOrder={false} toastOptions={{}} />
       <AllRoutes />
+
+      {/* _____________ FLOATING BUG ENTRY ICON ________ */}
+      {location.pathname !== '/bug-log/dashboard/management-complaint-form' && <Avatar onClick={() => navigate('/bug-log/dashboard/management-complaint-form')} className='h-16 w-16 border-2 p-2 absolute bottom-10 right-10 bg-amber-400 shadow-lg border-white cursor-pointer flex flex-col hover:border-primary'>
+        <AvatarImage className='rounded-full' src={'/images/bug.png'} alt='profile' />
+      </Avatar>}
     </TooltipProvider>
   )
 }

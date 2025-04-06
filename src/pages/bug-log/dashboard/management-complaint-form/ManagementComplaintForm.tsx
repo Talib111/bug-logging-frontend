@@ -21,6 +21,8 @@ import { useAppContext } from '@/context'
 import { ServerCrash } from 'lucide-react'
 import { SUPER_ADMIN } from '@/../config/roles.config'
 import { I_ROLE_TYPE_LIST } from './type'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
+
 
 export default function CitizenComplaintForm() {
   const [newRole, setNewRole] = useState<any>('')
@@ -113,9 +115,9 @@ export default function CitizenComplaintForm() {
       })
       if (res.data?.success) {
         toast.success(res?.data?.message)
-        if(user?.roleId === SUPER_ADMIN){
+        if (user?.roleId === SUPER_ADMIN) {
           navigate('/bug-log/dashboard/home')
-        }else{
+        } else {
           navigate('/bug-log/dashboard/client-home')
         }
       } else {
@@ -160,7 +162,9 @@ export default function CitizenComplaintForm() {
     <FormProviders methods={methods} onSubmit={methods.handleSubmit(onSubmit)}>
       <div className='grid grid-cols-4 gap-x-2 gap-y-4 bg-background p-10'>
         <h1 className='text-xl font-bold uppercase text-blue-800 flex items-center gap-2'>
-          <ServerCrash /> Bug Entry
+          <Avatar  className='h-12 w-12 border-2 p-2 bg-amber-400 shadow-lg border-white cursor-pointer flex flex-col hover:border-primary'>
+            <AvatarImage className='rounded-full' src={'/images/bug.png'} alt='profile' />
+          </Avatar> Bug Entry
         </h1>
         <Separator className='col-span-4' />
 

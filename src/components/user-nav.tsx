@@ -38,7 +38,8 @@ console.log(user?.email)
       <DropdownMenuTrigger asChild>
         <Button variant='ghost' className='relative h-8 w-8 rounded-full'>
           <Avatar className='h-10 w-10'>
-            <AvatarImage src={user?.googleId ? user?.imageUrl : user?.imgFullPath} alt='profile' />
+            {/* <AvatarImage src={user?.googleId ? user?.imageUrl : user?.imgFullPath} alt='profile' /> */}
+            <AvatarImage src={'/images/dummy-user.png'} alt='profile' />
             <AvatarFallback>SN</AvatarFallback>
           </Avatar>
         </Button>

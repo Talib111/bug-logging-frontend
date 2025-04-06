@@ -7,6 +7,8 @@ export type I_ROLE_TYPE = {
   imageUrl: string
   createdAt: string
   updatedAt: string
+  activeBugs: number
+  activeEnhancement: number
 }
 
 export type I_ROLE_TYPE_VIEW = {

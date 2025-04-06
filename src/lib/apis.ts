@@ -33,6 +33,7 @@ export const grievanceAPI = {
   // ════════════════════════════║  API OF PROJECT MASTER ║═════════════════════════════════
   createProject: '/project/create-project',
   getAllProject: '/project/get-all-project',
+  getMyProjectDetails: '/project/get-my-project-details',
   updateProject: '/project/update-project',
   deleteProject: '/project/delete-project',
   getProjectById: '/project/get-project-by-id',
