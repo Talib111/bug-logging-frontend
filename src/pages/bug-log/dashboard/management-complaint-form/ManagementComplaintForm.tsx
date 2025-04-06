@@ -20,6 +20,7 @@ import { Image } from '@/components/image'
 import { useAppContext } from '@/context'
 import { ServerCrash } from 'lucide-react'
 import { SUPER_ADMIN } from '@/../config/roles.config'
+import { I_ROLE_TYPE_LIST } from './type'
 
 export default function CitizenComplaintForm() {
   const [newRole, setNewRole] = useState<any>('')
@@ -36,6 +37,7 @@ export default function CitizenComplaintForm() {
     logType: yup.string().required('Type is required'),
     priority: yup.string(),
     tat: yup.string(),
+    projectId: yup.string(),
     platformId: yup.string().required('Platform is required'),
     bugTitle: yup.string().required('Bug title is required'),
     bugDescription: yup.string().required('Bug description is required'),
@@ -66,6 +68,15 @@ export default function CitizenComplaintForm() {
     },
   })
 
+  const projectData = useApi<I_ROLE_TYPE_LIST>({
+    api: `${grievanceAPI.getAllProject}?page=1&limit=100`,
+    key: 'getAllProjectsWithoutLimit',
+    value: [],
+    options: {
+      enabled: true,
+    },
+  })
+
 
   const methods = useForm<any>({
     resolver: yupResolver(schema),
@@ -84,6 +95,7 @@ export default function CitizenComplaintForm() {
       if (data.priority) {
         formData.append('priority', data?.priority || '')
       }
+      formData.append('passedProjectId', data?.projectId || '')
       formData.append('tat', data?.tat || '')
       formData.append('platformId', data?.platformId || '')
       formData.append('bugTitle', data?.bugTitle || '')
@@ -101,7 +113,11 @@ export default function CitizenComplaintForm() {
       })
       if (res.data?.success) {
         toast.success(res?.data?.message)
-        navigate('/bug-log/dashboard/complaint-workflow')
+        if(user?.roleId === SUPER_ADMIN){
+          navigate('/bug-log/dashboard/home')
+        }else{
+          navigate('/bug-log/dashboard/client-home')
+        }
       } else {
         toast.error('Grievance not created successfully')
       }
@@ -117,6 +133,7 @@ export default function CitizenComplaintForm() {
         logType: data?.data?.logType || '',
         priority: data?.data?.priority || '',
         tat: data?.data?.tat || '',
+        projectId: data?.data?.projectId || '',
         platformId: data?.data?.platformId || '',
         bugTitle: data?.data?.bugTitle || '',
         bugDescription: data?.data?.bugDescription || '',
@@ -125,6 +142,7 @@ export default function CitizenComplaintForm() {
       methods.reset({ logType: '' })
       methods.reset({ priority: '' })
       methods.reset({ tat: '' })
+      methods.reset({ projectId: '' })
       methods.reset({ platformId: '' })
       methods.reset({ bugTitle: '' })
       methods.reset({ bugDescription: '' })
@@ -147,8 +165,26 @@ export default function CitizenComplaintForm() {
         <Separator className='col-span-4' />
 
 
-        <div className='col-span-4'></div>
+        {user?.roleId === SUPER_ADMIN && <>
+          <div>
+            <Label>Project</Label>
+            <SelectField
+              selectedText='problem'
+              className='cursor-pointer bg-background'
+              name='projectId'
+              data={
+                projectData?.data?.data?.docs?.map((item: any) => {
+                  return {
+                    value: item?._id,
+                    label: item?.projectName,
+                  }
+                }) ?? []
+              }
+            />
+          </div>
+        </>}
 
+        <div className='col-span-4'></div>
         <div>
           <Label>Type</Label>
           <SelectField

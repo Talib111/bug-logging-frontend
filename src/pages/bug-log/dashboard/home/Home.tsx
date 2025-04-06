@@ -70,8 +70,11 @@ export default function Home() {
                       <div className="text-sm text-muted-foreground">
                         Active Bugs : {item?.activeBugs || 0}
                       </div>
+                      <div className="text-sm text-muted-foreground">
+                        Active Enhancements : {item?.activeEnhancements || 0}
+                      </div>
                     </CardContent>
-                    <CardFooter className="pt-2">
+                    <CardFooter className="pt-2 flex flex-col gap-2">
                       <Link className='w-full' to={`/bug-log/dashboard/complaint-workflow?projectId=${item?._id}&projectName=${item?.projectName}`}>
                         <Button
                           variant="outline"
@@ -81,6 +84,17 @@ export default function Home() {
                         >
                           <Eye className="h-4 w-4 mr-2" />
                           View Active Bugs
+                        </Button>
+                      </Link>
+                      <Link className='w-full' to={`/bug-log/dashboard/enhancement-list?projectId=${item?._id}&projectName=${item?.projectName}`}>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => { }}
+                          className="w-full"
+                        >
+                          <Eye className="h-4 w-4 mr-2" />
+                          View Active Enhancements
                         </Button>
                       </Link>
                     </CardFooter>

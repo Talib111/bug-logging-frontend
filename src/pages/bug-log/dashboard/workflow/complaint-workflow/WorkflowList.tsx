@@ -23,7 +23,7 @@ import PaginationComponent from '@/components/pagination'
 import { Separator } from '@/components/ui/separator'
 import SearchBox from '@/components/search-box'
 import Spinner from '@/components/loaders/Spinner'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
 import { STATE_GRO } from '@/../config/roles.config'
 import {
@@ -39,9 +39,13 @@ export default function WorkflowList() {
   const [perPage, setPerPage] = useState<number>(10)
   const [search, setSearch] = useState<string>('')
   const mutate = usePutMutation({});
+  const useQuery = () => new URLSearchParams(useLocation().search)
+  const query = useQuery()
+  const projectId = query.get('projectId')
+
 
   const inboxListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintInbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
+    api: `${grievanceAPI.getComplaintInbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG&projectId=${projectId}`,
     key: 'getComplaintInboxList',
     value: [page, perPage],
     options: {
@@ -49,7 +53,7 @@ export default function WorkflowList() {
     },
   })
   const outboxListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintOutbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
+    api: `${grievanceAPI.getComplaintOutbox}?page=${page}&limit=${perPage}&q=${search}&logType=BUG&projectId=${projectId}`,
     key: 'getComplaintOutboxList',
     value: [page, perPage],
     options: {
@@ -57,7 +61,7 @@ export default function WorkflowList() {
     },
   })
   const specialListData = useApi<any>({
-    api: `${grievanceAPI.getComplaintSpecial}?page=${page}&limit=${perPage}&q=${search}&logType=BUG`,
+    api: `${grievanceAPI.getComplaintSpecial}?page=${page}&limit=${perPage}&q=${search}&logType=BUG&projectId=${projectId}`,
     key: 'getComplaintSpecialList',
     value: [page, perPage],
     options: {
