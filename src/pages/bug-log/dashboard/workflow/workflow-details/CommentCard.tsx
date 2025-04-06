@@ -1,14 +1,13 @@
 import { Image } from '@/components/image'
 import moment from 'moment'
-import profile from '/images/profile.png'
 
 function CommentCard({commentData}:any) {
     return (
         <div>
-            <div className="max-w-lg mx-auto border px-6 py-2 rounded-lg mb-2">
+            <div className="max-w-lg border px-6 py-2 rounded-lg mb-2 bg-amber-50">
                 <div className="flex items-center mb-4 space-x-2">
                     <Image
-                      src={commentData?.userId?.fullImgUrl || profile}
+                      src={'/images/dummy-user.png'}
                       alt="Student"
                       className="h-6 w-6 rounded-full"
                     />{" "}

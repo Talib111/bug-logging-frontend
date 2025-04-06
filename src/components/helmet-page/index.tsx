@@ -17,6 +17,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { useAppContext } from '@/context'
+import { SUPER_ADMIN } from '@/../config/roles.config'
 // import MyLanguage from "@/pages/bug-log/citizen/citizen-complaint-form/user-inputs/language"
 
 type PageProps = React.DetailedHTMLProps<
@@ -30,7 +31,7 @@ type PageProps = React.DetailedHTMLProps<
   searchLabel?: string
   meta?: any
 }
- 
+
 const Page = forwardRef(
   (
     { children, title = '', subTitle = '', searchLink = '', searchLabel = '', meta, ...other }: PageProps,
@@ -39,7 +40,7 @@ const Page = forwardRef(
     UseTitle(title)
 
     const { user } = useAppContext()
-    const {  currentLanguage, setcurrentLanguage, languageKey, setlanguageKey }:any = useAppContext()
+    const { currentLanguage, setcurrentLanguage, languageKey, setlanguageKey }: any = useAppContext()
     useEffect(() => {
       window.scrollTo({
         top: 0,
@@ -89,7 +90,7 @@ const Page = forwardRef(
                 <div className='flex gap-3'>
                   <h1
                     className='text-gray-700 font-bold text-lg  hidden sm:block'
-                  >Project :- </h1>
+                  >User : {user?.roleId === SUPER_ADMIN ? 'Super Admin' : user?.email}</h1>
                 </div>
                 <div className='ml-auto flex items-center space-x-4 '>
 
@@ -105,35 +106,35 @@ const Page = forwardRef(
                     <Recentpdates notificationSide={0} notificationType={1} />
                   </SidePanel> */}
                   {/* NOTIFICATIONS */}
-                  {/* <SidePanel trigger={<Bell size={25} className="text-black cursor-pointer hover:scale-110" />}>
+                  <SidePanel trigger={<Bell size={25} className="text-black cursor-pointer hover:scale-110" />}>
                     <CardTitle className='mb-4 text-[#0D7538] text-lg '>My Notifications </CardTitle>
                     <Notification notificationSide={0} notificationType={0} />
-                  </SidePanel> */}
+                  </SidePanel>
                   {/* LANGUAGE */}
                   {/* <ThemeSwitch />   */}
 
 
-                   <div>
-      {/* Only show the select button if the user's role is "Citizen" */}
-      {user?.role === 'Citizen user' ? (
-  <div className="relative">
-    <select
-      value={languageKey}
-      onChange={handleChange}
-      className="h-10 bg-transparent outline-none cursor-pointer"
-    >
-      <option value="english">English</option>
-      <option value="hindi">हिन्दी</option>
-    </select>
-  </div>
-) : (
-  <div style={{ display:'none'}}></div>
-)}
+                  <div>
+                    {/* Only show the select button if the user's role is "Citizen" */}
+                    {user?.role === 'Citizen user' ? (
+                      <div className="relative">
+                        <select
+                          value={languageKey}
+                          onChange={handleChange}
+                          className="h-10 bg-transparent outline-none cursor-pointer"
+                        >
+                          <option value="english">English</option>
+                          <option value="hindi">हिन्दी</option>
+                        </select>
+                      </div>
+                    ) : (
+                      <div style={{ display: 'none' }}></div>
+                    )}
 
 
-    </div>
-                 
-                  
+                  </div>
+
+
                   <UserNav />
                 </div>
               </Layout.Header>

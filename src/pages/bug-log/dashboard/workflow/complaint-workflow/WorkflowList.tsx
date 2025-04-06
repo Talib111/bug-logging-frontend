@@ -25,13 +25,14 @@ import SearchBox from '@/components/search-box'
 import Spinner from '@/components/loaders/Spinner'
 import { Link, useLocation } from 'react-router-dom'
 import { Badge } from '@/components/ui/badge'
-import { STATE_GRO } from '@/../config/roles.config'
+import { SUPER_ADMIN } from '@/../config/roles.config'
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs"
+import { useAppContext } from '@/context'
 
 
 export default function WorkflowList() {
@@ -42,6 +43,8 @@ export default function WorkflowList() {
   const useQuery = () => new URLSearchParams(useLocation().search)
   const query = useQuery()
   const projectId = query.get('projectId')
+  const projectName = query.get('projectName')
+  const { user } = useAppContext()
 
 
   const inboxListData = useApi<any>({
@@ -95,7 +98,8 @@ export default function WorkflowList() {
 
       <Tabs defaultValue="INBOX" className="w-full">
         <div className="flex">
-          <CardTitle className='flex-1 text-2xl font-bold'>Bug List</CardTitle>
+          {user?.roleId !== SUPER_ADMIN && <CardTitle className='flex-1 text-2xl font-bold'>Bug List</CardTitle>}
+          {user?.roleId === SUPER_ADMIN && <CardTitle className='flex-1 text-2xl font-bold'><span className='text-amber-500'>{projectName}</span> | Bug List</CardTitle>}
           <div className='flex-1 flex justify-end'>
             <TabsList className="grid w-auto grid-cols-4">
 
@@ -151,7 +155,7 @@ export default function WorkflowList() {
                         {inboxListData?.data?.data?.docs?.map((items: any, index: any) => (
                           <TableRow key={items._id}>
                             <TableCell className='relative'>
-                              {items?.isFresh && <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
+                              {user?.roleId === SUPER_ADMIN && items?.isFresh && <span className="bg-gradient-to-r text-[10px] from-orange-500 to-red-600 h-5 flex justify-center items-center text-white px-2 py-0 border border-dotted border-red-300 rounded-tr-md rounded-br-md shadow-md font-semibold">
                                 New
                               </span>}
                               {index + 1}</TableCell>
@@ -164,8 +168,6 @@ export default function WorkflowList() {
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
                             <TableCell>
-                              {items?.wf_status === 4 && <Badge variant={'destructive'}>Closed</Badge>}
-                              {items?.wf_status === 3 && <Badge className='bg-amber-500 text-white'>Pending(Re-Opened)</Badge>}
                               {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
@@ -258,8 +260,6 @@ export default function WorkflowList() {
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
                             <TableCell>
-                              {items?.wf_status === 4 && <Badge variant={'destructive'}>Closed</Badge>}
-                              {items?.wf_status === 3 && <Badge className='bg-amber-500 text-white'>Pending(Re-Opened)</Badge>}
                               {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}
@@ -352,8 +352,6 @@ export default function WorkflowList() {
                               {moment(items?.createdAt).format('DD-MM-YYYY')}
                             </TableCell>
                             <TableCell>
-                              {items?.wf_status === 4 && <Badge variant={'destructive'}>Closed</Badge>}
-                              {items?.wf_status === 3 && <Badge className='bg-amber-500 text-white'>Pending(Re-Opened)</Badge>}
                               {items?.wf_status === 2 && <Badge variant={'destructive'}>Rejected</Badge>}
                               {items?.wf_status === 1 && <Badge variant={'success'}>Resolved</Badge>}
                               {items?.wf_status === 0 && <Badge variant={'secondary'}>Pending</Badge>}

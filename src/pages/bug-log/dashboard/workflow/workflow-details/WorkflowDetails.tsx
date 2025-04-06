@@ -236,7 +236,11 @@ export default function EnteranceWorkflowDetails({
                 <div className='flex items-center  space-x-4'>
                 </div>
 
-                <div className='flex items-center  space-x-4'>
+
+                <div className='col-span-4 my-20 border-b border-[#99B37C]'></div>
+
+
+                <div className='col-span-2 flex flex-col'>
                   <div className='font-semibold'>Title : </div>
                   <div>
                     <p className='opacity-90'>
@@ -246,7 +250,7 @@ export default function EnteranceWorkflowDetails({
                 </div>
 
 
-                <div className='col-span-3 my-20 border-b border-[#99B37C]'></div>
+                <div className="col-span-4"></div>
                 <div className='col-span-2 flex flex-col'>
                   <div className='font-semibold'>Description : </div>
                   <div>
@@ -256,30 +260,12 @@ export default function EnteranceWorkflowDetails({
                   </div>
                 </div>
 
-                {complaintData?.data?.data?.wf_currentReopenComment && (
-                  <div className="col-span-2 flex flex-col">
-                    <div className="font-semibold">Remark :</div>
-                    <div>
-                      <p className="opacity-90">
-                        {complaintData.data.data.wf_currentReopenComment}
-                      </p>
-                    </div>
-                  </div>
-                )}
 
-                {complaintData?.data?.data?.customAddress && (
-                  <div className='col-span-2 flex flex-col'>
-                    <div className='font-semibold'>Address : </div>
-                    <div>
-                      <p className='opacity-90'>
-                        {complaintData?.data?.data?.customAddress}
-                      </p>{' '}
-                    </div>
-                  </div>
-                )}
 
+
+                <div className="col-span-4"></div>
                 {/* COMPLAINT DOCUMENT SECTION */}
-                <div className='col-span-3 flex flex-col'>
+                <div className='col-span-1 flex flex-col'>
                   <div className='font-semibold'>Document :</div>
                   <div className='cursor-pointer'>
                     {!complaintData?.data?.data?.imgUrl && <span className='font-semibold text-gray-700'>No Document Found !</span>}
@@ -299,13 +285,29 @@ export default function EnteranceWorkflowDetails({
 
                   </div>
                 </div>
+
+
+                <div className="col-span-4"></div>
+
+                {/* _______________________ COMMENT SECTION FOR CLIENT ONLY _________________ */}
+                {user?.roleId !== SUPER_ADMIN && <div className='col-span-1 h-80 overflow-y-auto'>
+                  <CardTitle className='mb-2'>Comments</CardTitle>
+                  {complaintAllComments?.data?.data?.data?.map(
+                    (comment: any, index: number) => (
+                      <CommentCard commentData={comment} key={`comment${index}`} />
+                    )
+                  )}
+                </div>}
+
               </div>
 
             </div>
           </div>
         </div>
 
-        <Card x-chunk='dashboard-05-chunk-3'>
+
+        {/* _____________________ ACTION AREA ___________________ */}
+        {user?.roleId === SUPER_ADMIN && <Card x-chunk='dashboard-05-chunk-3'>
           <CardContent className='grid grid-cols-3 py-10'>
             <div className='col-span-2 pr-10'>
               <FormProviders
@@ -373,7 +375,7 @@ export default function EnteranceWorkflowDetails({
                         </CardTitle>
                       )}
 
-                     
+
                     </div>
 
                     <div className='flex justify-end'>
@@ -531,7 +533,7 @@ export default function EnteranceWorkflowDetails({
               )}
             </div>
           </CardContent>
-        </Card>
+        </Card>}
       </div>
     </main>
   )
