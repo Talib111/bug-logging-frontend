@@ -107,7 +107,7 @@ export default function HomePage() {
         <Card >
           <CardHeader className='px-7'>
             <CardDescription>
-            Priority List ({priorityData.data?.data?.totalDocs})
+            Total : {priorityData.data?.data?.totalDocs}
             </CardDescription>
           </CardHeader>
           <CardContent>

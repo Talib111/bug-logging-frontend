@@ -194,7 +194,7 @@ export default function ComplaintReport() {
     // Header row
     printWindow.document.write('<tr>')
     printWindow.document.write('<th>#</th>')
-    printWindow.document.write('<th>Grievance No.</th>')
+    printWindow.document.write('<th>Tracking No.</th>')
     printWindow.document.write('<th>ULB Name</th>')
     printWindow.document.write('<th>Module</th>')
     printWindow.document.write('<th>Citizen Name</th>')
@@ -231,38 +231,6 @@ export default function ComplaintReport() {
   }
 
   const tableRef = useRef(null)
-
-  // const { onDownload } = useDownloadExcel({
-  //   currentTableRef: tableRef.current,
-  //   filename: 'Users table',
-  //   sheet: 'Users'
-  // })
-
-  const highlightedBy = async (Id: string) => {
-    const confirmAction = async () => {
-      try {
-        const res = await putMutation.mutateAsync({
-          api: `${grievanceAPI.updateComplaintApplicationById}/${Id}`,
-          data: {
-            isHighlighted: true,
-          },
-        });
-
-        if (res.data?.success) {
-          // Update the state to reflect that the complaint has been highlighted
-          setHighlightedComplaints(prev => new Set(prev).add(Id));
-          toast.success("This Application is now highlighted");
-        } else {
-          toast.error('This Application is not highlighted');
-        }
-      } catch (error) {
-        toast.error('This Application is not highlighted');
-      }
-    };
-
-    Confirm('Do you want to highlight this complaint?', 'Please confirm', confirmAction);
-  };
-  console.log("Bug Fixing- ", getUlbData?.data?.data?.docs)
   return (
     <>
       <FormProviders
@@ -271,16 +239,16 @@ export default function ComplaintReport() {
       >
         <div className='grid grid-cols-4 gap-x-2 gap-y-4 bg-background px-10 py-4'>
           <h1 className='col-span-4 text-xl font-bold uppercase text-blue-800'>
-            Search Grievance{' '}
+            Search Bug{' '}
           </h1>
           <Separator className='col-span-4' />
 
           <div>
-            <Label htmlFor='complaintRefNo'>Grievance No.</Label>
+            <Label htmlFor='complaintRefNo'>Tracking No.</Label>
             <RHFTextField
               name='complaintRefNo'
               className=''
-              placeholder='Enter Grievance number'
+              placeholder='Enter tracking number'
             />
           </div>
           <div>
@@ -339,7 +307,7 @@ export default function ComplaintReport() {
           </div> */}
 
           <div>
-            <Label htmlFor='complaintTypeId'>Grievance Type</Label>
+            <Label htmlFor='complaintTypeId'>Bug Type</Label>
             <SelectField
               className='cursor-pointer bg-background'
               name='complaintTypeId'
@@ -384,7 +352,7 @@ export default function ComplaintReport() {
             />
           </div>
           <div>
-            <Label htmlFor='complaintSourceTypeId'>Grievance Source Type</Label>
+            <Label htmlFor='complaintSourceTypeId'>Platform Type</Label>
             <SelectField
               className='cursor-pointer bg-background'
               name='complaintSourceTypeId'
@@ -399,7 +367,7 @@ export default function ComplaintReport() {
             />
           </div>
           <div>
-            <Label htmlFor='type'>Grievance Status</Label>
+            <Label htmlFor='type'>Bug Status</Label>
 
             <SelectField
               name='type'

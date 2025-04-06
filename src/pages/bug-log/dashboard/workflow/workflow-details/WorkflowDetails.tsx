@@ -150,7 +150,7 @@ export default function EnteranceWorkflowDetails({
         >
           <div className='flex flex-col items-center justify-center'>
             <Lottie className='w-24' animationData={checkJson} loop={true} />
-            <div className='font-semibold'>Grievance Moved successfully.</div>
+            <div className='font-semibold'>Bug Moved successfully.</div>
           </div>
         </div>
       )}

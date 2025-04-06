@@ -64,7 +64,7 @@ export default function RejectComponent({ setisDialogOpen,complaintData, actionP
         <div>
           <CardTitle className='text-2xl flex items-center justify-between font-bold mb-6'>
             <div>
-            <span className='w-7 h-7 bg-red-600 rounded-full bg-red-5500 text-white inline-flex justify-center items-center mr-2'><X /></span> Reject Grievance
+            <span className='w-7 h-7 bg-red-600 rounded-full bg-red-5500 text-white inline-flex justify-center items-center mr-2'><X /></span> Reject Bug
             </div>
             <div>
               <X className="cursor-pointer hover:bg-red-100 rounded-lg inline" onClick={() => setisDialogOpen(false)} />

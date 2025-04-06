@@ -3,7 +3,7 @@ import ComplaintDetails from "./ComplaintDetails";
 
 function index() {
     return (
-        <Page title='Grievance Details' subTitle='Manage all the Grievance here'>
+        <Page title='Bug Details' subTitle='Manage all the Bug here'>
             <div className=''>
                 <ComplaintDetails />
             </div>

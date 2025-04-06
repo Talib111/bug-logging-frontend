@@ -140,13 +140,7 @@ export default function UserForm({
     }
   }, [edit, data])
 
-  // const getRoleData = useApi<I_ROLE_TYPE_LIST>({
-  //   api: `${grievanceAPI?.getAllRole}?page=1&limit=10000`,
-  //   key: 'getAllRole',
-  //   options: {
-  //     enabled: true,
-  //   },
-  // })
+  
   const getRoleData = useApi<any>({
     api: `${grievanceAPI?.getAllRoleByPermission}?page=1&limit=10000`,
     key: 'getAllRoleByPermission',

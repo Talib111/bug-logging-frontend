@@ -64,7 +64,7 @@ console.log("complaintId=====>",complaintId);
     >
       <div className='gap-x-2 gap-y-4 px-10 py-10'>
         <div>
-          <CardTitle className='text-2xl font-bold'>Transfer Grievance to <span className='text-amber-600'>{currentWorkflowName}</span> Workflow</CardTitle>
+          <CardTitle className='text-2xl font-bold'>Transfer Bug to <span className='text-amber-600'>{currentWorkflowName}</span> Workflow</CardTitle>
           {/* <div className='opacity-50'>Select ULB to transfer</div> */}
 
 

@@ -137,7 +137,7 @@ export default function EnteranceWorkflowDetails({
   const moveComplaintToMe = async () => {
     Confirm(
       'Are you sure?',
-      'Do you want to move this Grievance to your panel',
+      'Do you want to move this Bug to your panel',
       async () => {
         let requestBody = {
           complaintId: complaintData?.data?.data?._id,
@@ -210,7 +210,7 @@ export default function EnteranceWorkflowDetails({
         >
           <div className='flex flex-col items-center justify-center'>
             <Lottie className='w-24' animationData={checkJson} loop={true} />
-            <div className='font-semibold'>Grievance Moved successfully.</div>
+            <div className='font-semibold'>Bug Moved successfully.</div>
           </div>
         </div>
       )}
@@ -416,13 +416,13 @@ export default function EnteranceWorkflowDetails({
                       {complaintData?.data?.data?.wf_status === 1 && (
                         <CardTitle className='mb-4 flex items-center'>
                           <CircleCheckBig className='mr-2 inline text-green-500' />
-                          Grievance Resolved
+                          Bug Resolved
                         </CardTitle>
                       )}
                       {complaintData?.data?.data?.wf_status === 2 && (
                         <CardTitle className='mb-4 flex items-center'>
                           <CircleX className='mr-2 inline text-red-500' />
-                          Grievance Rejected
+                          Bug Rejected
                         </CardTitle>
                       )}
 

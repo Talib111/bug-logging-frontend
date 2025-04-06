@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 // ----------------------------------------------------------------------
 const backendUrl = () => {
-    return 'http://localhost:8008/grievance-api/v1'
+    return 'http://localhost:8008/api/v1'
 }
 
 export type { AxiosRequestConfig, AxiosResponse }

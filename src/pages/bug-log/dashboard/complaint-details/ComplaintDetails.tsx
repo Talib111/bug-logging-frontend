@@ -51,7 +51,7 @@ export default function ComplaintDetails() {
       <div className="min-h-screen">
         <div className="max-w-7xl mx-auto bg-background shadow-lg rounded-lg p-8">
           <div className="flex justify-between">
-            <h1 className="text-xl font-bold text-blue-800 mb-6 uppercase">Grievance No : {complaintData?.data?.data?.complaintRefNo}</h1>
+            <h1 className="text-xl font-bold text-blue-800 mb-6 uppercase">Tracking No : {complaintData?.data?.data?.complaintRefNo}</h1>
             {complaintData?.data?.data?.workflow?.workFlowName && <h1 className="text- font-bold  mb-6 Capitalize"><span className="opacity-60">Current Stage : </span>{complaintData?.data?.data?.workflow?.workFlowName} Workflow</h1>}
             {!complaintData?.data?.data?.workflow?.workFlowName && <h1 className="text- font-bold  mb-6 Capitalize"><span className="opacity-60">Current Stage : </span>
               {complaintData?.data?.data?.currentUser && `${complaintData?.data?.data?.currentUser?.fullName} `}
@@ -118,7 +118,7 @@ export default function ComplaintDetails() {
               </div>
             </div> */}
             <div className="flex space-x-4  items-center">
-              <div className="font-semibold">Grievance Type : </div>
+              <div className="font-semibold">Bug Type : </div>
               <div>
                 <p className="opacity-90">
                   {complaintData?.data?.data?.problemType?.problem || 'N/A'}
@@ -151,14 +151,7 @@ export default function ComplaintDetails() {
               </div>
             </div>
 
-            <div className="flex space-x-4  items-center">
-              <div className="font-semibold">Grievance Location : </div>
-              <div>
-                <p className="opacity-90">
-                  {complaintData?.data?.data?.grievanceLocation || 'N/A'}
-                </p>{" "}
-              </div>
-            </div>
+          
             {complaintData?.data?.data?.fixedNo && <div className="flex space-x-4  items-center">
               <div className="font-semibold">{complaintData?.data?.data?.fixedNoLabel}Fixed No : </div>
               <div>
@@ -220,7 +213,7 @@ export default function ComplaintDetails() {
             </div>}
             {complaintData?.data?.data?.complaintType &&
               <div className="flex space-x-4  items-center">
-                <div className="font-semibold">Grievance Type : </div>
+                <div className="font-semibold">Bug Type : </div>
                 <div>
                   <p className="opacity-90">
                     {complaintData?.data?.data?.complaintType?.complaintTypeName || 'N/A'}
@@ -240,7 +233,7 @@ export default function ComplaintDetails() {
 
             {/* COMPLAINT DOCUMENT SECTION */}
             <div className="col-span-3 flex flex-col">
-              <div className="font-semibold">Grievance Document </div>
+              <div className="font-semibold">Bug Document </div>
               <Dialog>
                 <DialogHeader>
                 </DialogHeader>
@@ -337,7 +330,7 @@ export default function ComplaintDetails() {
               <DialogHeader>
               </DialogHeader>
               <DialogContent className="sm:max-w-[500px]">
-                <CardTitle className='mt-4 text-xl text-gray-500 font-bold flex justify-between'>Grievance Re-Open</CardTitle>
+                <CardTitle className='mt-4 text-xl text-gray-500 font-bold flex justify-between'>Bug Re-Open</CardTitle>
 
                 <div className="py-4">
                   <ReopenComplaintComponent complaintData={complaintData} />
@@ -347,8 +340,8 @@ export default function ComplaintDetails() {
 
               <DialogTrigger asChild>
                 <div className="flex justify-between">
-                  <div><h2 className="text-xl font-semibold text-blue-800">Grievance Flow History</h2></div>
-                  <div><Button variant={'secondary'}>Re-Open Grievance</Button></div>
+                  <div><h2 className="text-xl font-semibold text-blue-800">Bug Flow History</h2></div>
+                  <div><Button variant={'secondary'}>Re-Open Bug</Button></div>
                 </div>
               </DialogTrigger>
             </Dialog>}

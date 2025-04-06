@@ -119,7 +119,7 @@ export default function CitizenComplaintForm() {
           navigate('/bug-log/dashboard/client-home')
         }
       } else {
-        toast.error('Grievance not created successfully')
+        toast.error('Bug not created!')
       }
 
     } catch (error) {
@@ -267,7 +267,7 @@ export default function CitizenComplaintForm() {
             maxLength={2000}
             className='h-20 w-full rounded-md border bg-background p-4'
             name='bugDescription'
-            placeholder='write Grievance'
+            placeholder='write Bug'
           />
         </div>
 

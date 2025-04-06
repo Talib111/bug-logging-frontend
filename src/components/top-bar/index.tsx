@@ -505,10 +505,7 @@ export default function TopBar({ setloggedOutAnimation }: any) {
             <>
               <div className='flex-initial'>
                 <div className='font-semibold capitalize'>
-                  Jharkhand Integrated Public Grievance
-                </div>
-                <div className='text-xs font-semibold capitalize text-gray-600'>
-                  Redressal System
+                  Bug & Enahacement Logger
                 </div>
               </div>
               <div className='flex flex-1 justify-end space-x-2'>

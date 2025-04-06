@@ -136,7 +136,7 @@ export default function ComplaintList() {
                   <TableHeader>
                     <TableRow>
                       <TableHead className=''>#</TableHead>
-                      <TableHead className=''>Grievance No.</TableHead>
+                      <TableHead className=''>Tracking No.</TableHead>
                       <TableHead className=''>Title</TableHead>
                       <TableHead className=''>Description</TableHead>
                       <TableHead className=''>ULB</TableHead>

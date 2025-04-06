@@ -14,15 +14,3 @@ export type I_LIST_TYPE<T> = {
     nextPage: null
   }
 }
-// export type I_COMPLAINT_BRIEF_LIST_TYPE<T> = {
-  
-//     success: true
-//     message: string
-//     data: {
-        
-//         grievanceReceived: number
-//         grievanceResolved: number
-//         grievancePending: number
-//     }
-
-// }

@@ -78,7 +78,7 @@ export default function HomePage() {
       <ComplaintSourceForm
         open={open}
         setOpen={setOpen}
-        title={edit ? 'Edit Grievance Source' : 'Add Grievance Source'}
+        title={edit ? 'Edit Platform' : 'Add Platform'}
         id={id}
         edit={edit}
         setEdit={setEdit}
@@ -108,7 +108,7 @@ export default function HomePage() {
         <Card >
           <CardHeader className='px-7'>
             <CardDescription>
-            Grievance Source List ({complaintSourceData.data?.data?.totalDocs})
+           Total : {complaintSourceData.data?.data?.totalDocs}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -122,7 +122,7 @@ export default function HomePage() {
                   <TableHeader>
                     <TableRow>
                       <TableHead className=''>#</TableHead>
-                      <TableHead className=''> Grievance Source Name</TableHead>
+                      <TableHead className=''> Platform Name</TableHead>
                       <TableHead className=''>Id</TableHead>
                       <TableHead className=''>Created at</TableHead>
                       <TableHead className=''>Status</TableHead>

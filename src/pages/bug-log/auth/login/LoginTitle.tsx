@@ -14,7 +14,7 @@ export default function LoginTitle() {
 
       <h1 className="text-3xl font-bold text-center mt-4 text-primary">
         {/* title */}
-        Grievance
+        Bug Logger
       </h1>
 
       {/* subtitle */}

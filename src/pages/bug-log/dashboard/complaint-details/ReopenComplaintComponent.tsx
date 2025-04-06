@@ -61,10 +61,10 @@ export default function ReopenComplaintComponent({ complaintData }: any) {
       <div className='gap-x-2 gap-y-4 px-10 py-10'>
         <div>
 
-          <CardTitle className='text-2xl flex items-center font-bold mb-6 justify-between'><div className='flex items-center'><div className='w-7 h-7 bg-amber-600 rounded-full bg-red-5500 text-white justify-center items-center mr-2 flex '><RefreshCcw className='inline' /></div> Re-Open Grievance</div>
+          <CardTitle className='text-2xl flex items-center font-bold mb-6 justify-between'><div className='flex items-center'><div className='w-7 h-7 bg-amber-600 rounded-full bg-red-5500 text-white justify-center items-center mr-2 flex '><RefreshCcw className='inline' /></div> Re-Open Bug</div>
           </CardTitle>
 
-          <Label className='opacity-70 flex items-center'><div><Info size={20} className='inline mr-1' /></div><div>Enter, why do you want to reopen this grievance?</div></Label>
+          <Label className='opacity-70 flex items-center'><div><Info size={20} className='inline mr-1' /></div><div>Enter, why do you want to reopen this Bug?</div></Label>
           <RHFTextArea
             className='bg-background w-full rounded-md p-4 h-40 border mt-2'
             name='comment'

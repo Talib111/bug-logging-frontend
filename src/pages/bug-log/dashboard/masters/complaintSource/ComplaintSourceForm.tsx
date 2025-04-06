@@ -16,7 +16,7 @@ import { grievanceAPI } from '@/lib'
 import { I_COMPLAINT_SOURCE_TYPE_VIEW } from './type'
 
 const schema = yup.object().shape({
-  source: yup.string().required('Grievance source name is required'),
+  source: yup.string().required('Platform source name is required'),
 })
 type FormData = yup.InferType<typeof schema>
 
@@ -64,7 +64,7 @@ export default function RoleForm({
         if (res.data?.success) {
           toast.success(res?.data?.message)
         } else {
-          toast.error('Grievance Source not updated successfully')
+          toast.error('Platform not updated successfully')
         }
       } else {
         const res = await postMutation.mutateAsync({
@@ -74,7 +74,7 @@ export default function RoleForm({
         if (res.data?.success) {
           toast.success(res?.data?.message)
         } else {
-          toast.error('Grievance Source not created successfully')
+          toast.error('Platform not created successfully')
         }
         methods.reset({ source: '' })
       }
@@ -110,7 +110,7 @@ export default function RoleForm({
       >
         <div className='grid grid-cols-1 gap-x-2 gap-y-4'>
           <div>
-            <RHFTextField name='source' placeholder='Enter Grievance Source ' />
+            <RHFTextField name='source' placeholder='Platform' />
           </div>
           <Separator />
           <div>

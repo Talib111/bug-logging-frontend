@@ -56,7 +56,7 @@ const Page = forwardRef(
     return (
       <>
         <Helmet>
-          <title>{`${title} | Grievance`}</title>
+          <title>{`${title} | Bug Logger`}</title>
           {meta}
         </Helmet>
         <div ref={ref} {...other}>

@@ -96,7 +96,7 @@ export default function ResolveComponent({
             <span className='mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-green-600 text-white'>
               <CircleCheckBig className='inline' />
             </span>
-            Resolve Grievance
+            Resolve Bug
           </div>
           <div>
             <X

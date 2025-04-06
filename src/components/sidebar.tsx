@@ -4,10 +4,10 @@ import { Layout } from './custom/layout'
 import { Button } from './custom/button'
 import Nav from './nav'
 import { cn } from '@/lib/utils'
-import { sidelinks, jskSidelinks, stateGroSidelinks, superAdminSidelinks, ulbAdminSidelinks, ulbGroSidelinks, stateAdminSidelinks, normalSidelinks, stateJskSidelinks, telecallerSidelinks, projectClientSideLinks } from '@/data/sidelinks'
+import { superAdminSidelinks, projectClientSideLinks } from '@/data/sidelinks'
 import { useNavigate } from 'react-router-dom'
 import { useAppContext } from '@/context'
-import { JSK_IVR_CALLING, NORMAL, STATE_ADMIN, STATE_GRO, STATE_JSK_IVR_CALLING, SUPER_ADMIN, ULB_ADMIN, ULB_GRO, TELE_CALLER, PROJECT_CLIENT } from '@/../config/roles.config'
+import { PROJECT_CLIENT, SUPER_ADMIN } from '@/../config/roles.config'
 
 interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   isCollapsed: boolean
@@ -20,7 +20,7 @@ export default function Sidebar({
   setIsCollapsed,
 }: SidebarProps) {
   const [navOpened, setNavOpened] = useState(false)
-  const [currentSideLinks, setcurrentSideLinks] = useState<any>(sidelinks)
+  const [currentSideLinks, setcurrentSideLinks] = useState<any>(projectClientSideLinks)
   const navigate = useNavigate()
   const { user } = useAppContext()
 
@@ -34,11 +34,6 @@ export default function Sidebar({
       document.body.classList.remove('overflow-hidden')
     }
 
-    // 1 ULB ADMIN
-    if (user?.roleId === ULB_ADMIN) {
-      setcurrentSideLinks(ulbAdminSidelinks)
-    }
-
     // 2 SUERPERADMIN
     if (user?.roleId === SUPER_ADMIN) {
       setcurrentSideLinks(superAdminSidelinks)
@@ -46,44 +41,6 @@ export default function Sidebar({
     // 2 PROJECT CLIENT
     if (user?.roleId === PROJECT_CLIENT) {
       setcurrentSideLinks(projectClientSideLinks)
-    }
-
-    // 3 JSK/IVR/CALLING
-    if (user?.roleId === JSK_IVR_CALLING) {
-      setcurrentSideLinks(jskSidelinks)
-    }
-
-    // 4 NORMAL
-    if (user?.roleId === NORMAL) {
-      setcurrentSideLinks(normalSidelinks)
-    }
-
-    // 5 STATE GRO
-    if (user?.roleId === STATE_GRO) {
-      setcurrentSideLinks(stateGroSidelinks)
-    }
-
-    // 6 ULB GRO
-    if (user?.roleId === ULB_GRO) {
-      setcurrentSideLinks(ulbGroSidelinks)
-    }
-
-    // 7 STATEADMIN
-    if (user?.roleId === STATE_ADMIN) {
-      setcurrentSideLinks(stateAdminSidelinks)
-    }
-
-    //  STATEJSK
-    if (user?.roleId === STATE_JSK_IVR_CALLING) {
-      setcurrentSideLinks(stateJskSidelinks)
-    }
-
-    //telecallerSidelinks
-    // if (user?.roleId === TELE_CALLER) {
-    //   setcurrentSideLinks(ulbGroSidelinks)
-    // }
-    if (user?.roleId === TELE_CALLER) {
-      setcurrentSideLinks(telecallerSidelinks)
     }
 
   }, [navOpened])
