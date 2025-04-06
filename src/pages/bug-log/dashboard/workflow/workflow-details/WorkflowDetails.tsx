@@ -77,13 +77,6 @@ export default function EnteranceWorkflowDetails({
     },
   })
 
-  const complaintLogData = useApi<any>({
-    api: `${grievanceAPI.complaintApplicationLog}/${complaintId}`,
-    key: 'complaintApplicationLog',
-    options: {
-      enabled: true,
-    },
-  })
 
   const complaintAllComments = useApi<any>({
     api: `${grievanceAPI.getAllCommentsByComplaintId}/${complaintId}`,
@@ -165,7 +158,7 @@ export default function EnteranceWorkflowDetails({
                 </h1>
                 <h1 className='text- Capitalize  mb-6 font-bold'>
                   <span className='opacity-60'>Project : </span>
-                  {complaintData?.data?.data?.workflow?.workFlowName}
+                  {complaintData?.data?.data?.project?.projectName}
                 </h1>
 
                 <h1 className='text-md mb-6  flex items-center font-bold'>
@@ -202,6 +195,15 @@ export default function EnteranceWorkflowDetails({
 
               <div className='mt-4  grid grid-cols-1 space-y-4   md:grid-cols-3'>
                 <div className='flex items-center  space-x-4'>
+                  <div className='font-semibold'>Type : </div>
+                  <div>
+                    <p className='opacity-90'>
+                      {complaintData?.data?.data?.logType || 'N/A'}
+                    </p>{' '}
+                  </div>
+                </div>
+
+                <div className='flex items-center  space-x-4'>
                   <div className='font-semibold'>Platform : </div>
                   <div>
                     <p className='opacity-90'>
@@ -211,9 +213,14 @@ export default function EnteranceWorkflowDetails({
                 </div>
 
                 <div className='flex items-center  space-x-4'>
+                  <div className='font-semibold'>TAT : </div>
+                  <div>
+                    <p className='opacity-90'>
+                      {complaintData?.data?.data?.citizenName || 'N/A'}
+                    </p>{' '}
+                  </div>
                 </div>
-                <div className='flex items-center  space-x-4'>
-                </div>
+
 
                 <div className='flex items-center  space-x-4'>
                   <div className='font-semibold'>Priority Type : </div>
@@ -273,7 +280,7 @@ export default function EnteranceWorkflowDetails({
 
                 {/* COMPLAINT DOCUMENT SECTION */}
                 <div className='col-span-3 flex flex-col'>
-                  <div className='font-semibold'>Bug Document :</div>
+                  <div className='font-semibold'>Document :</div>
                   <div className='cursor-pointer'>
                     {!complaintData?.data?.data?.imgUrl && <span className='font-semibold text-gray-700'>No Document Found !</span>}
 

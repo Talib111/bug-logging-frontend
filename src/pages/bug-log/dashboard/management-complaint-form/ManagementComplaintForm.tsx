@@ -41,7 +41,7 @@ export default function CitizenComplaintForm() {
     tat: yup.string(),
     projectId: yup.string(),
     platformId: yup.string().required('Platform is required'),
-    bugTitle: yup.string().required('Bug title is required'),
+    bugTitle: yup.string().required('title is required'),
     bugDescription: yup.string().required('Bug description is required'),
     bugDocument: yup.mixed().nullable(),
   })
@@ -250,14 +250,12 @@ export default function CitizenComplaintForm() {
 
         <div className="col-span-4"></div>
         <div>
-          <Label><span className='text-red-500'>*</span> Bug Title</Label>
+          <Label><span className='text-red-500'>*</span>Title</Label>
           <RHFTextField
             maxLength={300}
             name='bugTitle'
             inputValidation={[
               'CapitalFirstLetter',
-              'removeDoubleSpace',
-              'string',
             ]}
             placeholder=''
           />
@@ -266,12 +264,12 @@ export default function CitizenComplaintForm() {
         <div className="col-span-4"></div>
         <div className='col-span-3'>
           <Label htmlFor='bugDescription'>
-            <span className='text-red-500'>*</span> Bug Description</Label>
+            <span className='text-red-500'>*</span>Description</Label>
           <RHFTextArea
             maxLength={2000}
             className='h-20 w-full rounded-md border bg-background p-4'
             name='bugDescription'
-            placeholder='write Bug'
+            placeholder='write description'
           />
         </div>
 

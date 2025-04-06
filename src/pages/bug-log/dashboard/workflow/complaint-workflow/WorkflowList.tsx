@@ -157,7 +157,7 @@ export default function WorkflowList() {
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
-                            <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                            <TableCell className='line-clamp-3'>{items?.bugDescription || 'N/A'}</TableCell>
                             <TableCell>{items?.priority || 'N/A'}</TableCell>
                             <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>
@@ -251,7 +251,7 @@ export default function WorkflowList() {
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
-                            <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                            <TableCell className='line-clamp-3'>{items?.bugDescription || 'N/A'}</TableCell>
                             <TableCell>{items?.priority || 'N/A'}</TableCell>
                             <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>
@@ -345,7 +345,7 @@ export default function WorkflowList() {
                               {index + 1}</TableCell>
                             <TableCell className='font-semibold'>💻 {items?.citizenName || 'N/A'}</TableCell>
                             <TableCell>{items?.bugTitle || 'N/A'}</TableCell>
-                            <TableCell>{items?.bugDescription || 'N/A'}</TableCell>
+                            <TableCell className='line-clamp-3'>{items?.bugDescription || 'N/A'}</TableCell>
                             <TableCell>{items?.priority || 'N/A'}</TableCell>
                             <TableCell>{items?.complaintRefNo || 'N/A'}</TableCell>
                             <TableCell>

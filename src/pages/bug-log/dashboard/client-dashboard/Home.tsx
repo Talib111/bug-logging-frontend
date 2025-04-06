@@ -65,7 +65,6 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="pb-2">
                     <div className="flex items-center justify-center bg-gray-100 rounded-md  mb-2 overflow-hidden">
-                      {/* Template preview thumbnail or placeholder */}
                       <Image src={"https://img.freepik.com/premium-vector/person-stands-laptop-showing-error-sign-surrounded-by-notifications-gears-man-standing-laptop-with-error-sign-flat-illustration_585735-40821.jpg?ga=GA1.1.871112965.1726233039&semt=ais_hybrid&w=740"} alt={""} className="w-auto h-32" />
                     </div>
                     <div className="text-sm text-muted-foreground">
